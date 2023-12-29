@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.3-beta1" use-changelog="false" last-position="23,0" last-zoom="1" max-obj-count="22"
+<dbmodel pgmodeler-ver="0.9.3-beta1" use-changelog="false" last-position="0,230" last-zoom="1" max-obj-count="22"
 	 default-schema="public" default-owner="postgres">
 <database name="new_database" is-template="false" allow-conns="true">
 </database>
@@ -11,7 +11,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <schema name="public" layer="0" fill-color="#e1e1e1" sql-disabled="true">
 </schema>
 
-<table name="Pelicula" layer="0" collapse-mode="2" max-obj-count="10" z-value="0">
+<table name="Pelicula" layer="0" collapse-mode="2" max-obj-count="12" z-value="0">
 	<schema name="public"/>
 	<role name="postgres"/>
 	<position x="1040" y="1020"/>
@@ -36,9 +36,22 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="año" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
+	<column name="portada" not-null="true">
+		<type name="text" length="0"/>
+	</column>
 	<constraint name="Pelicula_pk" type="pk-constr" table="public.&quot;Pelicula&quot;">
 		<columns names="ID" ref-type="src-columns"/>
 	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_Clasificacion" index="8"/>
+		<object name="ID_Distribuidora" index="9"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Clasificacion_fk" index="1"/>
+		<object name="Distribuidora_fk" index="2"/>
+	</customidxs>
 </table>
 
 <table name="Sala" layer="0" collapse-mode="2" max-obj-count="4" z-value="0">
@@ -517,23 +530,29 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 identifier="true"
 />
 
-<table name="Entrada" layer="0" collapse-mode="2" max-obj-count="7" z-value="0">
+<table name="Entrada" layer="0" collapse-mode="2" max-obj-count="8" z-value="0">
 	<schema name="public"/>
 	<position x="960" y="380"/>
 	<column name="id" alias="id" not-null="true">
 		<type name="serial" length="0"/>
+	</column>
+	<column name="localizador" not-null="true">
+		<type name="varchar" length="10"/>
 	</column>
 	<constraint name="many_Usuario_has_many_Sesion_pk" type="pk-constr" table="public.&quot;Entrada&quot;">
 		<columns names="id" ref-type="src-columns"/>
 	</constraint>
 
 	<customidxs object-type="column">
-		<object name="ID_Butaca" index="2"/>
-		<object name="ID_Pase_Sesion" index="3"/>
-		<object name="ID_Usuario" index="1"/>
+		<object name="ID_Butaca" index="3"/>
+		<object name="ID_Pase_Sesion" index="4"/>
+		<object name="ID_Pelicula_Sesion" index="6"/>
+		<object name="ID_Sala_Sesion" index="5"/>
+		<object name="ID_Usuario" index="2"/>
 	</customidxs>
 
 	<customidxs object-type="constraint">
+		<object name="Butaca_fk" index="3"/>
 		<object name="Sesion_fk" index="2"/>
 		<object name="Usuario_fk" index="1"/>
 	</customidxs>

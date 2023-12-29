@@ -24,7 +24,7 @@
         }
 
         public function desconectar(){
-            $this->bd->close();
+            unset($this->bd);
         }
 
         private function ejecutar_consulta($query){
@@ -36,6 +36,16 @@
         public function get_pruebas(){
             $result = $this->ejecutar_consulta("SELECT * FROM prueba");
             return $result;   
+        }
+
+        public function get_dim_sala($nombre_sala){
+            $result = $this->ejecutar_consulta("SELECT filas, columnas FROM Sala WHERE nombre = '".$nombre_sala."' LIMIT 1; ");
+            if(!empty($result)){
+                return array($result[0]['filas'], $result[0]['columnas']);
+            }
+            else{
+                return null;
+            }
         }
     }
 ?>
