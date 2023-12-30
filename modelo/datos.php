@@ -95,5 +95,10 @@
                 return true;
             } 
         }
+
+        public function get_usuario_por_nick($nick){
+            $result = $this->ejecutar_consulta("SELECT * FROM Usuario WHERE nick= '".$nick."'");
+            return $result;
+        }
     }
 ?>

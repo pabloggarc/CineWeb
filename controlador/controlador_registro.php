@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if($posible){
         // Insertamos el usuario en la base de datos
         $bd->insertar_nuevo_usuario($nick, $clave, $nombre, $apellido, $email, $fecha);
+        header("Location: ../login.php");
     }else{
         // Mostramos la alerta de que el usuario ya se encuentra registrado en la base de datos
         echo '

@@ -10,5 +10,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     </head>
     <body>
         <h2>PAGINA DE INCIO</h2>
+        <?php
+        session_start();
+        echo "El nick del usuario es ".$_SESSION['nick'];
+        ?>
     </body>
 </html>

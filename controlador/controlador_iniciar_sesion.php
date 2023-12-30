@@ -13,6 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $esta_registrado = $bd->consultar_usuario_por_nick_y_clave($nick, $clave);
     if ($esta_registrado) {
+        // Inicia la sesión
+        session_start();
+
+        // Define una variable de sesión
+        $_SESSION['nick'] = $nick;
         header("Location: ../vista/inicio.php");
     } else {
         // Mostramos la alerta de que el nickname y/o la clave de acceso son incorrectas
