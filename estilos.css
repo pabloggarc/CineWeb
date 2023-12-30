@@ -3,11 +3,12 @@
 html, body {
 	margin:				auto;
 	background-color:	#fff;
-	color:				#337ab7; 
+	color:				#db1a1a; 
     font-family:        'DINPro-Medium', sans-serif;
     font-style:         normal;
     font-weight:        500;
     font-size:          1vw;
+    text-align: center;
 	
 }
 
@@ -18,28 +19,32 @@ div, span, select, input, form, option {
     font-size:          1vw;
 }
 
+.center-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 table#tabla_butacas{
-    border-style: solid; 
-    border-top-width: 2px; 
-    border-right-width: 2px; 
-    border-bottom-width: 2px; 
-    border-left-width: 2px
+    border-top-width: 10px; 
+    border-right-width: 0px; 
+    border-bottom-width: 10px; 
+    border-left-width: 0px; 
+    width: 90%; 
 }
 
-table#log thead tr th{
-    background: #154991;
+table#tabla_butacas td {
+    text-align: center;
+    padding: 15px;       
+}
+
+.butaca_libre{
+    color: black;
+    background-color: #00ff00;
+}
+
+.butaca_ocupada{
     color: white;
-    padding: 5px;
+    background-color: #ff0000;
 }
-table#log thead tr th:first-child { border-top-left-radius: 10px; }
-table#log thead tr th:last-child { border-top-right-radius: 10px; }
-
-table#log tbody tr td{
-    border-bottom: 1px solid #154991;
-    padding: 10px;
-}
-table#log tfoot tr th{
-    text-align: right;
-}
-table#log tr:nth-child(even) {background-color: #e6e6e6;}

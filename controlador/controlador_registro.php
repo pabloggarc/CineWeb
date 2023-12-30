@@ -1,6 +1,6 @@
 <?php
-
-require_once("modelo/datos.php");
+require_once("../modelo/Datos.php");
+require_once("../config.php");
 
 $bd = new Datos(DB_HOST, DB_NAME, DB_USER, DB_PASSWORD);
 
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Correo Electrónico: $email<br>";
     echo "Fecha de nacimiento: $fecha<br>";
 
-    $bd->insertarNuevoUsuario($nick, $clave, $nombre, $apellido, $email, $fecha);
+    $bd->insertar_nuevo_usuario($nick, $clave, $nombre, $apellido, $email, $fecha);
 
 } else {
     // Redirigir o manejar el error según sea necesario
@@ -34,5 +34,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 $bd->desconectar();
-require_once("loginBueno.php");
+header("Location: ../loginBueno.php"); 
 ?>
