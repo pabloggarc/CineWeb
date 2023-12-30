@@ -75,5 +75,25 @@
             $result = $this->ejecutar_consulta("INSERT INTO Usuario (nick, clave, nombre, apellidos, correo, fecha_nacimiento, ID_Rol)
             VALUES ( '".$nick."' , '".$clave."', '".$nombre."' , '".$apellidos."', '".$correo."', '".$fecha_nacimiento."', 1)");
         }
+
+        public function consultar_usuario_por_nick($nick){
+            $result = $this->ejecutar_consulta("SELECT * FROM Usuario WHERE nick= '".$nick."'");
+            if(empty($result)){
+                // El usuario se podrá registrar
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function consultar_usuario_por_nick_y_clave($nick, $clave){
+            $result = $this->ejecutar_consulta("SELECT * FROM Usuario WHERE nick = '".$nick."' AND clave = '".$clave."'");
+            if(empty($result)){
+                return false;
+            }else{
+                // El usuario puede inciar sesion
+                return true;
+            } 
+        }
     }
 ?>
