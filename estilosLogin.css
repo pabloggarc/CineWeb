@@ -1,0 +1,673 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 17 nov 2023, 19:39:47
+    Author     : pedro
+*/
+.contenedor {
+    width: 300px; /* Ajusta el ancho según tus necesidades */
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-top: 20px; /* Espacio superior entre el contenedor y el borde superior del body */
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(./imagenes/cineFondo.jpg);
+    background-size: cover;
+    color:black;
+    flex-direction: column; /* Añadido para apilar elementos verticalmente */
+}
+
+nav {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+}
+
+.logo{
+    margin-top: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+.opciones {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 80px; /* Ajusta según sea necesario para centrar verticalmente las opciones */
+}
+
+.opciones a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 50px;
+    margin-right: 220px;
+}
+
+.opciones a:hover {
+    color: #3385cc;
+}
+
+.container-form {
+    display: flex;
+    border-radius: 20px;
+    height: 450px;
+    width: 800px;
+    transition: all 1s ease;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.container-form2{
+    display: flex;
+    border-radius: 20px;
+    height: 850px;
+    width: 600px;
+    transition: all 1s ease;
+    margin-top: 30px;
+}
+
+
+.container-form3{
+    display: flex;
+    border-radius: 20px;
+    height: 350px;
+    width: 800px;
+    transition: all 1s ease;
+    margin-top: 120px;
+    margin-bottom: 150px;
+}
+.container-form4{
+    display: flex;
+    border-radius: 20px;
+    height: 450px;
+    width: 800px;
+    transition: all 1s ease;
+    margin-top: 85px;
+    margin-bottom: 150px;
+}
+
+.container-form5{
+    display: flex;
+    border-radius: 20px;
+    height: 500px;
+    width: 500px;
+    transition: all 1s ease;
+    margin-top: 65px;
+    margin-bottom: 80px;
+}
+
+.cont-ubicacion{
+    display: flex;
+    border-radius: 20px;
+    height: 550px;
+    width: 800px;
+    transition: all 1s ease;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.information {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    /*El color de fondo es blanco semi-transparente*/
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.info-childs {
+    width: 100%;
+    padding: 0 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.info-childs h2 {
+    font-size: 1.5rem;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.info-childs p {
+    margin: 15px 0 ;
+    color: black;
+    font-size: 0.9rem;
+}
+
+.info-childs input {
+    background-color: transparent;
+    outline: none;
+    border: solid 1px grey;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: white;
+    background-color: grey;
+    cursor: pointer;
+    transition: background-color .3s ease;
+    margin-top: 10px;
+}
+
+.info-childs input:hover {
+    background-color: #9191bd;
+    border: none;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+}
+
+.info-childs2 {
+    padding: 0 30px;
+    margin-bottom: 20px;
+    width: 300px;
+}
+
+.info-childs2 h2 {
+    font-size: 1.3rem;
+    color: black;
+    margin-bottom: 40px;
+}
+
+.info-childs2 h3 {
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.info-childs2 p {
+    margin: 15px 0 ;
+    color: black;
+    font-size: 0.9rem;
+}
+.info-childs2 .ubicacion {
+    height: 70px;
+    width:auto;
+    background-color: transparent;
+}
+
+.info-childs2 .coche {
+    height: 60px;
+    width:auto;
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+
+.info-childs3 {
+    padding: 0 30px;
+    margin-bottom: 20px;
+    width: 300px;
+}
+
+.info-childs3 h2 {
+    font-size: 1.3rem;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.info-childs3 h3 {
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.info-childs3 p {
+    margin: 15px 0 ;
+    color: black;
+    font-size: 0.9rem;
+}
+.info-childs3 .ubicacion {
+    height: 60px;
+    width:auto;
+    background-color: transparent;
+}
+
+.info-childs3 .telefono {
+    height: 50px;
+    width:auto;
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+
+.info-childs3 .correo {
+    height: 75px;
+    width:auto;
+    background-color: transparent;
+}
+.form-information {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    /*El color de fondo es blanco*/
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.form-information-childs {
+    padding: 0 30px;
+}
+
+.form-information-childs .botonPass{
+    color:black;
+}
+
+.form-information-childs h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-information-childs h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.form-information-childs p {
+    margin-top: 20px;
+    color: blue;
+    font-size: 0.8rem;
+}
+
+.form-information2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    /*El color de fondo es blanco*/
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.form-information-childs2 {
+    padding: 0 30px;
+    width: 700px;
+    height: auto;
+}
+
+
+.form-information3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    /*El color de fondo es blanco*/
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.form-information-childs3 {
+    padding: 0 30px;
+    width: 700px;
+    height: auto;
+}
+
+.form-information-childs3 h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.form-information-childs3 p {
+    padding: 0 40px;
+    margin-top: 20px;
+    color: black;
+    font-size: 0.9rem;
+    text-align: justify;
+}
+.form-information-childs3 .smartPark {
+    width: auto;
+    height: 80px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form {
+    margin-top: 20px;
+    margin-bottom:20px;
+}
+
+.form label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    padding: 0 10px;
+    background-color: #fff;
+    width: 40px;
+}
+
+.form label input {
+    width: 320px;
+    padding: 10px;
+    border: solid 2px black;
+    outline: none;
+    border-radius: 20px;
+}
+
+
+
+.form label i {
+    color: #a7a7a7;
+}
+
+.form input[type="button"] {
+    background-color: grey;
+    color: #fff;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.form input[type="button"]:hover {
+    background-color: #9191bd;
+}
+
+.form input[type="submit"] {
+    background-color: grey;
+    color: #fff;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+}
+
+.form input[type="submit"]:hover {
+    background-color: #9191bd;
+}
+
+
+.forgot-password-link input[type="button"]{
+    display:inline-block;
+    color:blue;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+    background-color: transparent;
+    transition: text-decoration 0.3s;
+}
+
+.forgot-password-link input[type="button"]:hover{
+    text-decoration: underline;
+}
+
+.hide {
+    position: absolute;
+    transform: translateY(-300%);
+}
+/* Aplicar estilos según tus preferencias */
+.fila {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.fila label{
+    margin-top: 5px;
+    font-size: 16px;
+    margin-right: 220px;
+}
+
+.caja-texto {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-size: 16px;
+    margin-right: 10px; /* Espacio entre las cajas de texto */
+    margin-left: 10px;
+}
+/*RESPONSIVE FORM*/
+
+@media screen and (max-width:750px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:580px) {
+    html {
+        font-size: 10px;
+    }
+
+    .container-form {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .information {
+        width: 100%;
+        padding: 20px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0;
+    }
+
+    .form-information {
+        width: 100%;
+        padding: 20px;
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 0;
+    }
+}
+
+
+.formR {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 360px;
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.formR input {
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.formR .form-group {
+    display: grid;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+
+    width: 200px;
+
+}
+
+.formR button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 40%;
+}
+
+.error {
+    color: red;
+    display: none; /* Inicialmente oculto */
+}
+
+#caja-nombre {
+    display: flex;
+    width: 200px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+#caja-nac {
+    display: flex;
+    width: 200px;
+    height: 40px;
+    margin-top: 10px;
+
+}
+
+#icon-check-nombre {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    display:none;
+}
+
+
+#icon-cross-nombre {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    display:inline;
+}
+
+#icon-check-correo {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    display:none;
+}
+
+
+#icon-cross-correo {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    display:inline;
+}
+
+
+#icon-check-apellidos {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    display:none;
+}
+
+
+#icon-cross-apellidos {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    display:inline;
+}
+
+
+#icon-check-clave {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    display:none;
+}
+
+
+#icon-cross-clave {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    display:inline;
+}
+
+#icon-check-fecha_nacimiento {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    display:none;
+}
+
+
+#icon-cross-fecha_nacimiento {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    display:inline;
+}
+
+
+#icon-check-telefono {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    display:none;
+}
+
+
+#icon-cross-telefono {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    display:inline;
+}
+
+#icon-check-usuario {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    display:none;
+}
+
+
+#icon-cross-usuario {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+    display:inline;
+}
+
+.icon-green {
+    color: green;
+}
+
+.icon-red {
+    color: red;
+}
+
+.tooltip {
+    position: relative;
+    color: red;
+    padding: 10px; /* Aumenta el espacio interno */
+    font-size: 14px; /* Aumenta el tamaño de la fuente */
+    width: 500px;
+    font-weight: bold; /* Hace que el texto esté en negrita */
+}
