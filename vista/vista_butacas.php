@@ -21,3 +21,4 @@
         ?>
     </table>
 </div>
+<button id="boton_conf_entradas">Confirmar entradas</button>
