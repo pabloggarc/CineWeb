@@ -76,29 +76,51 @@
             VALUES ( '".$nick."' , '".$clave."', '".$nombre."' , '".$apellidos."', '".$correo."', '".$fecha_nacimiento."', 1)");
         }
 
+        /**
+         * 
+         */
         public function consultar_usuario_por_nick($nick){
             $result = $this->ejecutar_consulta("SELECT * FROM Usuario WHERE nick= '".$nick."'");
             if(empty($result)){
-                // El usuario se podrá registrar
-                return true;
-            }else{
                 return false;
+            }else{
+                return true;
             }
-        }
-
-        public function consultar_usuario_por_nick_y_clave($nick, $clave){
-            $result = $this->ejecutar_consulta("SELECT * FROM Usuario WHERE nick = '".$nick."' AND clave = '".$clave."'");
-            if(empty($result)){
-                return false;
-            }else{
-                // El usuario puede inciar sesion
-                return true;
-            } 
         }
 
         public function get_usuario_por_nick($nick){
             $result = $this->ejecutar_consulta("SELECT * FROM Usuario WHERE nick= '".$nick."'");
             return $result;
+        }
+              
+        /**
+         * Funcion encargada de obtener la clave de acceso de un determinado usuario buscando por su nickname
+         */
+        public function get_clave_por_nick($nick){
+            $result = $this->ejecutar_consulta("SELECT clave FROM Usuario WHERE nick= '".$nick."'");
+            
+            // Verifica si se obtuvieron resultados y si $result es un array
+            if (is_array($result) && count($result) > 0) {
+                // Obtiene el primer elemento del array
+                $firstRow = reset($result);
+                
+                // Retorna el valor de la clave si existe, de lo contrario, retorna null o maneja de otra manera según tus necesidades
+                $result_string = isset($firstRow['clave']) ? $firstRow['clave'] : null;
+            }
+            if(!empty($result_string)){
+                return $result_string;
+            }else{
+                return null;
+            }
+        }
+
+        public function get_info_perfil_por_nick($nick){
+            $query=  $this->ejecutar_consulta("SELECT nombre, apellidos,correo,nick,clave,fecha_nacimiento,id_rol FROM Usuario WHERE nick= '".$nick."'");
+            if(!empty($query)){
+                return $query;
+            }else{
+                return null;
+            }
         }
     }
 ?>

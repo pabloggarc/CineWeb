@@ -3,7 +3,6 @@ require_once("../modelo/Datos.php");
 require_once("../config.php");
 
 $bd = new Datos(DB_HOST, DB_NAME, DB_USER, DB_PASSWORD);
-
 $bd->conectar();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -16,13 +15,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $fecha = $_POST["fecha"];
     
+    // Ciframos la clave para proporcionar seguridad 
+    $clave_cifrada = password_hash($clave,PASSWORD_DEFAULT);
 
     // Comprobamos si el usuario con el nick se encuentra registrado en la base de datos
-    $posible = $bd->consultar_usuario_por_nick($nick);
-    // Si el usuario no se encuentra en la base de datos
-    if($posible){
-        // Insertamos el usuario en la base de datos
-        $bd->insertar_nuevo_usuario($nick, $clave, $nombre, $apellido, $email, $fecha);
+    $esta_registrado = $bd->consultar_usuario_por_nick($nick);
+    // Si el usuario no se encuentra registrado en la base de datos
+    if($esta_registrado==false){
+        // Insertamos el usuario en la base de datos con la clave cifrada
+        $bd->insertar_nuevo_usuario($nick, $clave_cifrada , $nombre, $apellido, $email, $fecha);
         header("Location: ../login.php");
     }else{
         // Mostramos la alerta de que el usuario ya se encuentra registrado en la base de datos

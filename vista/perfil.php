@@ -1,3 +1,8 @@
+<?php
+// Incluye el contenido de pagina1.php
+include '../controlador/controlador_perfil.php';
+?>
+
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -15,36 +20,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <body>
         <div class="container">
             <h2>PERFIL</h2>
-            <form id="profile-form" action="tu_ruta_de_envio" method="POST">
+            <form id="profile-form" method="POST">
                 <div class="profile-container">
                     <div class="profile-info">
                         <div class="editable-field" id="name-field">
-                            <label><i class="fas fa-user"></i> Nombre:</label>
-                            <div class="field-value" id="name" contenteditable="false">Nombre</div>
+                            <label><i class="fas fa-id-card"></i> Nombre:</label>
+                            <div class="field-value" id="name" contenteditable="false"><?php echo $nombre ?></div>
                         </div>
                         <div class="editable-field" id="last-name-field">
-                            <label><i class="fas fa-user"></i> Apellidos:</label>
-                            <div class="field-value" id="last-name" contenteditable="false">Apellidos</div>
+                            <label><i class="fas fa-id-card"></i> Apellidos:</label>
+                            <div class="field-value" id="last-name" contenteditable="false"><?php echo $apellidos ?></div>
                         </div>
                         <div class="editable-field" id="email-field">
                             <label><i class="fas fa-envelope"></i> Correo Electrónico:</label>
-                            <div class="field-value" id="email" contenteditable="false">correo@example.com</div>
+                            <div class="field-value" id="email" contenteditable="false"><?php echo $correo ?></div>
                         </div>
                         <div class="editable-field" id="username-field">
-                            <label><i class="fas fa-user"></i> Nickname:</label>
-                            <div class="field-value" id="username" contenteditable="false">usuario123</div>
+                            <label><i class="fas fa-user-tag"></i> Nickname:</label>
+                            <div class="field-value" id="username" contenteditable="false"><?php echo $nick ?></div>
                         </div>
                         <div class="editable-field" id="password-field">
                             <label><i class="fas fa-key"></i> Clave de Acceso:</label>
-                            <div class="field-value" id="password" contenteditable="false">********</div>
+                            <div class="field-value" id="password" contenteditable="false"><?php echo $clave ?></div>
                         </div>
                         <div class="editable-field" id="calendar-field">
                             <label><i class="fas fa-calendar"></i> Fecha de nacimiento:</label>
-                            <div class="field-value" id="calendar" contenteditable="false">123-456-7890</div>
+                            <div class="field-value" id="calendar" contenteditable="false"><?php echo $fecha_nacimiento ?></div>
                         </div>
                         <div class="editable-field" id="user-field">
-                            <label><i class="fas fa-user"></i> Rol:</label>
-                            <div class="field-value" id="user" contenteditable="false">0</div>
+                            <label><i class="fas fa-user-check"></i> Rol:</label>
+                            <div class="field-value" id="user" contenteditable="false"><?php echo $id_rol ?></div>
                         </div>
                     </div>
                 </div>
