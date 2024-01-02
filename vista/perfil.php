@@ -18,8 +18,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
               crossorigin="anonymous" />
     </head>
     <body>
+        <nav>
+            <img src="./imagenes/CINE+.png" class="logo" alt="Logo de la página">
+            <div class="opciones">
+                <a href="./perfil.php">PERFIL</a>
+                <a href="./reservas.php">VISTA ENTRADA</a>
+            </div>
+        </nav>
         <div class="container">
             <h2>PERFIL</h2>
+            <div class="imagen-perfil">
+                <img src="../imagenes/usuarioLogin.PNG" alt="alt" width="auto" height="100px">
+            </div>    
             <form id="profile-form" method="POST">
                 <div class="profile-container">
                     <div class="profile-info">
@@ -55,11 +65,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 </div>
             </form>
             <div class="parking-icons">
-                <div class="parking-icon" title="Cerrar Sesión" onclick="logout()">
-                    <i class="fas fa-sign-out-alt"></i>
+                <div class="parking-icon" title="Cerrar Sesión" onclick="cerrarSesion()">
+                    <a  href="../controlador/controlador_cerrar_sesion.php"><i class="fas fa-sign-out-alt"></i>
                 </div>
                 <div class="parking-icon" title="Borrar Cuenta" onclick="deleteAccount()">
-                    <i class="fas fa-trash-alt"></i>
+                <a  href="../controlador/controlador_eliminar_cuenta.php"><i class="fas fa-trash-alt"></i>
                 </div>
             </div>
         </div>

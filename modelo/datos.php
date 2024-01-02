@@ -122,5 +122,43 @@
                 return null;
             }
         }
+        public function eliminar_usuario_por_nick($nick){
+            $consulta = $this->ejecutar_consulta("DELETE FROM Usuario WHERE nick= '".$nick."'");
+        }
+
+
+        public function get_entrada_por_nick($nick){
+            $consulta = $this->ejecutar_consulta("select pelicula.nombre, pase.hora, pase.dia, sala.nombre as sala from entrada inner join usuario on usuario.id = entrada.id_usuario 
+            inner join pase on pase.id = entrada.id_pase_sesion inner join sala on sala.id = entrada.id_sala_sesion inner join pelicula on
+            pelicula.id = entrada.id_pelicula_sesion WHERE usuario.nick= '".$nick."' group by pelicula.nombre, pase.hora, pase.dia, sala.nombre;");
+            if(!empty($consulta)){
+                return $consulta;
+            }else{
+                return null;
+            }
+        }
+
+        public function get_butaca_por_entrada($nick, $pelicula, $dia_pase, $hora_pase, $sala){
+            $consulta = $this->ejecutar_consulta("select entrada.id_butaca, butaca.fila, butaca.columna from entrada inner join usuario on usuario.id = entrada.id_usuario 
+            inner join pase on pase.id = entrada.id_pase_sesion inner join sala on sala.id = entrada.id_sala_sesion inner join pelicula on
+            pelicula.id = entrada.id_pelicula_sesion inner join butaca on butaca.id = entrada.id_butaca  WHERE usuario.nick= '".$nick."' and pelicula.nombre = '".$pelicula."' and pase.hora = '".$hora_pase."'
+            and pase.dia = '".$dia_pase."' and sala.nombre= '".$sala."';");
+            if(!empty($consulta)){
+                return $consulta;
+            }else{
+                return null;
+            }
+        }
+
+
+        public function eliminar_entrada_por_pelicula($nick, $pelicula, $dia_pase, $hora_pase, $sala){
+            $consulta = $this->ejecutar_consulta("delete from entrada where id_usuario = (select id from usuario where nick = 'ana') and id_pelicula_sesion = (select id from pelicula where nombre = 'Aquamam')
+            and id_sala_sesion = (select id from sala where nombre = 'B') and id_pase_sesion = (select id from pase where hora = '17:00:00' and dia = '2024-05-01')");
+            if(!empty($consulta)){
+                return $consulta;
+            }else{
+                return null;
+            }
+        }
     }
 ?>

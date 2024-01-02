@@ -48,3 +48,17 @@ table#tabla_butacas td {
     color: white;
     background-color: #ff0000;
 }
+
+
+table#tabla_entradas{
+    border-top-width: 10px; 
+    border-right-width: 0px; 
+    border-bottom-width: 10px; 
+    border-left-width: 0px; 
+    width: 90%; 
+}
+
+table#tabla_entradas td {
+    text-align: center;
+    padding: 15px;       
+}

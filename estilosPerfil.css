@@ -252,6 +252,12 @@ button:hover {
     padding: 30px;
 }
 
+.imagen-perfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .profile-image {
     flex-shrink: 0;
     /* La imagen no se encogerá */

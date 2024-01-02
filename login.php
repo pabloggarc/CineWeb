@@ -90,7 +90,7 @@
                         <div class="form-group">
                             <label for="password">Fecha de nacimiento</label>
                             <div id="caja-nombre">
-                                <input type="date" id="fecha" name="fecha" required>
+                                <input type="date" id="fecha" name="fecha"  required>
                             </div>
                         </div>
                         <input type="submit" value="Registrarse">
@@ -101,5 +101,12 @@
     </div>
  </div>
     <script src="./js/login.js"></script>
+    <script>
+    // Obtener la fecha actual en formato ISO (YYYY-MM-DD)
+    var fechaActual = new Date().toISOString().split('T')[0];
+
+    // Establecer la fecha actual como el valor máximo
+    document.getElementById("fecha").setAttribute("max", fechaActual);
+</script>
 </body>
 </html>
