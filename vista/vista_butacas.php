@@ -8,9 +8,9 @@
                 $id_butaca = $i * $columnas + $j;
 
                 if ($libre[$id_butaca] == 1) {
-                    echo "<td class='butaca_libre' id='".$id_butaca."'><i class='fas fa-couch'></i><br>".($id_butaca + 1)."</td>";
+                    echo "<td class='butaca_libre' id='".($ids_butacas[$id_butaca])."'><i class='fas fa-couch'></i><br>".($id_butaca + 1)."</td>";
                 } else {
-                    echo "<td class='butaca_ocupada' id='".$id_butaca."'><i class='fas fa-couch'></i><br>".($id_butaca + 1)."</td>";
+                    echo "<td class='butaca_ocupada' id='".($ids_butacas[$id_butaca])."'><i class='fas fa-couch'></i><br>".($id_butaca + 1)."</td>";
                 }
                 if ($j + 1 == $columnas / 2) {
                     echo "<td class='pasillo'>".str_repeat("&nbsp", PASILLO_SIZE)."</td>";

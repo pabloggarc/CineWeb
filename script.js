@@ -23,19 +23,10 @@ $(document).ready(function () {
     $("#boton_conf_entradas").click(function () {
         if(butacas_seleccionadas.length > 0){
             if (confirm("¿Desea confirmar la reserva de las butacas seleccionadas?")) {
-                // Esto no funciona bien, hay que averiguar cómo hacerlo
-                $.ajax({
-                    type: 'POST',
-                    url: 'controlador/controlador_butacas_selec.php',
-                    data: { butacas_seleccionadas: butacas_seleccionadas },
-                    success: function(response) {
-                        console.log(response);
-                        window.location.href = 'vista/test.php';
-                    },
-                    error: function(error) {
-                        console.error('Error:', error);
-                    }
-                });
+                $.post("controlador/controlador_butacas_selec.php", 
+                {butacas_seleccionadas: butacas_seleccionadas}).done(function(){
+                    location.href = "controlador/controlador_prueba.php";
+                }); 
             }
         }
         else{

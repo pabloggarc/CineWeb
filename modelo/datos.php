@@ -48,6 +48,21 @@
             }
         }
 
+        public function get_butacas($nombre_sala){
+            $consulta = "SELECT Butaca.ID FROM Butaca INNER JOIN Sala ON Butaca.ID_Sala = Sala.ID WHERE Sala.nombre = '".$nombre_sala."';";
+            $result = $this->ejecutar_consulta($consulta);
+            if(!empty($result)){
+                $id_butacas = array();
+                foreach($result as $fila){
+                    array_push($id_butacas, $fila['id']);
+                }
+                return $id_butacas;
+            }
+            else{
+                return null;
+            }
+        }
+
         public function get_ocupacion_sala($nombre_sala, $fecha, $hora){
             $consulta = "SELECT CASE WHEN Butaca.ID IN (
                 SELECT Butaca.ID from Butaca INNER JOIN Entrada ON Butaca.ID = Entrada.ID_Butaca 

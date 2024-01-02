@@ -11,6 +11,7 @@
 
         $dim = $bd->get_dim_sala($nombre_sala); 
         $libre = $bd->get_ocupacion_sala($nombre_sala, $fecha, $hora);
+        $ids_butacas = $bd->get_butacas($nombre_sala);
 
         $filas = 0;
         $columnas = 0;

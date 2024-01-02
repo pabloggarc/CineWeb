@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.3-beta1" use-changelog="false" last-position="0,230" last-zoom="1" max-obj-count="22"
+<dbmodel pgmodeler-ver="0.9.3-beta1" use-changelog="false" last-position="53,0" last-zoom="1" max-obj-count="24"
 	 default-schema="public" default-owner="postgres">
 <database name="new_database" is-template="false" allow-conns="true">
 </database>
@@ -180,7 +180,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<table name="Valoracion" layer="0" collapse-mode="2" max-obj-count="4" z-value="0">
+<table name="Valoracion" layer="0" collapse-mode="2" max-obj-count="6" z-value="0">
 	<schema name="public"/>
 	<role name="postgres"/>
 	<position x="160" y="1160"/>
@@ -581,6 +581,15 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 custom-color="#e307ed"
 	 src-table="public.&quot;Butaca&quot;"
 	 dst-table="public.&quot;Entrada&quot;"
+	 src-required="true" dst-required="false"/>
+
+<relationship name="Usuario_has_many_Valoracion" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#6559ce"
+	 src-table="public.&quot;Usuario&quot;"
+	 dst-table="public.&quot;Valoracion&quot;"
 	 src-required="true" dst-required="false"/>
 
 </dbmodel>
