@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Almacenamos el nick del usuario en la sesion
         $_SESSION['nick'] = $nick;
         // Redirigimos al usuario a la pantalla de inicios
-        header("Location: ../vista/perfil.php");
+        header("Location: ../vista/vista_perfil.php");
     } 
     // Si el nickname es incorrecto
     else if($es_nick_valido==false ) {
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         cancelButton: \'btn btn-secondary\'
                     }
                 }).then(function() {
-                    window.location.href="../login.php";
+                    window.location.href="../vista/vista_login.php";
                 });
             });
         </script>';
@@ -73,14 +73,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         cancelButton: \'btn btn-secondary\'
                     }
                 }).then(function() {
-                    window.location.href="../login.php";
+                    window.location.href="../vista/vista_login.php";
                 });
             });
         </script>';
     }
 }
 
-
-
+header("Location: ../controlador/controlador_perfil.php");
 $bd->desconectar();
+
 ?>

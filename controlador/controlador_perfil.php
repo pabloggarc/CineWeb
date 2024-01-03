@@ -20,4 +20,5 @@ foreach ($info_usuario as $usuario) {
 }
 
 $bd->desconectar();
+require_once("../vista/vista_perfil.php");
 ?>

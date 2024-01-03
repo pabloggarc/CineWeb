@@ -13,7 +13,7 @@ session_unset();
 // Destruimos la sesion
 session_destroy();
 // Redirigimos al usuario a la pagina del login
-header('Location: ../login.php');
+require_once('../vista/vista_login.php');
 // Eliminamos el usuario de la base de datos
 $bd->eliminar_usuario_por_nick($nick);
 $bd->desconectar();

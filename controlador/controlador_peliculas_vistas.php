@@ -7,15 +7,14 @@ $bd->conectar();
 
 session_start();
 $nick= $_SESSION['nick'];
-$lista_entradas=$bd->get_peliculas_no_vistas_por_nick($nick);
+$lista_entradas=$bd->get_peliculas_vistas_por_nick($nick);
 
+$visto = array();
 $nombre_pelicula = array();
 $hora = array();
 $dia = array();
 $sala = array();
 $id_entrada = array();
-$butaca_fila=array();
-$butaca_columna=array();
 
 foreach ($lista_entradas as $entrada) {
     $aux_fila=array();
@@ -23,16 +22,11 @@ foreach ($lista_entradas as $entrada) {
     $nombre_pelicula[]=$entrada['nombre'];   
     $hora[]=$entrada['hora'];   
     $dia[]=$entrada['dia'];   
-    $sala[]=$entrada['sala'];   
-    $lista_butacas=$bd->get_butaca_por_entrada($nick, $entrada['nombre'], $entrada['dia'], $entrada['hora'] ,$entrada['sala']);
-    foreach($lista_butacas as $b){
-        $aux_fila[]=$b['fila'];
-        $aux_columna[]=$b['columna'];
-    }
-    $butaca_fila[]=$aux_fila;
-    $butaca_columna[]=$aux_columna;
+    $sala[]=$entrada['sala'];
+    $visto[] = $entrada['visto'];  
+
 }
 
 $bd->desconectar();
-require_once("../vista/vista_reservas.php");
+require_once("../vista/vista_peliculas_vistas.php");
 ?>
