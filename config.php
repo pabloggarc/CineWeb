@@ -7,4 +7,5 @@
 
     // Salas de cine
     define('PASILLO_SIZE', 5);
+    define('PELICULAS_FILA','4');
 ?>

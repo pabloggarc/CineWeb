@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
 
 <head>
@@ -21,6 +17,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <a href="../controlador/controlador_perfil.php">PERFIL</a>
             <a href="../controlador/controlador_ver_reservas.php">VISTA ENTRADA</a>
             <a href="../controlador/controlador_peliculas_vistas.php">PELICULAS VISTAS</a>
+            <a href="../controlador/controlador_mostrar_cartelera.php">CARTELERA</a>
         </div>
     </nav>
 

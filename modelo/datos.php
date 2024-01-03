@@ -229,6 +229,45 @@ class Datos
             return null;
         }
     }
+
+
+    /* public function get_peliculas_totales()
+     {
+         $consulta = $this->ejecutar_consulta("select pase.hora,pase.dia,pelicula.nombre,pelicula.id,pelicula.portada from sesion 
+         inner join pase on pase.id = sesion.id_pase 
+         inner join pelicula on pelicula.id = sesion.id_pelicula order by pelicula.id;");
+         if (!empty($consulta)) {
+             return $consulta;
+         } else {
+             return null;
+         }
+     }*/
+
+    public function get_cabeceras_peliculas()
+    {
+        $consulta = $this->ejecutar_consulta("select pelicula.nombre,pelicula.id,pelicula.portada from sesion 
+        inner join pase on pase.id = sesion.id_pase 
+        inner join pelicula on pelicula.id = sesion.id_pelicula group by pelicula.id order by pelicula.id;");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
+
+    public function get_info_peliculas($id)
+    {
+        $consulta = $this->ejecutar_consulta("select pase.hora, pase.dia from sesion
+        inner join pase on pase.id = sesion.id_pase
+        inner join pelicula on pelicula.id = sesion.id_pelicula
+        where pelicula.id = '" . $id . "';");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
 }
 
 
