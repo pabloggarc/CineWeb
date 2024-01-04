@@ -342,6 +342,113 @@ class Datos
         WHERE id = " . $id . ";");
 
     }
+
+    public function get_numero_sesiones(){
+        $consulta = $this->ejecutar_consulta(
+            "SELECT COUNT(*) FROM Sesion INNER JOIN Pase 
+            ON Sesion.ID_Pase = Pase.ID WHERE dia = CURRENT_DATE AT TIME ZONE 'GMT';"
+        );
+        if (!empty($consulta)) {
+            return $consulta[0]["count"];
+        } else {
+            return null;
+        }
+    }
+
+    public function get_numero_sesiones_futuras(){
+        $consulta = $this->ejecutar_consulta(
+            "SELECT COUNT(*) FROM Sesion INNER JOIN Pase 
+            ON Sesion.ID_Pase = Pase.ID WHERE dia > CURRENT_DATE AT TIME ZONE 'GMT';"
+        );
+        if (!empty($consulta)) {
+            return $consulta[0]["count"];
+        } else {
+            return null;
+        }
+    }
+
+    public function get_numero_usuarios(){
+        $consulta = $this->ejecutar_consulta(
+            "SELECT COUNT(*) FROM Usuario;"
+        );
+        if (!empty($consulta)) {
+            return $consulta[0]["count"];
+        } else {
+            return null;
+        }
+    }
+
+    public function get_numero_peliculas_disponibles(){
+        $consulta = $this->ejecutar_consulta(
+            "SELECT COUNT(*) FROM (SELECT Pelicula.nombre FROM Pelicula INNER JOIN Sesion 
+            ON Pelicula.ID = Sesion.ID_Pelicula INNER JOIN Pase ON Sesion.ID_Pase = Pase.ID 
+            WHERE Pase.dia >= CURRENT_DATE AT TIME ZONE 'GMT' GROUP BY Pelicula.nombre) AS foo; "
+        );
+        if (!empty($consulta)) {
+            return $consulta[0]["count"];
+        } else {
+            return null;
+        }
+    }
+
+    public function get_valoracion_media(){
+        $consulta = $this->ejecutar_consulta(
+            "SELECT AVG(puntuacion) FROM Valoracion;"
+        );
+        if (!empty($consulta)) {
+            return $consulta[0]["avg"];
+        } else {
+            return null;
+        }
+    }
+
+    public function get_numero_butacas_reservadas(){
+        $consulta = $this->ejecutar_consulta(
+            "SELECT COUNT(Butaca.ID) from Butaca INNER JOIN Entrada ON Butaca.ID = Entrada.ID_Butaca 
+            INNER JOIN Sesion ON Entrada.ID_Sala_Sesion = Sesion.ID_Sala
+            AND Entrada.ID_Pelicula_Sesion = Sesion.ID_Pelicula AND 
+            Entrada.ID_Pase_Sesion = Sesion.ID_Pase INNER JOIN Pase ON Sesion.ID_Pase = 
+            Pase.ID WHERE Pase.dia >= CURRENT_DATE AT TIME ZONE 'GMT'; "
+        );
+        if (!empty($consulta)) {
+            return $consulta[0]["count"];
+        } else {
+            return null;
+        }
+    }
+
+    public function get_numero_butacas_ocupadas(){
+        $consulta = $this->ejecutar_consulta(
+            "SELECT COUNT(Butaca.ID)
+            FROM Butaca
+            INNER JOIN Entrada ON Butaca.ID = Entrada.ID_Butaca
+            INNER JOIN Sesion ON Entrada.ID_Sala_Sesion = Sesion.ID_Sala
+                AND Entrada.ID_Pelicula_Sesion = Sesion.ID_Pelicula
+                AND Entrada.ID_Pase_Sesion = Sesion.ID_Pase
+            INNER JOIN Pase ON Sesion.ID_Pase = Pase.ID
+            INNER JOIN Pelicula ON Sesion.ID_Pelicula = Pelicula.ID
+            WHERE Pase.dia = CURRENT_DATE AT TIME ZONE 'GMT'
+                AND CURRENT_TIME AT TIME ZONE 'GMT' >= Pase.hora AND 
+                CURRENT_TIME AT TIME ZONE 'GMT' <= Pase.hora + Pelicula.duracion * INTERVAL '1 minute';
+             "
+        );
+        if (!empty($consulta)) {
+            return $consulta[0]["count"];
+        } else {
+            return null;
+        }
+    }
+
+    public function get_numero_butacas(){
+        $consulta = $this->ejecutar_consulta(
+            "SELECT COUNT(*) FROM Butaca;"
+        );
+        if (!empty($consulta)) {
+            return $consulta[0]["count"];
+        } else {
+            return null;
+        }
+    }
 }
 
 

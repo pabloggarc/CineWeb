@@ -1,6 +1,6 @@
--- Database generated with pgModeler (gczgoasfQL Database Modeler).
+-- Database generated with pgModeler (PostgreSQL Database Modeler).
 -- pgModeler  version: 0.9.3-beta1
--- PostgreSQL version: 13.0
+-- gczgoasfQL version: 13.0
 -- Project Site: pgmodeler.io
 -- Model Author: ---
 
@@ -131,6 +131,7 @@ CREATE TABLE public.Valoracion (
 	puntuacion integer NOT NULL,
 	comentario varchar(1000),
 	ID_Pelicula integer NOT NULL,
+	ID_Usuario integer NOT NULL,
 	CONSTRAINT Valoracion_pk PRIMARY KEY (ID)
 
 );
@@ -395,5 +396,12 @@ ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ALTER TABLE public.Entrada DROP CONSTRAINT IF EXISTS Butaca_fk CASCADE;
 ALTER TABLE public.Entrada ADD CONSTRAINT Butaca_fk FOREIGN KEY (ID_Butaca)
 REFERENCES public.Butaca (ID) MATCH FULL
+ON DELETE RESTRICT ON UPDATE CASCADE;
+-- ddl-end --
+
+-- object: Usuario_fk | type: CONSTRAINT --
+-- ALTER TABLE public.Valoracion DROP CONSTRAINT IF EXISTS Usuario_fk CASCADE;
+ALTER TABLE public.Valoracion ADD CONSTRAINT Usuario_fk FOREIGN KEY (ID_Usuario)
+REFERENCES public.Usuario (ID) MATCH FULL
 ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
