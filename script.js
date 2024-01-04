@@ -23,9 +23,9 @@ $(document).ready(function () {
     $("#boton_conf_entradas").click(function () {
         if(butacas_seleccionadas.length > 0){
             if (confirm("¿Desea confirmar la reserva de las butacas seleccionadas?")) {
-                $.post("controlador/controlador_butacas_selec.php", 
+                $.post("../controlador/controlador_butacas_selec.php", 
                 {butacas_seleccionadas: butacas_seleccionadas}).done(function(){
-                    location.href = "controlador/controlador_prueba.php";
+                    location.href = "../controlador/controlador_pago.php";
                 }); 
             }
         }

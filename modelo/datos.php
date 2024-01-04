@@ -255,13 +255,12 @@ class Datos
         }
     }
 
-
-    public function get_info_peliculas($id)
+    public function get_info_peliculas($id,$fecha)
     {
         $consulta = $this->ejecutar_consulta("select pase.hora, pase.dia from sesion
         inner join pase on pase.id = sesion.id_pase
         inner join pelicula on pelicula.id = sesion.id_pelicula
-        where pelicula.id = '" . $id . "';");
+        where pelicula.id = '" . $id . "' AND Pase.dia = '".$fecha."' AND pase.hora > CURRENT_TIME ORDER BY Pase.hora ;");
         if (!empty($consulta)) {
             return $consulta;
         } else {
@@ -341,6 +340,102 @@ class Datos
         portada = '" . $portada . "', id_clasificacion = " . $clasificacion . ", id_distribuidora = '" . $distribuidora . "'
         WHERE id = " . $id . ";");
 
+    }
+
+    public function get_peliculas_por_id($id){
+        $result = $this->ejecutar_consulta("SELECT * FROM Pelicula WHERE Pelicula.ID = ".$id."");
+        if(!empty($result)){
+            return $result;
+        }else{
+            return null;
+        }
+    }
+
+    public function get_sesiones_por_pelicula($id, $fecha){
+        $result = $this->ejecutar_consulta("SELECT Pase.hora FROM Pase
+        INNER JOIN Sesion ON Sesion.ID_Pase = Pase.ID
+        INNER JOIN Pelicula ON Pelicula.ID = Sesion.ID_Pelicula
+        WHERE Pelicula.ID = ".$id." AND Pase.dia = '".$fecha."' ORDER BY Pase.hora");
+        if(!empty($result)){
+            return $result;
+        }else{
+            return null;
+        }
+    }
+
+    public function get_peliculas_valoraciones($id){
+        $result = $this->ejecutar_consulta("SELECT ROUND(AVG(Valoracion.puntuacion), 2) AS media_puntuacion FROM Valoracion 
+        INNER JOIN Pelicula ON Valoracion.ID_Pelicula = Pelicula.ID 
+        WHERE Pelicula.ID = ".$id."");
+        return $result;
+    }
+
+    public function get_peliculas_clasificacion($id){
+        $result = $this->ejecutar_consulta("SELECT * FROM Clasificacion 
+        INNER JOIN Pelicula ON Clasificacion.ID = Pelicula.ID_Clasificacion 
+        WHERE Pelicula.ID = ".$id."");
+        return $result;
+    }
+    public function get_genero_por_pelicula($id){
+        $result = $this->ejecutar_consulta("SELECT * FROM Genero
+        INNER JOIN Genero_Pelicula ON Genero_Pelicula.ID_Genero=Genero.ID
+        INNER JOIN Pelicula ON Pelicula.ID = Genero_Pelicula.ID_Pelicula
+        WHERE Pelicula.ID = ".$id."");
+        return $result;
+    }
+    public function get_actores_por_pelicula($id){
+        $result = $this->ejecutar_consulta("SELECT Actor.nombre, Actor.apellidos FROM Actor
+        INNER JOIN Reparto ON Reparto.ID_Actor = Actor.ID
+        INNER JOIN Pelicula ON Pelicula.ID = Reparto.ID_Pelicula
+        WHERE Pelicula.ID = ".$id."");
+        return $result;
+    }
+    public function get_directores_por_pelicula($id){
+        $result = $this->ejecutar_consulta("SELECT Director.nombre, Director.apellidos FROM Director
+        INNER JOIN Direccion ON Direccion.ID_Director = Director.ID
+        INNER JOIN Pelicula ON Pelicula.ID = Direccion.ID_Pelicula
+        WHERE Pelicula.ID = ".$id."");
+        return $result;
+    }
+
+    public function get_nacionalidad_pelicula($id){
+        $result = $this->ejecutar_consulta("SELECT Nacionalidad.nombre FROM Nacionalidad
+        INNER JOIN Nacionalidad_Pelicula ON Nacionalidad_Pelicula.ID_Nacionalidad = Nacionalidad.ID
+        INNER JOIN Pelicula ON Nacionalidad_Pelicula.ID_Pelicula = Pelicula.ID
+        WHERE Pelicula.ID = ".$id."");
+        return $result;
+    }
+    public function set_entrada_usuario_por_id($localizador,$usuario_id,$butaca,$pase,$sala,$pelicula){
+        $result = $this->ejecutar_consulta("INSERT INTO Entrada (localizador, ID_Usuario, ID_Butaca, ID_Pase_Sesion, ID_Sala_Sesion, ID_Pelicula_Sesion) VALUES ('".$localizador."', ".$usuario_id.", ".$butaca.", ".$pase.", ".$sala.", ".$pelicula.")");
+    }
+
+    public function consultar_localizador($numero_aleatorio){
+        $result = $this->ejecutar_consulta("SELECT * FROM Entrada WHERE localizador= '".$numero_aleatorio."'");
+        if(empty($result)){
+            // El numero se podra registrar
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public function get_datos_entrada($id_pelicula,$hora,$fecha){
+        $result = $this->ejecutar_consulta("select * from sesion inner join pelicula on pelicula.id = sesion.id_pelicula
+		inner join pase on pase.id = sesion.id_pase where pase.hora = '".$hora."' and 
+		pase.dia='".$fecha."' and pelicula.id=".$id_pelicula."");
+        return $result;
+    }
+    public function get_id_sala($id_pelicula,$hora,$fecha){
+        $result = $this->ejecutar_consulta("select sala.nombre as nombre from sesion inner join sala on sala.id = sesion.id_sala 
+        inner join pelicula on pelicula.id = sesion.id_pelicula
+		inner join pase on pase.id = sesion.id_pase where pase.hora = '".$hora."' and 
+		pase.dia='".$fecha."' and pelicula.id=".$id_pelicula."");
+        return $result;
+    }
+
+    public function get_portada_por_id($id_pelicula){
+        $result = $this->ejecutar_consulta("select portada from pelicula where id=".$id_pelicula."");
+        return $result;
     }
 
     public function get_numero_sesiones(){

@@ -1,0 +1,189 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header, .container, .data-table, .footer-buttons {
+    margin: 0 auto;
+    max-width: 80%;
+    padding: 20px;
+}
+
+
+
+.form-container {
+    width: 30%; /* Hacer la caja del formulario más pequeña */
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    text-align: center; /* Centrar los elementos dentro del contenedor */
+}
+
+.form-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.form-button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-button:hover {
+    background-color: #555;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header, .container, .data-table, .footer-buttons {
+    margin: 0 auto;
+    max-width: 80%;
+    padding: 20px;
+}
+
+.form-container {
+    width: 30%;
+    margin: 40px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.form-field {
+    width: calc(100% - 40px); /* Ajustar el ancho considerando el padding y bordes */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.form-button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-button:hover {
+    background-color: #555;
+}
+.header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 24px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 20px;
+}
+
+.image-box, .info-box {
+    flex: 1; /* Ambos contenedores tienen la misma flexibilidad */
+    padding: 20px;
+    margin: 10px;
+}
+
+.image-box {
+    text-align: center;
+    width: 50px; /* Ancho fijo para el contenedor de la imagen */
+    height: 330px;
+    overflow: hidden;
+}
+
+.image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Ajusta la imagen para que quepa completamente dentro del contenedor */
+}
+
+.info-box {
+    flex: 2;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    background-color: #e74c3c; 
+    color: white;
+    width: 70px;  /*Ancho fijo para el contenedor de la información */
+    height:330px;
+}
+.info-box h3 {
+    color: black; /* Texto negro para el título */
+}
+
+
+.lista-con-titulos-inline h4 {
+    display: inline; /* O puedes usar inline-block si necesitas */
+    margin-bottom: 0px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 5px; /* Agrega un margen horizontal entre botones */
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+.footer-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer-button:hover {
+    background-color: #555;
+}
+
+.data-table {
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+    padding: 8px;
+    text-align: left;
+    border: 2px solid #ddd; /* Aumento del grosor del borde para mayor notabilidad */
+}
+
+.data-table th {
+    font-weight: bold;
+}

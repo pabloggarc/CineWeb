@@ -20,8 +20,9 @@
 
         /* Estilo para la portada de la película */
         .pelicula img {
-            width: 200px;
-            height: auto;
+            width: auto;
+            /*200px;*/
+            height: 800px;
             transition: filter 0.3s;
             /* Agregamos una transición suave para el cambio de filtro */
         }
@@ -89,23 +90,30 @@
                 <?php
                 session_start();
                 $rol = $_SESSION['rol_usuario'];
-                for ($i = 0; $i < count($lista_peliculas) / PELICULAS_FILA; $i++) {
-                    echo "<tr>";
-                    for ($j = 0; $j < PELICULAS_FILA && $i * PELICULAS_FILA + $j < count($lista_peliculas); $j++) {
-                        $indice = $i * PELICULAS_FILA + $j;
-                        echo "<td class='pelicula' id='" . $lista_peliculas[$indice]['id'] . "''><br><div class='pelicula-contenido'>
-                    <img src='" . $lista_peliculas[$indice]['portada'] . "'>";
-                        echo "<div class='botones-container'>";
-                        for ($k = 0; $k < count($lista_sesiones[$indice]); $k++) {
-                            $valor = $lista_peliculas[$indice]['id'] . ";" . $lista_sesiones[$indice][$k]['hora'];
-                            echo '<button id="boton" name="boton" value="' . $valor . '">' . $lista_sesiones[$indice][$k]["hora"] . '</button>';
+                if ($lista_sesiones !== null) {
+                    for ($i = 0; $i < count($lista_peliculas) / PELICULAS_FILA; $i++) {
+                        echo "<tr>";
+                        for ($j = 0; $j < PELICULAS_FILA && $i * PELICULAS_FILA + $j < count($lista_peliculas); $j++) {
+                            $indice = $i * PELICULAS_FILA + $j;
+                            echo "<td class='pelicula' id='" . $lista_peliculas[$indice]['id'] . "'><br><div class='pelicula-contenido'>
+                                <img src='" . $lista_peliculas[$indice]['portada'] . "'>";
+                            echo "<div class='botones-container'>";
+                
+                            // Verificar si $lista_sesiones[$indice] es un array antes de usar count()
+                            if (is_array($lista_sesiones[$indice])) {
+                                for ($k = 0; $k < count($lista_sesiones[$indice]); $k++) {
+                                    $valor = $lista_peliculas[$indice]['id'] . ";" . $lista_sesiones[$indice][$k]['hora'];
+                                    echo '<button id="boton" name="boton" value="' . $valor . '">' . $lista_sesiones[$indice][$k]["hora"] . '</button>';
+                                }
+                            }
+                
+                            echo '<button id="boton" name="boton" value="' . $lista_peliculas[$indice]['id'] . '">VER MAS</button>';
+                            echo "</div>";
+                            echo "</div>";
+                            echo '</td>';
                         }
-                        echo '<button id="boton" name="boton" value="' . $lista_peliculas[$indice]['id'] . '">VER MAS</button>';
+                        echo "</tr>";
                     }
-                    echo "</div>";
-                    echo "</div>";
-                    echo '</td>';
-                    echo "</tr>";
                 }
                 ?>
             </table>

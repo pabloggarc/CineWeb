@@ -1,4 +1,18 @@
-<h1>Sala <?php echo $nombre_sala; ?></h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Título de la Página</title>
+        <link rel="stylesheet" href="../estilos.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="../script.js"></script>
+    </head>
+
+<body>
+
+<h1>Sala <?php echo $nombre_sala; ?></h1>        
 <div class = "center-div">
     <table class="table" name="tabla_butacas" id="tabla_butacas">
         <?php
@@ -22,3 +36,5 @@
     </table>
 </div>
 <button id="boton_conf_entradas">Confirmar entradas</button>
+</body>
+</html>

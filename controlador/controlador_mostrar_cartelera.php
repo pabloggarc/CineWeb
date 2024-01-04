@@ -8,9 +8,9 @@ $lista_peliculas = $bd->get_cabeceras_peliculas();
 
 $lista_sesiones = array();
 
-
+$fecha_actual = date("Y-m-d");
 foreach ($lista_peliculas as $i) {
-    $lista_sesiones[] = $bd->get_info_peliculas($i['id']);
+    $lista_sesiones[] = $bd->get_info_peliculas($i['id'],$fecha_actual);
 }
 
 
