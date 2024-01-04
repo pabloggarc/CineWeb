@@ -29,8 +29,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
         // Almacenamos el nick del usuario en la sesion
         $_SESSION['nick'] = $nick;
-        // Redirigimos al usuario a la pantalla de inicios
-        header("Location: ../vista/vista_perfil.php");
+        $rol_usuario = $bd->get_rol_por_nick($nick)[0]['id_rol'];
+        // Si el usuario es un cliente
+        $_SESSION['rol_usuario'] = $rol_usuario;
+        if($rol_usuario==1){
+            // Redirigimos al usuario a la pantalla de inicios del cliente
+            header("Location: ../controlador/controlador_perfil.php");
+        }else if($rol_usuario==2){
+            require_once("../vista/vista_admin_inicio.php");
+        }
     } 
     // Si el nickname es incorrecto
     else if($es_nick_valido==false ) {
@@ -80,7 +87,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-header("Location: ../controlador/controlador_perfil.php");
 $bd->desconectar();
 
 ?>

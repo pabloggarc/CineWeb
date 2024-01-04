@@ -268,6 +268,80 @@ class Datos
             return null;
         }
     }
+
+    public function get_rol_por_nick($nick)
+    {
+        $consulta = $this->ejecutar_consulta("select id_rol from Usuario where nick = '" . $nick . "';");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
+    public function get_clasificacion()
+    {
+        $consulta = $this->ejecutar_consulta("SELECT * FROM clasificacion");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
+    public function get_distribuidora()
+    {
+        $consulta = $this->ejecutar_consulta("SELECT * FROM distribuidora");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
+    public function insertar_pelicula($nombre, $sinopsis, $url_web, $titulo, $duracion, $anno, $portada, $clasificacion, $distribuidora)
+    {
+        $this->ejecutar_consulta("insert into pelicula
+        (nombre, sinopsis, web, titulo, duracion, año, portada, id_clasificacion, id_distribuidora) values 
+        ('" . $nombre . "', '" . $sinopsis . "', '" . $url_web . "', '" . $titulo . "', " . $duracion . ", " . $anno . ",
+        '" . $portada . "', " . $clasificacion . ", " . $distribuidora . ");");
+    }
+
+    public function get_peliculas()
+    {
+        $consulta = $this->ejecutar_consulta("select pelicula.nombre,pelicula.id,pelicula.portada from pelicula group by pelicula.id order by pelicula.id;
+        ");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
+    public function eliminar_pelicula_por_id($id)
+    {
+        $this->ejecutar_consulta("delete from pelicula where id = '" . $id . "';");
+    }
+
+    public function get_info_total_peliculas_por_id($id)
+    {
+        $consulta = $this->ejecutar_consulta("select * from pelicula where id = '" . $id . "';");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
+    public function update_pelicula_por_id($id, $nombre, $sinopsis, $url_web, $titulo, $duracion, $anno, $portada, $clasificacion, $distribuidora)
+    {
+        $this->ejecutar_consulta("UPDATE pelicula
+        SET nombre = '" . $nombre . "', sinopsis = '" . $sinopsis . "', web = '" . $url_web . "',
+        titulo = '" . $titulo . "', duracion = " . $duracion . ", año =" . $anno . ",
+        portada = '" . $portada . "', id_clasificacion = " . $clasificacion . ", id_distribuidora = '" . $distribuidora . "'
+        WHERE id = " . $id . ";");
+
+    }
 }
 
 

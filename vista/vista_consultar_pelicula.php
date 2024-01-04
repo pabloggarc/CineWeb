@@ -84,7 +84,7 @@
     <h1>CARTELERA
     </h1>
     <div class="center-div">
-        <form method="post" action="../controlador/controlador_pelicula_selec.php">
+        <form method="post" action="../controlador/controlador_consultar_peliculas.php">
             <table class="table" name="tabla_butacas" id="tabla_butacas">
                 <?php
                 session_start();
@@ -96,11 +96,7 @@
                         echo "<td class='pelicula' id='" . $lista_peliculas[$indice]['id'] . "''><br><div class='pelicula-contenido'>
                     <img src='" . $lista_peliculas[$indice]['portada'] . "'>";
                         echo "<div class='botones-container'>";
-                        for ($k = 0; $k < count($lista_sesiones[$indice]); $k++) {
-                            $valor = $lista_peliculas[$indice]['id'] . ";" . $lista_sesiones[$indice][$k]['hora'];
-                            echo '<button id="boton" name="boton" value="' . $valor . '">' . $lista_sesiones[$indice][$k]["hora"] . '</button>';
-                        }
-                        echo '<button id="boton" name="boton" value="' . $lista_peliculas[$indice]['id'] . '">VER MAS</button>';
+                        echo '<button id="boton" name="boton" value="' . $lista_peliculas[$indice]['id'] . '">CONSULTAR</button>';
                     }
                     echo "</div>";
                     echo "</div>";
