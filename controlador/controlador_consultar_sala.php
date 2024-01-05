@@ -8,14 +8,10 @@ $bd->conectar();
 
 // Procesamiento del formulario de inicio de sesion
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST['nombre_sala'];
-    $filas = (int) $_POST['n_filas'];
-    $columnas = (int) $_POST['n_col'];
-
-    $bd->insertar_sala($nombre, $filas, $columnas);
+    $id = $_POST['boton'];
+    $info = $bd->get_sala_por_id($id);
 }
 
-
 $bd->desconectar();
-require_once("../vista/vista_admin_inicio.php")
+require_once("../vista/vista_modificar_sala.php")
     ?>

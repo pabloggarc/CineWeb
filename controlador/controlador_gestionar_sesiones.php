@@ -8,20 +8,19 @@ $bd->conectar();
 
 // Procesamiento del formulario de inicio de sesion
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     if (isset($_POST['boton'])) {
         $opcion_selec = $_POST['boton'];
         if ($opcion_selec == 1) {
-            $lista_clasificacion = $bd->get_clasificacion();
-            $lista_distribuidora = $bd->get_distribuidora();
-            require_once('../vista/vista_insertar_pelicula.php');
+            $lista_peliculas = $bd->get_peliculas_id_nombre();
+            $lista_salas = $bd->get_salas_id_nombre();
+            $lista_pases = $bd->get_pases_id_fecha();
+            require_once('../vista/vista_insertar_sesion.php');
         } else {
-            $lista_peliculas = $bd->get_peliculas();
+            $lista_sesiones = $bd->get_sesiones();
             if ($opcion_selec == 2) {
-                
-                require_once('../vista/vista_eliminar_pelicula.php');
+                require_once('../vista/vista_eliminar_sesion.php');
             } else {
-                require_once('../vista/vista_consultar_pelicula.php');
+                require_once('../vista/vista_consultar_sesion.php');
             }
         }
     }

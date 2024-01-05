@@ -8,11 +8,8 @@ $bd->conectar();
 
 // Procesamiento del formulario de inicio de sesion
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST['nombre_sala'];
-    $filas = (int) $_POST['n_filas'];
-    $columnas = (int) $_POST['n_col'];
-
-    $bd->insertar_sala($nombre, $filas, $columnas);
+    $ids = explode(";", $_POST['boton']);
+    $bd->eliminar_sesion($ids[0],$ids[1],$ids[2]);
 }
 
 

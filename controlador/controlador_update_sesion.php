@@ -8,11 +8,12 @@ $bd->conectar();
 
 // Procesamiento del formulario de inicio de sesion
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST['nombre_sala'];
-    $filas = (int) $_POST['n_filas'];
-    $columnas = (int) $_POST['n_col'];
+    $ids = explode(";", $_POST['boton']);
+    $id_sala_new = $_POST['sala'];
+    $id_pelicula_new = $_POST['pelicula'];
+    $id_pase_new = $_POST['pase'];
 
-    $bd->insertar_sala($nombre, $filas, $columnas);
+    $bd->update_sesion($ids[0], $ids[1], $ids[2], $id_sala_new, $id_pelicula_new, $id_pase_new);
 }
 
 

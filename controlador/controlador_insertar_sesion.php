@@ -8,11 +8,11 @@ $bd->conectar();
 
 // Procesamiento del formulario de inicio de sesion
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST['nombre_sala'];
-    $filas = (int) $_POST['n_filas'];
-    $columnas = (int) $_POST['n_col'];
+    $id_sala = $_POST['sala'];
+    $id_pelicula = $_POST['pelicula'];
+    $id_pase = $_POST['pase'];
 
-    $bd->insertar_sala($nombre, $filas, $columnas);
+    $bd->insertar_sesion($id_sala, $id_pelicula, $id_pase);
 }
 
 

@@ -43,10 +43,14 @@
                 </form>
             </td>
             <td>
-                <button name="boton" value=1 type="submit">AÑADIR SALA </button>
+                <form action="../controlador/controlador_gestionar_salas.php" method="POST">
+                    <button name="boton" value=1 type="submit">AÑADIR SALA </button>
+                </form>
             </td>
             <td>
-                <button name="boton" value=1 type="submit">AÑADIR SESION</button>
+                <form action="../controlador/controlador_gestionar_sesiones.php" method="POST">
+                    <button name="boton" value=1 type="submit">AÑADIR SESION</button>
+                </form>
             </td>
             <td>
                 <button name="boton" value=1 type="submit">AÑADIR ENTRADA</button>
@@ -59,10 +63,14 @@
                 </form>
             </td>
             <td>
-                <button type="button">ELIMINAR SALA </button>
+                <form action="../controlador/controlador_gestionar_salas.php" method="POST">
+                    <button name="boton" value=2 type="submit">ELIMINAR SALA </button>
+                </form>
             </td>
             <td>
-                <button type="button">ELIMINAR SESION</button>
+                <form action="../controlador/controlador_gestionar_sesiones.php" method="POST">
+                    <button name="boton" value=2 type="submit">ELIMINAR SESION</button>
+                </form>
             </td>
             <td>
                 <button type="button">ELIMINAR ENTRADA</button>
@@ -75,10 +83,14 @@
                 </form>
             </td>
             <td>
-                <button type="button">CONSULTAR SALA </button>
+                <form action="../controlador/controlador_gestionar_salas.php" method="POST">
+                    <button name="boton" value=3 type="submit">CONSULTAR SALA </button>
+                </form>
             </td>
             <td>
-                <button type="button">CONSULTAR SESION</button>
+                <form action="../controlador/controlador_gestionar_sesiones.php" method="POST">
+                    <button name="boton" value=3 type="submit">CONSULTAR SESION</button>
+                </form>
             </td>
             <td>
                 <button type="button">CONSULTAR ENTRADA</button>
