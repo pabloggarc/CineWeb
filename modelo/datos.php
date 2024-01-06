@@ -671,7 +671,7 @@ class Datos
         and id_pelicula = " . $id_pelicula . " 
         and id_pase = " . $id_pase . ";");
     }
-    
+
     public function get_sesion_por_ids($id_sala, $id_pelicula, $id_pase)
     {
         $consulta = $this->ejecutar_consulta(
@@ -681,9 +681,9 @@ class Datos
             inner join pelicula on pelicula.id = sesion.id_pelicula
             inner join sala on sala.id = sesion.id_sala
             inner join pase on pase.id = sesion.id_pase
-            where sala.id = ".$id_sala." and
-            pase.id = ".$id_pase." and
-            pelicula.id = ".$id_pelicula.";"
+            where sala.id = " . $id_sala . " and
+            pase.id = " . $id_pase . " and
+            pelicula.id = " . $id_pelicula . ";"
         );
         if (!empty($consulta)) {
             return $consulta[0];
@@ -697,6 +697,47 @@ class Datos
         $this->ejecutar_consulta("UPDATE sesion
         SET id_sala = " . $id_sala_new . ", id_pelicula = " . $id_pelicula_new . ", id_pase = " . $id_pase_new . "
         WHERE id_sala = " . $id_sala . " and id_pelicula = " . $id_pelicula . " and id_pase = " . $id_pase . ";");
+    }
+
+    public function get_pases_actuales()
+    {
+        $consulta = $this->ejecutar_consulta(
+            "select * from pase where dia > CURRENT_DATE or (pase.dia = CURRENT_DATE and pase.hora > CURRENT_TIME);"
+        );
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
+    public function insertar_pase($dia, $hora)
+    {
+        $this->ejecutar_consulta("insert into pase(hora, dia) values ('" . $hora . "', '" . $dia . "');");
+    }
+
+    public function eliminar_pase_por_id($id)
+    {
+        $this->ejecutar_consulta("delete from pase where id = " . $id . ";");
+    }
+
+    public function get_pase_por_id($id)
+    {
+        $consulta = $this->ejecutar_consulta(
+            "select * from pase where id = " . $id . ";"
+        );
+        if (!empty($consulta)) {
+            return $consulta[0];
+        } else {
+            return null;
+        }
+    }
+
+    public function update_pase_por_id($id, $dia, $hora)
+    {
+        $this->ejecutar_consulta("UPDATE pase
+        SET dia = '" . $dia . "', hora = '" . $hora . "'
+        WHERE id = " . $id . ";");
     }
 }
 

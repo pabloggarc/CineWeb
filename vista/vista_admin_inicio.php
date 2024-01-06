@@ -32,7 +32,7 @@
 
             </th>
             <th>
-                GESTIONAR ENTRADAS
+                GESTIONAR PASES
 
             </th>
         </tr>
@@ -53,7 +53,9 @@
                 </form>
             </td>
             <td>
-                <button name="boton" value=1 type="submit">AÑADIR ENTRADA</button>
+                <form action="../controlador/controlador_gestionar_pases.php" method="POST">
+                    <button name="boton" value=1 type="submit">AÑADIR PASE</button>
+                </form>
             </td>
         </tr>
         <tr>
@@ -73,7 +75,9 @@
                 </form>
             </td>
             <td>
-                <button type="button">ELIMINAR ENTRADA</button>
+                <form action="../controlador/controlador_gestionar_pases.php" method="POST">
+                    <button name="boton" value=2 type="submit">ELIMINAR PASE</button>
+                </form>
             </td>
         </tr>
         <tr>
@@ -93,7 +97,9 @@
                 </form>
             </td>
             <td>
-                <button type="button">CONSULTAR ENTRADA</button>
+                <form action="../controlador/controlador_gestionar_pases.php" method="POST">
+                    <button name="boton" value=3 type="submit">CONSULTAR PASE</button>
+                </form>
             </td>
         </tr>
     </table>
