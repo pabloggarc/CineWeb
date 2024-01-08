@@ -739,6 +739,15 @@ class Datos
         SET dia = '" . $dia . "', hora = '" . $hora . "'
         WHERE id = " . $id . ";");
     }
+
+    public function update_usuario_por_nick($nick, $clave, $nombre, $apellidos, $correo, $fecha_nacimiento)
+    {
+        $this->ejecutar_consulta("update usuario
+        set nick = '" . $nick . "', clave = '" . $clave . "',
+        nombre = '" . $nombre . "', apellidos = '" . $apellidos . "',
+        correo = '" . $correo . "', fecha_nacimiento = '" . $fecha_nacimiento . "'
+        where nick = '" . $nick . "';");
+    }
 }
 
 

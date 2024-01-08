@@ -24,7 +24,7 @@
         <div class="imagen-perfil">
             <img src="../imagenes/usuarioLogin.PNG" alt="alt" width="auto" height="100px">
         </div>
-        <form id="profile-form" method="POST">
+        <form action="../controlador/controlador_editar_perfil.php" method="post">
             <div class="profile-container">
                 <div class="profile-info">
                     <div class="editable-field" id="name-field">
@@ -51,26 +51,15 @@
                             <?php echo $nick ?>
                         </div>
                     </div>
-                    <div class="editable-field" id="password-field">
-                        <label><i class="fas fa-key"></i> Clave de Acceso:</label>
-                        <div class="field-value" id="password" contenteditable="false">
-                            <?php echo $clave ?>
-                        </div>
-                    </div>
                     <div class="editable-field" id="calendar-field">
                         <label><i class="fas fa-calendar"></i> Fecha de nacimiento:</label>
                         <div class="field-value" id="calendar" contenteditable="false">
                             <?php echo $fecha_nacimiento ?>
                         </div>
                     </div>
-                    <div class="editable-field" id="user-field">
-                        <label><i class="fas fa-user-check"></i> Rol:</label>
-                        <div class="field-value" id="user" contenteditable="false">
-                            <?php echo $id_rol ?>
-                        </div>
-                    </div>
                 </div>
             </div>
+            <input type="submit" value="Editar"></input>
         </form>
         <div class="parking-icons">
             <div class="parking-icon" title="Cerrar Sesión" onclick="cerrarSesion()">
