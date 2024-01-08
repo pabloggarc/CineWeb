@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if($esta_registrado==false){
         // Insertamos el usuario en la base de datos con la clave cifrada
         $bd->insertar_nuevo_usuario($nick, $clave_cifrada , $nombre, $apellido, $email, $fecha);
-        header("Location: ../login.php");
+        header("Location: ../vista/vista_login.php");
     }else{
         // Mostramos la alerta de que el usuario ya se encuentra registrado en la base de datos
         echo '
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         cancelButton: \'btn btn-secondary\'
                     }
                 }).then(function() {
-                    window.location.href="../login.php";
+                    window.location.href="../vista/vista_login.php";
                 });
             });
         </script>';

@@ -12,6 +12,8 @@
 </head>
 
 <body>
+<?php require_once("vista_cabecera.php") ?>
+
 
     <div class="container">
         <div class="image-box">

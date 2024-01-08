@@ -8,6 +8,7 @@
 </head>
 
 <body>
+<?php require_once("vista_cabecera.php") ?>
 
     <form action="../controlador/controlador_update_sesion.php" method="post">
         <label for="Sala">Selecciona sala:</label>

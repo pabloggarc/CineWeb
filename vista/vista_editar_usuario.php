@@ -2,32 +2,60 @@
 <html lang="es">
 
 <head>
+    <title>Información del usuario</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilosCine.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        crossorigin="anonymous" />
 </head>
 
 <body>
+    <?php require_once("vista_cabecera.php") ?>
 
-    <h2>Editar usuario</h2>
+    <h2>EDITAR PERFIL</h2>
+
 
     <form action="../controlador/controlador_editar_usuario.php" method="post">
-        <label for="nick">Nick:</label>
-        <input type="text" id="nick" name="nick" value="<?php echo $info['nick'] ?>" required><br><br>
-
-        <label for="fecha">Fecha:</label>
-        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="<?php echo $info['fecha_nacimiento'] ?>" required><br><br>
-
-        <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" value="<?php echo $info['correo'] ?>" required><br><br>
-
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" value="<?php echo $info['nombre'] ?>" required><br><br>
-
-        <label for="apellidos">Apellidos:</label>
-        <input type="text" id="apellidos" name="apellidos" value="<?php echo $info['apellidos'] ?>" required><br><br>
-
+        <div class="profile-container">
+            <div class="profile-info">
+                <div class="editable-field" id="name-field">
+                    <label><i class="fas fa-id-card"></i> Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" value="<?php echo $info['nombre'] ?>"
+                        class="field-value">
+                </div>
+                <div class="editable-field" id="last-name-field">
+                    <label><i class="fas fa-id-card"></i> Apellidos:</label>
+                    <input type="text" name="apellidos" id="apellidos" value="<?php echo $info['apellidos'] ?>"
+                        class="field-value">
+                </div>
+                <div class="editable-field" id="email-field">
+                    <label><i class="fas fa-envelope"></i> Correo Electrónico:</label>
+                    <input type="text" name="correo" id="correo" value="<?php echo $info['correo'] ?>"
+                        class="field-value">
+                </div>
+                <div class="editable-field" id="username-field">
+                    <label><i class="fas fa-user-tag"></i> Nickname:</label>
+                    <input type="text" name="nick" id="nick" value="<?php echo $info['nick'] ?>" class="field-value">
+                </div>
+                <div class="editable-field" id="calendar-field">
+                    <label><i class="fas fa-calendar"></i> Fecha de nacimiento:</label>
+                    <input type="text" name="fecha_nacimiento" id="fecha_nacimiento"
+                        value="<?php echo $info['fecha_nacimiento'] ?>" class="field-value">
+                </div>
+            </div>
+        </div>
+        <button class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i> Volver
+        </button>
         <input type="submit" value="Enviar">
-    </form>
 
+    </form>
+    <script>
+        function goBack() {
+            window.location.href="../controlador/controlador_perfil.php"
+        }
+    </script>
 </body>
 
 </html>

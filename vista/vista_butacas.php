@@ -11,6 +11,7 @@
     </head>
 
 <body>
+<?php require_once("vista_cabecera.php") ?>
 
 <h1>Sala <?php echo $nombre_sala; ?></h1>        
 <div class = "center-div">

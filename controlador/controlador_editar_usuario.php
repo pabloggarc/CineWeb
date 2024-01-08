@@ -9,12 +9,11 @@ $bd->conectar();
 // Procesamiento del formulario de inicio de sesion
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nick = $_POST['nick'];
-    $clave = $_POST['clave'];
     $nombre = $_POST['nombre'];
     $apellidos = $_POST['apellidos'];
     $correo = $_POST['correo'];
     $fecha_nacimiento = $_POST['fecha_nacimiento'];
-    $bd->update_usuario_por_nick($nick, $clave, $nombre, $apellidos, $correo, $fecha_nacimiento);
+    $bd->update_usuario_por_nick($nick, $nombre, $apellidos, $correo, $fecha_nacimiento);
 }
 
 $bd->desconectar();

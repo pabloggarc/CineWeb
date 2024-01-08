@@ -9,6 +9,8 @@
 
 <body>
 
+<?php require_once("vista_cabecera.php") ?>
+
     <form action="../controlador/controlador_update_sala.php" method="post">
         <label for="nombre_sala">Nombre de la Sala:</label>
         <input type="text" id="nombre_sala" name="nombre_sala" value=<?php echo $info['nombre'] ?> pattern="[a-zA-Z0-9]{0,19}" required>

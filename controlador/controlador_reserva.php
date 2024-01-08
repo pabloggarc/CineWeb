@@ -10,12 +10,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../controlador/controlador_pago.php"); // Reemplaza con el nombre de tu archivo de formulario
         exit;
     } else {
+        // QUITAR
         $numero_aleatorio = rand(1,5000);
         $verificar = $bd->consultar_localizador($numero_aleatorio);
         while($verificar){
             $numero_aleatorio = rand(1,5000);
             $verificar = $bd->consultar_localizador($numero_aleatorio);
         }
+        // HASTA AQUI
         $usuario = $_SESSION["nick"];
         $id_usuario = $bd->get_usuario_por_nick($usuario);
         $id_usuario = $id_usuario[0]["id"];

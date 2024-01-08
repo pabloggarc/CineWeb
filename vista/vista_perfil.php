@@ -5,19 +5,14 @@
     <title>Información del usuario</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilosPerfil.css">
+    <link rel="stylesheet" href="../estilosCine.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous" />
 </head>
 
 <body>
-    <nav>
-        <img src="./imagenes/CINE+.png" class="logo" alt="Logo de la página">
-        <div class="opciones">
-            <a href="../controlador/controlador_perfil.php">PERFIL</a>
-            <a href="../controlador/controlador_mostrar_cartelera.php">CARTELERA</a>
-        </div>
-    </nav>
+    
+    <?php require_once("vista_cabecera.php") ?>
 
     <div class="container">
         <h2>PERFIL</h2>
@@ -68,6 +63,7 @@
             <div class="parking-icon" title="Borrar Cuenta" onclick="deleteAccount()">
                 <a href="../controlador/controlador_eliminar_cuenta.php"><i class="fas fa-trash-alt"></i>
             </div>
+            
         </div>
     </div>
 </body>

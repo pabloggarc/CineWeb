@@ -18,6 +18,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
 <body>
 
+<?php require_once("vista_cabecera.php") ?>
+
     <form method='POST' action='../controlador/controlador_eliminar_sala.php'>
         <table class="table" name="tabla_entradas" id="tabla_entradas">
             <tr>

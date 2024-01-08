@@ -8,15 +8,8 @@
 </head>
 
 <body>
-    <nav>
-        <img src="./imagenes/CINE+.png" class="logo" alt="Logo de la página">
-        <div class="opciones">
-            <a href="../controlador/controlador_perfil.php">PERFIL</a>
-            <a href="../controlador/controlador_ver_reservas.php">VISTA ENTRADA</a>
-            <a href="../controlador/controlador_peliculas_vistas.php">PELICULAS VISTAS</a>
-            <a href="../controlador/controlador_mostrar_cartelera.php">CARTELERA</a>
-        </div>
-    </nav>
+<?php require_once("vista_cabecera.php") ?>
+
     <h1>PANEL DE CONTROL ADMIN
     </h1>
     <table>

@@ -19,12 +19,11 @@ $id_entrada = array();
 foreach ($lista_entradas as $entrada) {
     $aux_fila=array();
     $aux_columna=array();
-    $nombre_pelicula[]=$entrada['nombre'];   
-    $hora[]=$entrada['hora'];   
-    $dia[]=$entrada['dia'];   
+    $nombre_pelicula[]=$entrada['nombre'];
+    $hora[]=$entrada['hora'];
+    $dia[]=$entrada['dia'];
     $sala[]=$entrada['sala'];
-    $visto[] = $entrada['visto'];  
-
+    $visto[] = $bd->get_pelicula_comentada($nick, $entrada['nombre'], $entrada['sala'], $entrada['dia'], $entrada['hora'])[0];
 }
 
 $bd->desconectar();

@@ -11,8 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     session_start();
     $nick = $_SESSION['nick'];
     $info = $bd->get_usuario_por_nick($nick)[0];
-    $clave = $bd->get_clave_por_nick($nick);
-    password_verify($info['password'], $clave);
 }
 
 $bd->desconectar();

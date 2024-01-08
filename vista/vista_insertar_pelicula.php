@@ -9,6 +9,8 @@
 
 <body>
 
+<?php require_once("vista_cabecera.php") ?>
+
     <form action="../controlador/controlador_insertar_pelicula.php" method="post">
         <label for="nombre_pelicula">Nombre de la Película:</label>
         <input type="text" id="nombre_pelicula" name="nombre_pelicula" required>

@@ -9,6 +9,8 @@
 
 <body>
 
+<?php require_once("vista_cabecera.php") ?>
+
     <form action="../controlador/controlador_update_pase.php" method="post">
         <label for="dia">Introduce un día:</label>
         <input type="date" id="dia" name="dia" value=<?php echo $info['dia'] ?> required>

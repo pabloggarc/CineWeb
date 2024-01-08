@@ -15,9 +15,6 @@
 <body>
     <nav>
         <img src="../imagenes/CINE+.png" class="logo" alt="Logo de la página">
-        <div class="opciones">
-            <a href="login.php">INICIO</a>
-        </div>
     </nav>
     <div class="container-form register" id="iniciarSesion">
         <div class="information">

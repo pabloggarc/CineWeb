@@ -4,6 +4,8 @@
         <title>Estadísticas</title>
     </head>
     <body>
+    <?php require_once("vista_cabecera.php") ?>
+
         <div>
             Proyecciones hoy (<?php echo date("d/m/Y"); ?>): 
         </div>

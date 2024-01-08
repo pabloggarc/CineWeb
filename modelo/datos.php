@@ -149,19 +149,19 @@ class Datos
     }
     public function eliminar_usuario_por_nick($nick)
     {
-        $consulta = $this->ejecutar_consulta("DELETE FROM Usuario WHERE nick= '" . $nick . "'");
+        $this->ejecutar_consulta("DELETE FROM Usuario WHERE nick= '" . $nick . "'");
     }
 
 
     public function get_peliculas_no_vistas_por_nick($nick)
     {
-        $consulta = $this->ejecutar_consulta("select pelicula.nombre, pase.hora, pase.dia, sala.nombre as sala from entrada 
+        $consulta = $this->ejecutar_consulta("select pelicula.nombre, pase.hora, pase.dia, entrada.localizador, sala.nombre as sala from entrada 
             inner join usuario on usuario.id = entrada.id_usuario 
             inner join pase on pase.id = entrada.id_pase_sesion 
             inner join sala on sala.id = entrada.id_sala_sesion 
             inner join pelicula on pelicula.id = entrada.id_pelicula_sesion 
             WHERE usuario.nick= '" . $nick . "' and pase.dia > CURRENT_DATE or (pase.dia = CURRENT_DATE and pase.hora > CURRENT_TIME)
-            group by pelicula.nombre, pase.hora, pase.dia, sala.nombre;");
+            group by pelicula.nombre, pase.hora, pase.dia, sala.nombre, entrada.localizador;");
         if (!empty($consulta)) {
             return $consulta;
         } else {
@@ -215,8 +215,7 @@ class Datos
 
     public function get_peliculas_vistas_por_nick($nick)
     {
-        $consulta = $this->ejecutar_consulta("select pelicula.nombre, pase.hora, pase.dia, sala.nombre as sala, 
-            (select count(*) from valoracion where id_usuario = (select id from usuario where nick ='" . $nick . "')) as visto from entrada 
+        $consulta = $this->ejecutar_consulta("select pelicula.nombre, pase.hora, pase.dia, sala.nombre as sala from entrada 
                         inner join usuario on usuario.id = entrada.id_usuario 
                         inner join pase on pase.id = entrada.id_pase_sesion 
                         inner join sala on sala.id = entrada.id_sala_sesion 
@@ -740,15 +739,38 @@ class Datos
         WHERE id = " . $id . ";");
     }
 
-    public function update_usuario_por_nick($nick, $clave, $nombre, $apellidos, $correo, $fecha_nacimiento)
+    public function update_usuario_por_nick($nick, $nombre, $apellidos, $correo, $fecha_nacimiento)
     {
         $this->ejecutar_consulta("update usuario
-        set nick = '" . $nick . "', clave = '" . $clave . "',
+        set nick = '" . $nick . "',
         nombre = '" . $nombre . "', apellidos = '" . $apellidos . "',
         correo = '" . $correo . "', fecha_nacimiento = '" . $fecha_nacimiento . "'
         where nick = '" . $nick . "';");
     }
+    public function get_pelicula_comentada($nick, $nombre, $sala, $dia, $hora)
+    {
+        $consulta = $this->ejecutar_consulta("select count(*) as visto from valoracion
+        inner join usuario on usuario.id = valoracion.id_usuario 
+        inner join pelicula on pelicula.id = valoracion.id_pelicula
+        where pelicula.id = 
+        (select pelicula.id from sesion
+        inner join pelicula on pelicula.id = sesion.id_pelicula
+        inner join pase on pase.id = sesion.id_pase
+        inner join sala on sala.id = sesion.id_sala
+        where pelicula.nombre = '" . $nombre . "' 
+        and sala.nombre = '" . $sala . "' 
+        and pase.hora = '" . $hora . "' 
+        and pase.dia = '" . $dia . "' ) 
+        and nick = '" . $nick . "' ;");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
 }
+
+
 
 
 ?>
