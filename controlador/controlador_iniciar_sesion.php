@@ -36,7 +36,7 @@
                 // Redirigimos al usuario a la pantalla de inicios del cliente
                 header("Location: ../controlador/controlador_perfil.php");
             }else if($rol_usuario==2){
-                require_once("../vista/vista_admin_inicio.php");
+                header("Location: ../controlador/controlador_admin_inicio.php");
             }
         } 
         // Si el nickname es incorrecto

@@ -12,20 +12,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <link rel="stylesheet" href="../estilosPerfil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous" />
-    <link rel="stylesheet" href="../estilos.css">
-
+    <link rel="stylesheet" href="../estilosCine.css">
+    <link rel="stylesheet" href="../estilos_cabecera.css">
 </head>
 
 <body>
 
-<?php require_once("vista_cabecera.php") ?>
+    <?php require_once("vista_cabecera_admin.php") ?>
 
     <form method='POST' action='../controlador/controlador_consultar_sala.php'>
-        <table class="table" name="tabla_entradas" id="tabla_entradas">
+        <table id="tablaDatos" name="tabla_entradas">
             <tr>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
+                <th>Sala</th>
+                <th>Filas totales</th>
+                <th>Columnas totales</th>
+                <th>Accion</th>
             </tr>
             <?php
             for ($i = 0; $i < count($lista_salas); $i++) {

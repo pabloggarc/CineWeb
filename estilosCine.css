@@ -601,10 +601,9 @@ nav {
 #grafica, #grafica2{
     display: inline-block;
     margin-top: 20px;
-    text-align: center;
-    width:35vw; 
-    max-width:35vw; 
-    height:35vh;
+    width:45vw; 
+    max-width:45vw; 
+    height:45vh;
     margin-left: auto;
     margin-right: auto;
 }

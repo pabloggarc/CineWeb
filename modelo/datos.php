@@ -555,7 +555,8 @@ class Datos
         }
     }
 
-    public function get_reservas_peliculas(){
+    public function get_reservas_peliculas()
+    {
         $consulta = $this->ejecutar_consulta(
             "SELECT Pelicula.nombre, COUNT(*) AS Reservas FROM Butaca
             INNER JOIN Entrada ON Butaca.ID = Entrada.ID_Butaca
@@ -601,10 +602,26 @@ class Datos
     public function insertar_sala($nombre, $filas, $columnas)
     {
         $this->ejecutar_consulta("insert into sala(nombre, filas, columnas) values ('" . $nombre . "', " . $filas . ", " . $columnas . ");");
+
+        for ($i = 1; $i <= $filas; $i++) {
+            for ($j = 1; $j <= $columnas; $j++) {
+                $this->ejecutar_consulta("insert into butaca(fila, columna, id_sala) values (" . $i . ", " . $j . ", (select id from sala where nombre = '" . $nombre . "'));");
+            }
+        }
     }
 
+    public function get_sala_por_nombre($nombre)
+    {
+        $consulta = $this->ejecutar_consulta("select * from sala where nombre = '" . $nombre . "';");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
     public function eliminar_sala_por_id($id)
     {
+        $this->ejecutar_consulta("delete from butaca where id_sala = '" . $id . "';");
         $this->ejecutar_consulta("delete from sala where id = '" . $id . "';");
     }
 
@@ -622,9 +639,8 @@ class Datos
 
     public function update_sala_por_id($id, $nombre, $filas, $columnas)
     {
-        $this->ejecutar_consulta("UPDATE sala
-        SET nombre = '" . $nombre . "', filas = " . $filas . ", columnas = " . $columnas . "
-        WHERE id = " . $id . ";");
+        $this->eliminar_sala_por_id($id);
+        $this->insertar_sala($nombre, $filas, $columnas);
     }
 
     public function get_sesiones()

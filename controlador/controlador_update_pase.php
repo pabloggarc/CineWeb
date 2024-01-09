@@ -15,5 +15,5 @@
     }
 
     $bd->desconectar();
-    require_once("../vista/vista_admin_inicio.php"); 
-?>
+    header("Location: ../controlador/controlador_admin_inicio.php");
+    ?>

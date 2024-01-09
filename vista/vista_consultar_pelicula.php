@@ -11,9 +11,7 @@
 </head>
 
 <body>
-<?php 
-
-    require_once("vista_cabecera_admin.php") ?>
+<?php require_once("vista_cabecera_admin.php") ?>
     <h1>CARTELERA
     </h1>
     <div class="center-div">
