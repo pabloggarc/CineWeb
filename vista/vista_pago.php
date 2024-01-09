@@ -4,6 +4,8 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="../estilos_peli.css">
+    <link rel="stylesheet" type="text/css" href="../estilos_cabecera.css">
+
     <script>
         function goBack() {
             window.location.href = "../controlador/controlador_butacas.php";
@@ -19,7 +21,7 @@
         <div class="image-box">
         <img src="<?php echo $imagen; ?>" alt="Imagen">
         </div>
-        <div class="info-box" id="buttons">
+        <div class="info-box" id="info-box">
         <?php if (isset($peli)): ?>
                 <h3>
                     <?php echo $titulo ?>
@@ -105,8 +107,9 @@
             <td>
                 <?php echo htmlspecialchars($unidades); ?>
             </td>
-            <td>$
+            <td>
                 <?php echo htmlspecialchars(number_format($precioTotal, 2)); ?>
+                €
             </td>
         </tr>
     </table>

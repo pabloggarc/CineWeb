@@ -6,5 +6,7 @@ def generar_butacas(filas, columnas, sala):
             print(f"INSERT INTO Butaca (fila, columna, ID_Sala) VALUES ({i}, {j}, {sala}); ")
 
 if __name__ == "__main__":
-    generar_butacas(10,8,1)
-    #generar_butacas(*[int(i) for i in sys.argv[1:]])
+    generar_butacas(6,6,5)
+    generar_butacas(7,5,7)
+    generar_butacas(6,6,6)    
+#generar_butacas(*[int(i) for i in sys.argv[1:]])

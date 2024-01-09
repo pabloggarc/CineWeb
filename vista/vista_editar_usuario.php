@@ -51,11 +51,6 @@
         <input type="submit" value="Enviar">
 
     </form>
-    <script>
-        function goBack() {
-            window.location.href="../controlador/controlador_perfil.php"
-        }
-    </script>
 </body>
 
 </html>

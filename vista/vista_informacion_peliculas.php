@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="../estilos_peli.css">
+    <link rel="stylesheet" href="../estilos_cabecera.css">
     <script>
         function moverseCartelera() {
             window.location.href = '../controlador/controlador_mostrar_cartelera.php';
@@ -71,13 +72,12 @@
 
 <body>
 
-<?php require_once("vista_cabecera.php") ?>
+    <?php require_once("vista_cabecera.php") ?>
 
-
-    <div class="container">
+    <div id="container" class="container">
         <div class="image-box">
-        <img src="<?php echo $imagen; ?>" alt="Imagen">
-        
+            <img src="<?php echo $imagen; ?>" alt="Imagen">
+
         </div>
         <div class="info-box">
             <?php if (isset($peli)): ?>
@@ -85,16 +85,20 @@
                     <?php echo $titulo ?>
                 </h3>
                 <ul class="lista-con-titulos-inline">
-                    <li><h4>Sinopsis:</h4>
+                    <li>
+                        <h4>Sinopsis:</h4>
                         <?php echo $sinopsis; ?>
                     </li>
-                    <li><h4>Duracion:</h4>
+                    <li>
+                        <h4>Duracion:</h4>
                         <?php echo $duracion; ?>
                     </li>
-                    <li><h4>Año:</h4>
+                    <li>
+                        <h4>Año:</h4>
                         <?php echo $año; ?>
                     </li>
-                    <li><h4>Clasificacion:</h4>
+                    <li>
+                        <h4>Clasificacion:</h4>
                         <?php
                         $totalClasificacion = count($clasificacion); // Contar el total de elementos en el array
                         $contador = 0;
@@ -107,13 +111,15 @@
                             }
                         } ?>
                     </li>
-                    <li><h4>Valoracion:</h4>
+                    <li>
+                        <h4>Valoracion:</h4>
                         <?php
                         foreach ($valoraciones as $val) {
                             echo $val["media_puntuacion"];
                         } ?>
                     </li>
-                    <li><h4>Genero:</h4>
+                    <li>
+                        <h4>Genero:</h4>
                         <?php
                         $totalGenero = count($genero); // Contar el total de elementos en el array
                         $contador = 0;
@@ -126,7 +132,8 @@
                             }
                         } ?>
                     </li>
-                    <li><h4>Director:</h4>
+                    <li>
+                        <h4>Director:</h4>
                         <?php
                         $totalDirectores = count($director); // Contar el total de elementos en el array
                         $contador = 0;
@@ -139,7 +146,8 @@
                             }
                         } ?>
                     </li>
-                    <li><h4>Actores:</h4>
+                    <li>
+                        <h4>Actores:</h4>
                         <?php
                         $totalActores = count($actores); // Contar el total de elementos en el array
                         $contador = 0;
@@ -152,7 +160,8 @@
                             }
                         } ?>
                     </li>
-                    <li><h4>Nacionalidad:</h4>
+                    <li>
+                        <h4>Nacionalidad:</h4>
                         <?php echo $nacionalidad; ?>
                     </li>
                 </ul>

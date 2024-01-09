@@ -1,78 +1,79 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Estadísticas</title>
-    </head>
-    <body>
-    <?php require_once("vista_cabecera.php") ?>
 
-        <div>
-            Proyecciones hoy (<?php echo date("d/m/Y"); ?>): 
-        </div>
-        <div>
-            <span style='font-size:3em'><?=$sesiones_hoy?></span>
-        </div>
+<head>
+    <title>Estadísticas</title>
+</head>
+<link rel="stylesheet" href="../estilos_cabecera.css">
+<link rel="stylesheet" type="text/css" href="../estilosCine.css">
 
-        <div>
-            Proyecciones futuras:
-        </div>
-        <div>
-            <span style='font-size:3em'><?=$sesiones_futuras?></span>
-        </div>
 
-        <div>
-            Usuarios registrados:
-        </div>
-        <div>
-            <span style='font-size:3em'><?=$numero_usuarios?></span>
-        </div>
 
-        <div>
-            Películas en cartelera:
-        </div>
-        <div>
-            <span style='font-size:3em'><?=$numero_peliculas_disponibles?></span>
-        </div>       
-        <div>
-            Valoración media de los usuarios:
-        </div>
-        <div>
-            <span style='font-size:3em'><?=$valoracion_media?></span>
-        </div>
+<body>
 
-        <div>
-            Butacas reservadas actualmente:
-        </div>
-        <div>
-            <span style='font-size:3em'><?=$numero_butacas_reservadas?></span>
-        </div>
+    <?php require_once("vista_cabecera_admin.php") ?>
 
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-        <div id="grafica" style="width:66vw; max-width:66vw; height:66vh;">
-        </div>
+    <table id="tablaDatos2">
+        <tr>
+            <th>Proyecciones hoy (<?php echo date("d/m/Y");?>)</th>
+            <th>Proyecciones futuras:</th>
+            <th>Usuarios registrados:</th>
+            <th>Películas en cartelera:</th>
+            <th>Valoración media de los usuarios:</th>
+            <th> Butacas reservadas actualmente:</th>
 
-        <script>
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
+        </tr>
+        <tr>
+            <td>
+                <?= $sesiones_hoy ?>
+            </td>
+            <td>
+                <?= $sesiones_futuras ?>
+            </td>
+            <td>
+                <?= $numero_usuarios ?>
+            </td>
+            <td>
+                <?= $numero_peliculas_disponibles ?>
+            </td>
+            <td>
+                <?= $valoracion_media ?>
+            </td>
+            <td>
+                <?= $numero_butacas_reservadas ?>
+            </td>
 
-            function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                    ['Estado', '%'],            
-                    ['Ocupadas',<?=$numero_butacas_ocupadas?>],
-                    ['Libres',<?=$numero_butacas - $numero_butacas_ocupadas?>]
-                ]);
+        </tr>
+    </table>
 
-                var options = {
-                    title:'Ocupación de las butacas a las '+ new Date().toLocaleTimeString(),
-                    is3D:true,
-                    colors: ['#dc3545','#28a745',]
-                };
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-                var chart = new google.visualization.PieChart(document.getElementById('grafica'));
-                chart.draw(data, options);
-            }
-            
-        </script>
-    </body>
+    <div id="grafica">
+    </div>
+
+    <script>
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Estado', '%'],
+                ['Ocupadas', <?= $numero_butacas_ocupadas ?>],
+                ['Libres', <?= $numero_butacas - $numero_butacas_ocupadas ?>]
+            ]);
+
+            var options = {
+                title: 'Ocupación de las butacas a las ' + new Date().toLocaleTimeString(),
+                is3D: true,
+                colors: ['#dc3545', '#28a745',]
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('grafica'));
+            chart.draw(data, options);
+        }
+
+    </script>
+</body>
+
 </html>

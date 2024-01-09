@@ -1,16 +1,50 @@
+@import url('https://fonts.cdnfonts.com/css/dinpro-medium');
+
+*{
+    font-family:'DINPro-Medium', sans-serif;
+
+}
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
 }
 
-.header, .container, .data-table, .footer-buttons {
+.header, .container, .footer-buttons {
     margin: 0 auto;
     max-width: 80%;
     padding: 20px;
+
 }
 
+
+.data-table {
+    width: 40%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-left: auto;
+  margin-right: auto;
+}
+
+.data-table th,
+.data-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+    background-color: #e13b11;
+    color: #fff;
+}
+
+.data-table tr:hover {
+    background-color: #f5f5f5;
+}
 
 
 .form-container {
@@ -22,17 +56,21 @@ body {
 }
 
 .form-field {
-    width: 100%;
+    width: 90%;
+    margin-top: 20px;
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-right: 10px;
+
 }
 
 .form-button {
     padding: 10px 20px;
     margin: 5px;
-    background-color: #333;
+    background-color: #e74c3c; 
     color: white;
     border: none;
     border-radius: 5px;
@@ -40,7 +78,7 @@ body {
 }
 
 .form-button:hover {
-    background-color: #555;
+    background-color: #e74c3c;
 }
 body {
     font-family: Arial, sans-serif;
@@ -49,41 +87,7 @@ body {
     background-color: #f4f4f4;
 }
 
-.header, .container, .data-table, .footer-buttons {
-    margin: 0 auto;
-    max-width: 80%;
-    padding: 20px;
-}
 
-.form-container {
-    width: 30%;
-    margin: 40px auto;
-    padding: 20px;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.form-field {
-    width: calc(100% - 40px); /* Ajustar el ancho considerando el padding y bordes */
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
-
-.form-button {
-    padding: 10px 20px;
-    margin: 5px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.form-button:hover {
-    background-color: #555;
-}
 .header {
     background-color: #333;
     color: white;
@@ -103,11 +107,12 @@ body {
     flex: 1; /* Ambos contenedores tienen la misma flexibilidad */
     padding: 20px;
     margin: 10px;
+    
 }
 
 .image-box {
     text-align: center;
-    width: 50px; /* Ancho fijo para el contenedor de la imagen */
+    width: 70px; /* Ancho fijo para el contenedor de la imagen */
     height: 330px;
     overflow: hidden;
 }
@@ -115,8 +120,6 @@ body {
 .image-box img {
     max-width: 100%;
     max-height: 100%;
-    width: auto;
-    height: auto;
     object-fit: contain; /* Ajusta la imagen para que quepa completamente dentro del contenedor */
 }
 
@@ -170,20 +173,4 @@ body {
 
 .footer-button:hover {
     background-color: #555;
-}
-
-.data-table {
-    width: 60%;
-    margin: 20px auto;
-    border-collapse: collapse;
-}
-
-.data-table th, .data-table td {
-    padding: 8px;
-    text-align: left;
-    border: 2px solid #ddd; /* Aumento del grosor del borde para mayor notabilidad */
-}
-
-.data-table th {
-    font-weight: bold;
 }

@@ -12,7 +12,13 @@
 
 <body>
     
-    <?php require_once("vista_cabecera.php") ?>
+    <?php 
+    if($_SESSION['rol_usuario']==1){
+        require_once("vista_cabecera.php");
+    }else{
+        require_once("vista_cabecera_admin.php");
+    }
+     ?>
 
     <div class="container">
         <h2>PERFIL</h2>

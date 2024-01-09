@@ -18,7 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $lista_peliculas = $bd->get_peliculas();
             if ($opcion_selec == 2) {
-                
                 require_once('../vista/vista_eliminar_pelicula.php');
             } else {
                 require_once('../vista/vista_consultar_pelicula.php');

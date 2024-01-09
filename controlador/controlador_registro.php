@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Swal.fire({
                     icon: "error",
                     title: "<span style=\'color: red;\'>NICKNAME EN USO</span>",
-                    html: "<span style=\'color: #333;\'>El nickname se encuentra en uso</span>",
+                    html: "<span style=\'color: #333; font-family: "DINPro-Medium"\'>El nickname se encuentra en uso</span>",
                     confirmButtonText: "<span style=\'color: #fff;\'>OK</span>",
                     customClass: {
                         confirmButton: \'btn btn-danger\',

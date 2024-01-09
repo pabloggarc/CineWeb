@@ -1,32 +1,31 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : 17 nov 2023, 19:39:47
-    Author     : pedro
-*/
+@import url('https://fonts.cdnfonts.com/css/dinpro-medium');
+
 .contenedor {
-    width: 300px; /* Ajusta el ancho según tus necesidades */
+    width: 300px;
+    /* Ajusta el ancho según tus necesidades */
     padding: 20px;
     border: 1px solid #ccc;
-    margin-top: 20px; /* Espacio superior entre el contenedor y el borde superior del body */
+    margin-top: 20px;
+    /* Espacio superior entre el contenedor y el borde superior del body */
 }
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'DINPro-Medium', sans-serif;
 }
 
 body {
     display: flex;
+    font-family: 'DINPro-Medium', sans-serif;
     align-items: center;
     justify-content: center;
     background-image: url(./imagenes/cineFondo.jpg);
     background-size: cover;
-    color:black;
-    flex-direction: column; /* Añadido para apilar elementos verticalmente */
+    color: black;
+    flex-direction: column;
+    /* Añadido para apilar elementos verticalmente */
 }
 
 nav {
@@ -36,7 +35,7 @@ nav {
     width: 100%;
 }
 
-.logo{
+.logo {
     margin-top: 10px;
     display: inline-block;
     vertical-align: middle;
@@ -48,7 +47,8 @@ nav {
 .opciones {
     display: inline-block;
     vertical-align: middle;
-    line-height: 80px; /* Ajusta según sea necesario para centrar verticalmente las opciones */
+    line-height: 80px;
+    /* Ajusta según sea necesario para centrar verticalmente las opciones */
 }
 
 .opciones a {
@@ -61,7 +61,7 @@ nav {
 }
 
 .opciones a:hover {
-    color: #3385cc;
+    color: #cc3333;
 }
 
 .container-form {
@@ -76,7 +76,7 @@ nav {
     margin-right: 150px;
 }
 
-.container-form2{
+.container-form2 {
     display: flex;
     border-radius: 20px;
     height: 850px;
@@ -86,7 +86,7 @@ nav {
 }
 
 
-.container-form3{
+.container-form3 {
     display: flex;
     border-radius: 20px;
     height: 350px;
@@ -95,7 +95,8 @@ nav {
     margin-top: 120px;
     margin-bottom: 150px;
 }
-.container-form4{
+
+.container-form4 {
     display: flex;
     border-radius: 20px;
     height: 450px;
@@ -105,7 +106,7 @@ nav {
     margin-bottom: 150px;
 }
 
-.container-form5{
+.container-form5 {
     display: flex;
     border-radius: 20px;
     height: 500px;
@@ -115,7 +116,7 @@ nav {
     margin-bottom: 80px;
 }
 
-.cont-ubicacion{
+.cont-ubicacion {
     display: flex;
     border-radius: 20px;
     height: 550px;
@@ -152,26 +153,27 @@ nav {
 }
 
 .info-childs p {
-    margin: 15px 0 ;
+    margin: 15px 0;
     color: black;
     font-size: 0.9rem;
 }
 
+
 .info-childs input {
     background-color: transparent;
     outline: none;
-    border: solid 1px grey;
+    border: solid 1px rgb(16, 16, 16);
     border-radius: 20px;
     padding: 10px 20px;
     color: white;
-    background-color: grey;
+    background-color: rgb(0, 0, 0);
     cursor: pointer;
     transition: background-color .3s ease;
     margin-top: 10px;
 }
 
 .info-childs input:hover {
-    background-color: #9191bd;
+    background-color: #000000;
     border: none;
     color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
@@ -197,19 +199,20 @@ nav {
 }
 
 .info-childs2 p {
-    margin: 15px 0 ;
+    margin: 15px 0;
     color: black;
     font-size: 0.9rem;
 }
+
 .info-childs2 .ubicacion {
     height: 70px;
-    width:auto;
+    width: auto;
     background-color: transparent;
 }
 
 .info-childs2 .coche {
     height: 60px;
-    width:auto;
+    width: auto;
     background-color: transparent;
     margin-bottom: 20px;
 }
@@ -234,28 +237,30 @@ nav {
 }
 
 .info-childs3 p {
-    margin: 15px 0 ;
+    margin: 15px 0;
     color: black;
     font-size: 0.9rem;
 }
+
 .info-childs3 .ubicacion {
     height: 60px;
-    width:auto;
+    width: auto;
     background-color: transparent;
 }
 
 .info-childs3 .telefono {
     height: 50px;
-    width:auto;
+    width: auto;
     background-color: transparent;
     margin-bottom: 20px;
 }
 
 .info-childs3 .correo {
     height: 75px;
-    width:auto;
+    width: auto;
     background-color: transparent;
 }
+
 .form-information {
     display: flex;
     align-items: center;
@@ -273,8 +278,8 @@ nav {
     padding: 0 30px;
 }
 
-.form-information-childs .botonPass{
-    color:black;
+.form-information-childs .botonPass {
+    color: black;
 }
 
 .form-information-childs h2 {
@@ -348,6 +353,7 @@ nav {
     font-size: 0.9rem;
     text-align: justify;
 }
+
 .form-information-childs3 .smartPark {
     width: auto;
     height: 80px;
@@ -357,7 +363,7 @@ nav {
 
 .form {
     margin-top: 20px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
 .form label {
@@ -381,11 +387,11 @@ nav {
 
 
 .form label i {
-    color: #a7a7a7;
+    color: #ff0000;
 }
 
 .form input[type="button"] {
-    background-color: grey;
+    background-color: rgb(255, 252, 252);
     color: #fff;
     border-radius: 20px;
     border: none;
@@ -395,11 +401,11 @@ nav {
 }
 
 .form input[type="button"]:hover {
-    background-color: #9191bd;
+    background-color: #0606fa;
 }
 
 .form input[type="submit"] {
-    background-color: grey;
+    background-color: rgb(54, 249, 0);
     color: #fff;
     border-radius: 20px;
     border: none;
@@ -410,21 +416,21 @@ nav {
 }
 
 .form input[type="submit"]:hover {
-    background-color: #9191bd;
+    background-color: #0d0d0d;
 }
 
 
-.forgot-password-link input[type="button"]{
-    display:inline-block;
-    color:blue;
+.forgot-password-link input[type="button"] {
+    display: inline-block;
+    color: blue;
     text-decoration: none;
     cursor: pointer;
-    border:none;
+    border: none;
     background-color: transparent;
     transition: text-decoration 0.3s;
 }
 
-.forgot-password-link input[type="button"]:hover{
+.forgot-password-link input[type="button"]:hover {
     text-decoration: underline;
 }
 
@@ -432,13 +438,14 @@ nav {
     position: absolute;
     transform: translateY(-300%);
 }
+
 /* Aplicar estilos según tus preferencias */
 .fila {
     display: flex;
     margin-bottom: 10px;
 }
 
-.fila label{
+.fila label {
     margin-top: 5px;
     font-size: 16px;
     margin-right: 220px;
@@ -449,9 +456,11 @@ nav {
     border: 1px solid #ccc;
     padding: 8px;
     font-size: 16px;
-    margin-right: 10px; /* Espacio entre las cajas de texto */
+    margin-right: 10px;
+    /* Espacio entre las cajas de texto */
     margin-left: 10px;
 }
+
 /*RESPONSIVE FORM*/
 
 @media screen and (max-width:750px) {
@@ -502,6 +511,7 @@ nav {
     margin-bottom: 20px;
 
 }
+
 .formR input {
     padding: 8px;
     box-sizing: border-box;
@@ -529,7 +539,8 @@ nav {
 
 .error {
     color: red;
-    display: none; /* Inicialmente oculto */
+    display: none;
+    /* Inicialmente oculto */
 }
 
 #caja-nombre {
@@ -551,7 +562,7 @@ nav {
     font-size: 20px;
     cursor: pointer;
     margin-left: 5px;
-    display:none;
+    display: none;
 }
 
 
@@ -559,14 +570,14 @@ nav {
     font-size: 20px;
     cursor: pointer;
     margin-left: 5px;
-    display:inline;
+    display: inline;
 }
 
 #icon-check-correo {
     font-size: 20px;
     cursor: pointer;
     margin-left: 5px;
-    display:none;
+    display: none;
 }
 
 
@@ -574,7 +585,7 @@ nav {
     font-size: 20px;
     cursor: pointer;
     margin-left: 5px;
-    display:inline;
+    display: inline;
 }
 
 
@@ -582,7 +593,7 @@ nav {
     font-size: 20px;
     cursor: pointer;
     margin-left: 5px;
-    display:none;
+    display: none;
 }
 
 
@@ -590,7 +601,7 @@ nav {
     font-size: 20px;
     cursor: pointer;
     margin-left: 5px;
-    display:inline;
+    display: inline;
 }
 
 
@@ -598,7 +609,7 @@ nav {
     font-size: 20px;
     cursor: pointer;
     margin-left: 5px;
-    display:none;
+    display: none;
 }
 
 
@@ -606,14 +617,14 @@ nav {
     font-size: 20px;
     cursor: pointer;
     margin-left: 5px;
-    display:inline;
+    display: inline;
 }
 
 #icon-check-fecha_nacimiento {
     font-size: 20px;
     cursor: pointer;
     margin-left: 5px;
-    display:none;
+    display: none;
 }
 
 
@@ -621,7 +632,7 @@ nav {
     font-size: 20px;
     cursor: pointer;
     margin-left: 5px;
-    display:inline;
+    display: inline;
 }
 
 
@@ -629,7 +640,7 @@ nav {
     font-size: 20px;
     cursor: pointer;
     margin-left: 5px;
-    display:none;
+    display: none;
 }
 
 
@@ -637,14 +648,14 @@ nav {
     font-size: 20px;
     cursor: pointer;
     margin-left: 5px;
-    display:inline;
+    display: inline;
 }
 
 #icon-check-usuario {
     font-size: 20px;
     cursor: pointer;
     margin-left: 5px;
-    display:none;
+    display: none;
 }
 
 
@@ -652,7 +663,7 @@ nav {
     font-size: 20px;
     cursor: pointer;
     margin-left: 5px;
-    display:inline;
+    display: inline;
 }
 
 .icon-green {
@@ -663,11 +674,15 @@ nav {
     color: red;
 }
 
+
 .tooltip {
     position: relative;
     color: red;
-    padding: 10px; /* Aumenta el espacio interno */
-    font-size: 14px; /* Aumenta el tamaño de la fuente */
+    padding: 10px;
+    /* Aumenta el espacio interno */
+    font-size: 14px;
+    /* Aumenta el tamaño de la fuente */
     width: 500px;
-    font-weight: bold; /* Hace que el texto esté en negrita */
+    font-weight: bold;
+    /* Hace que el texto esté en negrita */
 }

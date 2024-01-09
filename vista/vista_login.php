@@ -5,16 +5,17 @@
     <title>Inicio de sesión</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Indicamos la hoja de estilos para el login -->
-    <link rel="stylesheet" href="../estilosLogin.css">
+    <link rel="stylesheet" href="../estilosCine.css">
     <link rel="stylesheet" href="../estilos.css">
+    <link rel="stylesheet" href="../estilosLogin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link rel="icon" href="../imagenes/cine+.PNG" type="image/jpg">
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
 </head>
 
 <body>
     <nav>
-        <img src="../imagenes/CINE+.png" class="logo" alt="Logo de la página">
+        <img src="../imagenes/cineLogo.PNG" class="logo" alt="Logo de la página">
     </nav>
     <div class="container-form register" id="iniciarSesion">
         <div class="information">
@@ -59,46 +60,45 @@
                 <h2>Crear una Cuenta</h2>
                 <form class="formR" action="../controlador/controlador_registro.php" method="POST">
                     <div class="form-group">
-                        <label for="nick">Nick</label>
-                        <div id="caja-nombre">
-                            <input type="text" id="nick" name="nick" placeholder="Introduce tu nick"
+                        <label for="nick"><i class="fas fa-user-tag"></i> Nick</label>
+                        <div  class="editable-field" id="caja-nombre">
+                            <input class="field-value" type="text" id="nick" name="nick" placeholder="Introduce tu nick"
                                 pattern="[a-záéíóúüñ][a-zA-Z0-9áéíóúüÜÑñ]{0,19}" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="nombre">Clave</label>
-                        <div id="caja-nombre">
-                            <input type="password" id="clave" name="clave" placeholder="Introduce tu clave"
+                        <label for="nombre"><i class="fas fa-key"></i> Clave</label>
+                        <div  class="editable-field" id="caja-nombre">
+                            <input class="field-value" type="password" id="clave" name="clave" placeholder="Introduce tu clave"
                                 pattern=".{1,60}" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="telefono">Nombre </label>
-                        <div id="caja-nombre">
-                            <input type="text" id="nombre" name="nombre" placeholder="Introduce tu nombre "
+                        <label for="telefono"><i class="fas fa-id-card"></i> Nombre </label>
+                        <div  class="editable-field" id="caja-nombre">
+                            <input class="field-value" type="text" id="nombre" name="nombre" placeholder="Introduce tu nombre "
                                 pattern="[A-ZÁÉÍÓÚÜÑ][a-zA-ZÁÉÍÓÚáéíóúüÜÑñ]{0,29}" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="telefono">Apellidos </label>
-                        <div id="caja-nombre">
-                            <input type="text" id="apellido" name="apellido"
+                        <label for="telefono"><i class="fas fa-id-card"></i> Apellidos </label>
+                        <div  class="editable-field" id="caja-nombre">
+                            <input class="field-value" type="text" id="apellido" name="apellido"
                                 pattern="[A-ZÁÉÍÓÚÜÑ][a-zA-ZÁÉÍÓÚáéíóúüÜÑñ]+ [A-ZÁÉÍÓÚÜÑ][a-zA-ZÁÉÍÓÚáéíóúüÜÑñ]+"
                                 placeholder="Ingrese dos apellidos" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Correo Electrónico</label>
-                        <div id="caja-nombre">
-                            <input type="email" id="email" name="email" placeholder="Introduce tu correo electrónico"
+                        <label for="email"><i class="fas fa-envelope"></i> Correo electrónico</label>
+                        <div  class="editable-field" id="caja-nombre">
+                            <input class="field-value" type="email" id="email" name="email" placeholder="Introduce tu correo electrónico"
                                 pattern="[a-z][a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
-                            <div id="tooltip-correo" class="tooltip"></div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="password">Fecha de nacimiento</label>
-                        <div id="caja-nombre">
-                            <input type="date" id="fecha" name="fecha" required>
+                        <label for="password"><i class="fas fa-calendar"></i> Fecha de nacimiento</label>
+                        <div  class="editable-field" id="caja-nombre">
+                            <input class="field-value" type="date" id="fecha" name="fecha" required>
                         </div>
                     </div>
                     <input type="submit" value="Registrarse">

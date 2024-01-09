@@ -1,0 +1,41 @@
+nav {
+    background-color: #CCCCCC;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+}
+
+
+.logo {
+    margin-top: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+    height: 90px;
+    margin-bottom: 10px;
+}
+
+.logo:hover {
+    transform: scale(1.20);
+}
+
+.opciones {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 80px;
+    /* Ajusta según sea necesario para centrar verticalmente las opciones */
+}
+
+.opciones a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 50px;
+    margin-right: 100px;
+}
+
+.opciones a:hover {
+    color: #ff0303;
+}
+

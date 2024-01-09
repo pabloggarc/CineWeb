@@ -16,8 +16,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 </head>
 
 <body>
+
     <?php require_once("vista_cabecera.php") ?>
 
+    <h2>COMENTARIO</h2>
     <form method="post" action="../controlador/controlador_comentar.php">
 
         <div class="profile-container">
@@ -54,11 +56,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 </div>
             </div>
         </div>
-        <input type="submit" value="Enviar">
-    </form>
-    <button class="back-button" onclick="goBack()">
-        <i class="fas fa-arrow-left"></i> Volver
-    </button>
+        <button class="back-button" onclick="goBack('../controlador/controlador_peliculas_vistas.php')">
+            <i class="fas fa-arrow-left"></i> Volver
+        </button>
     <script>
         function goBack() {
             window.location.href = "../controlador/controlador_peliculas_vistas.php"

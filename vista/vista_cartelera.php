@@ -11,7 +11,9 @@
 </head>
 
 <body>
-<?php require_once("vista_cabecera.php") ?>
+    <?php
+
+    require_once("vista_cabecera.php") ?>
 
     <h1>CARTELERA</h1>
     <div class="center-div">
@@ -28,7 +30,7 @@
                             echo "<td class='pelicula' id='" . $lista_peliculas[$indice]['id'] . "'><br><div class='pelicula-contenido'>
                                 <img src='" . $lista_peliculas[$indice]['portada'] . "'>";
                             echo "<div class='botones-container'>";
-                
+
                             // Verificar si $lista_sesiones[$indice] es un array antes de usar count()
                             if (is_array($lista_sesiones[$indice])) {
                                 for ($k = 0; $k < count($lista_sesiones[$indice]); $k++) {
@@ -36,7 +38,7 @@
                                     echo '<button id="boton" name="boton" value="' . $valor . '">' . $lista_sesiones[$indice][$k]["hora"] . '</button>';
                                 }
                             }
-                
+
                             echo '<button id="boton" name="boton" value="' . $lista_peliculas[$indice]['id'] . '">VER MAS</button>';
                             echo "</div>";
                             echo "</div>";

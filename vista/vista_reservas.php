@@ -12,7 +12,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <link rel="stylesheet" href="../estilosCine.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous" />
-    <link rel="stylesheet" href="../estilos.css">
 
 </head>
 
@@ -41,7 +40,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     echo "<td><br>" . $hora[$i] . "</td>";
                     echo "<td><br>" . $dia[$i] . "</td>";
                     echo "<td><br>" . $sala[$i] . "</td>";
-                    echo "<td><br>" . $localizador[$i] . "</td>";
+                    echo "<td><br>" . $localizador[$i][$j] . "</td>";
                     echo "<td><br>" . $butaca_fila[$i][$j] . "</td>";
                     $col = ($butaca_fila[$i][$j] - 1) * $columnas[$i] + $butaca_columna[$i][$j];
                     echo "<td><br>" . $col . "</td>";

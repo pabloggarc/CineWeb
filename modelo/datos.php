@@ -171,7 +171,7 @@ class Datos
 
     public function get_butaca_por_entrada($nick, $pelicula, $dia_pase, $hora_pase, $sala)
     {
-        $consulta = $this->ejecutar_consulta("select entrada.id_butaca, butaca.fila, butaca.columna from entrada inner join usuario on usuario.id = entrada.id_usuario 
+        $consulta = $this->ejecutar_consulta("select entrada.id_butaca, butaca.fila, butaca.columna, entrada.localizador from entrada inner join usuario on usuario.id = entrada.id_usuario 
             inner join pase on pase.id = entrada.id_pase_sesion inner join sala on sala.id = entrada.id_sala_sesion inner join pelicula on
             pelicula.id = entrada.id_pelicula_sesion inner join butaca on butaca.id = entrada.id_butaca  WHERE usuario.nick= '" . $nick . "' and pelicula.nombre = '" . $pelicula . "' and pase.hora = '" . $hora_pase . "'
             and pase.dia = '" . $dia_pase . "' and sala.nombre= '" . $sala . "';");
@@ -440,8 +440,12 @@ class Datos
         $result = $this->ejecutar_consulta("select sala.nombre as nombre from sesion inner join sala on sala.id = sesion.id_sala 
         inner join pelicula on pelicula.id = sesion.id_pelicula
 		inner join pase on pase.id = sesion.id_pase where pase.hora = '" . $hora . "' and 
-		pase.dia='" . $fecha . "' and pelicula.id=" . $id_pelicula . "");
-        return $result;
+		pase.dia='" . $fecha . "' and pelicula.id=" . $id_pelicula . ";");
+        if (!empty($result)) {
+            return $result;
+        } else {
+            return null;
+        }
     }
 
     public function get_portada_por_id($id_pelicula)
@@ -533,18 +537,16 @@ class Datos
     public function get_numero_butacas_ocupadas()
     {
         $consulta = $this->ejecutar_consulta(
-            "SELECT COUNT(Butaca.ID)
-            FROM Butaca
+            "SELECT COUNT(*) FROM Butaca
             INNER JOIN Entrada ON Butaca.ID = Entrada.ID_Butaca
             INNER JOIN Sesion ON Entrada.ID_Sala_Sesion = Sesion.ID_Sala
                 AND Entrada.ID_Pelicula_Sesion = Sesion.ID_Pelicula
                 AND Entrada.ID_Pase_Sesion = Sesion.ID_Pase
             INNER JOIN Pase ON Sesion.ID_Pase = Pase.ID
             INNER JOIN Pelicula ON Sesion.ID_Pelicula = Pelicula.ID
-            WHERE Pase.dia = CURRENT_DATE AT TIME ZONE 'GMT'
-                AND CURRENT_TIME AT TIME ZONE 'GMT' >= Pase.hora AND 
-                CURRENT_TIME AT TIME ZONE 'GMT' <= Pase.hora + Pelicula.duracion * INTERVAL '1 minute';
-             "
+            WHERE Pase.dia = (CURRENT_DATE AT TIME ZONE 'CET')::DATE
+                AND (CURRENT_TIME AT TIME ZONE 'CET')::TIME >= Pase.hora AND 
+                (CURRENT_TIME AT TIME ZONE 'CET')::TIME <= Pase.hora + Pelicula.duracion * INTERVAL '1 minute';"
         );
         if (!empty($consulta)) {
             return $consulta[0]["count"];
@@ -766,6 +768,17 @@ class Datos
             return $consulta;
         } else {
             return null;
+        }
+    }
+
+    public function consultar_butaca_entrada($butaca, $pase, $sala, $pelicula)
+    {
+        $result = $this->ejecutar_consulta("SELECT * FROM Entrada WHERE ID_Butaca= " . $butaca . " AND ID_Pase_Sesion= " . $pase . " AND ID_Sala_Sesion= " . $sala . " AND ID_Pelicula_Sesion= " . $pelicula . "");
+        if (empty($result)) {
+            // El numero se podra registrar
+            return false;
+        } else {
+            return true;
         }
     }
 }

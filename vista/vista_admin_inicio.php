@@ -4,31 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos_cabecera.css">
+    <link rel="stylesheet" href="../estilosCine.css">
+
+
     <title>Cartelera</title>
 </head>
 
 <body>
-<?php require_once("vista_cabecera.php") ?>
+    <?php require_once("vista_cabecera_admin.php") ?>
 
-    <h1>PANEL DE CONTROL ADMIN
-    </h1>
-    <table>
+
+    <table id="tablaDatos2">
         <tr>
-            <th>
-                GESTIONAR PELICULAS
-            </th>
-            <th>
-                GESTIONAR SALAS
-            </th>
-            <th>
-                GESTIONAR SESIONES
-
-            </th>
-            <th>
-                GESTIONAR PASES
-
-            </th>
+            <th>GESTION DE PELICULAS</th>
+            <th>GESTION DE SALAS</th>
+            <th>GESTION DE SESIONES</th>
+            <th>GESTION DE PASES</th>
         </tr>
+        <tr>
         <tr>
             <td>
                 <form action="../controlador/controlador_gestionar_peliculas.php" method="POST">
