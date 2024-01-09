@@ -555,6 +555,25 @@ class Datos
         }
     }
 
+    public function get_reservas_peliculas(){
+        $consulta = $this->ejecutar_consulta(
+            "SELECT Pelicula.nombre, COUNT(*) AS Reservas FROM Butaca
+            INNER JOIN Entrada ON Butaca.ID = Entrada.ID_Butaca
+            INNER JOIN Sesion ON Entrada.ID_Sala_Sesion = Sesion.ID_Sala
+                AND Entrada.ID_Pelicula_Sesion = Sesion.ID_Pelicula
+                AND Entrada.ID_Pase_Sesion = Sesion.ID_Pase
+            INNER JOIN Pase ON Sesion.ID_Pase = Pase.ID
+            INNER JOIN Pelicula ON Sesion.ID_Pelicula = Pelicula.ID
+                WHERE Pase.dia >= (CURRENT_DATE AT TIME ZONE 'CET')::DATE
+                GROUP BY Pelicula.nombre;"
+        );
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
     public function get_numero_butacas()
     {
         $consulta = $this->ejecutar_consulta(

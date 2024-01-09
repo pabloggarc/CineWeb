@@ -1,79 +1,114 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Estadísticas</title>
-</head>
-<link rel="stylesheet" href="../estilos_cabecera.css">
-<link rel="stylesheet" type="text/css" href="../estilosCine.css">
+    <head>
+        <title>Estadísticas</title>
+        <link rel="stylesheet" href="../estilos_cabecera.css">
+        <link rel="stylesheet" type="text/css" href="../estilosCine.css">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    </head>
 
+    <body>
+        <?php require_once("vista_cabecera_admin.php")?>
+        <table id="tablaDatos2">
+            <tr>
+                <th>Proyecciones hoy (<?php echo date("d/m/Y");?>)</th>
+                <th>Proyecciones futuras:</th>
+                <th>Usuarios registrados:</th>
+                <th>Películas en cartelera:</th>
+                <th>Valoración media de los usuarios:</th>
+                <th> Butacas reservadas actualmente:</th>
 
+            </tr>
+            <tr>
+                <td>
+                    <?= $sesiones_hoy ?>
+                </td>
+                <td>
+                    <?= $sesiones_futuras ?>
+                </td>
+                <td>
+                    <?= $numero_usuarios ?>
+                </td>
+                <td>
+                    <?= $numero_peliculas_disponibles ?>
+                </td>
+                <td>
+                    <?= $valoracion_media ?>
+                </td>
+                <td>
+                    <?= $numero_butacas_reservadas ?>
+                </td>
 
-<body>
+            </tr>
+        </table>
 
-    <?php require_once("vista_cabecera_admin.php") ?>
+        <div id="grafica" class = "grafica">
+        </div>
+        <div id="grafica2" class = "grafica2">
+        </div>
 
+        <script>
+            google.charts.load('current', { 'packages': ['corechart'] });
+            google.charts.setOnLoadCallback(drawChartButacas);
+            google.charts.setOnLoadCallback(drawChartReservas);
 
-    <table id="tablaDatos2">
-        <tr>
-            <th>Proyecciones hoy (<?php echo date("d/m/Y");?>)</th>
-            <th>Proyecciones futuras:</th>
-            <th>Usuarios registrados:</th>
-            <th>Películas en cartelera:</th>
-            <th>Valoración media de los usuarios:</th>
-            <th> Butacas reservadas actualmente:</th>
+            function color_aleatorio(){
+                var simbolos, color;
+                simbolos = "0123456789ABCDEF";
+                color = "#";
 
-        </tr>
-        <tr>
-            <td>
-                <?= $sesiones_hoy ?>
-            </td>
-            <td>
-                <?= $sesiones_futuras ?>
-            </td>
-            <td>
-                <?= $numero_usuarios ?>
-            </td>
-            <td>
-                <?= $numero_peliculas_disponibles ?>
-            </td>
-            <td>
-                <?= $valoracion_media ?>
-            </td>
-            <td>
-                <?= $numero_butacas_reservadas ?>
-            </td>
+                for(var i = 0; i < 6; i++){
+                    color = color + simbolos[Math.floor(Math.random() * 16)];
+                }
 
-        </tr>
-    </table>
+                return color; 
+            }
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            function drawChartButacas() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Estado', '%'],
+                    ['Ocupadas', <?=$numero_butacas_ocupadas?>],
+                    ['Libres', <?=$numero_butacas - $numero_butacas_ocupadas?>]
+                ]);
 
-    <div id="grafica">
-    </div>
+                console.log(data);
 
-    <script>
-        google.charts.load('current', { 'packages': ['corechart'] });
-        google.charts.setOnLoadCallback(drawChart);
+                var options = {
+                    title: 'Ocupación de las butacas a las ' + new Date().toLocaleTimeString(),
+                    is3D: true,
+                    colors: ['#dc3545', '#28a745',]
+                };
 
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Estado', '%'],
-                ['Ocupadas', <?= $numero_butacas_ocupadas ?>],
-                ['Libres', <?= $numero_butacas - $numero_butacas_ocupadas ?>]
-            ]);
+                var chart = new google.visualization.PieChart(document.getElementById('grafica'));
+                chart.draw(data, options);
+            }
 
-            var options = {
-                title: 'Ocupación de las butacas a las ' + new Date().toLocaleTimeString(),
-                is3D: true,
-                colors: ['#dc3545', '#28a745',]
-            };
+            function drawChartReservas() {
+                var datos = [['Pelicula', '%']];
+                var data = <?php echo json_encode($map);?>;
+                datos = google.visualization.arrayToDataTable([
+                    ['Pelicula', '%'],
+                    <?php echo $datos;?>
+                ]);
+                var num_colores = <?=count($map);?>; 
+                var colores = []; 
 
-            var chart = new google.visualization.PieChart(document.getElementById('grafica'));
-            chart.draw(data, options);
-        }
+                for(var i = 0; i < num_colores; i++){
+                    colores.push(color_aleatorio());
+                }
 
-    </script>
-</body>
+                var fecha = new Date();
 
+                var options = {
+                    title: 'Reservas a partir del ' + fecha.getDay() + '/' + (fecha.getMonth() + 1).toString() + '/' + fecha.getFullYear(),
+                    is3D: true,
+                    colors: colores
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('grafica2'));
+                chart.draw(datos, options);
+            }
+        </script>
+    </body>
 </html>
