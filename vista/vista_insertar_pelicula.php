@@ -65,11 +65,79 @@
                         ?>
                     </select>
                 </div>
+
+                <div class="editable-field" id="name-field">
+                    <label for="nacionalidad">Nacionalidad:</label>
+                    <select id="nacionalidad" name="nacionalidad">
+                        <?php
+                        for ($i = 0; $i < count($lista_nacionalidad); $i++) {
+                            echo "<option value='" . $lista_nacionalidad[$i]['id'] . "'>" . $lista_nacionalidad[$i]['nombre'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="editable-field" id="name-field">
+                    <label for="actores">Actores:</label>
+                    <select id="actores" name="actores[]" multiple>
+                        <?php
+                        for ($i = 0; $i < count($lista_actor); $i++) {
+                            echo "<option value='" . $lista_actor[$i]['id'] . "'>" . $lista_actor[$i]['nombre'] . " " . $lista_actor[$i]['apellidos'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="editable-field" id="name-field">
+                    <label for="director">Director:</label>
+                    <select id="director" name="director[]" multiple>
+                        <?php
+                        for ($i = 0; $i < count($lista_director); $i++) {
+                            echo "<option value='" . $lista_director[$i]['id'] . "'>" . $lista_director[$i]['nombre'] . " " . $lista_director[$i]['apellidos'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="editable-field" id="name-field">
+                    <label for="generos">Generos:</label>
+                    <select id="generos" name="generos[]" multiple>
+                        <?php
+                        for ($i = 0; $i < count($lista_genero); $i++) {
+                            echo "<option value='" . $lista_genero[$i]['id'] . "'>" . $lista_genero[$i]['tipo'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
             </div>
         </div>
 
         <!-- Botón de envío -->
         <button type="submit">Enviar</button>
+    </form>
+
+    <!-- Botón para añadir actor /-->
+    <form>
+    </form>
+
+    <!-- Botón para añadir director /-->
+    <form>
+    </form>
+
+    <!-- Botón para añadir nacionalidad /-->
+    <form>
+    </form>
+
+    <!-- Botón para añadir distribuidora /-->
+    <form>
+    </form>
+
+    <!-- Botón para añadir clasificacion por edad /-->
+    <form>
+    </form>
+
+    <!-- Botón para añadir genero /-->
+    <form>
     </form>
 
 </body>

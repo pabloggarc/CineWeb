@@ -318,6 +318,11 @@ class Datos
 
     public function eliminar_pelicula_por_id($id)
     {
+        $this->ejecutar_consulta("delete from sesion where id_pelicula = " . $id . ";");
+        $this->ejecutar_consulta("delete from reparto where id_pelicula = " . $id . ";");
+        $this->ejecutar_consulta("delete from nacionalidad_pelicula where id_pelicula = " . $id . ";");
+        $this->ejecutar_consulta("delete from direccion where id_pelicula = " . $id . ";");
+        $this->ejecutar_consulta("delete from genero_pelicula where id_pelicula = " . $id . ";");
         $this->ejecutar_consulta("delete from pelicula where id = '" . $id . "';");
     }
 
@@ -754,6 +759,7 @@ class Datos
 
     public function eliminar_pase_por_id($id)
     {
+        $this->ejecutar_consulta("delete from sesion where id_pase = " . $id . ";");
         $this->ejecutar_consulta("delete from pase where id = " . $id . ";");
     }
 
@@ -816,9 +822,76 @@ class Datos
             return true;
         }
     }
+
+    public function get_nacionalidad()
+    {
+        $consulta = $this->ejecutar_consulta("select * from nacionalidad;");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
+    public function get_actores()
+    {
+        $consulta = $this->ejecutar_consulta("select * from actor;");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
+    public function get_directores()
+    {
+        $consulta = $this->ejecutar_consulta("select * from director;");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
+    public function get_generos()
+    {
+        $consulta = $this->ejecutar_consulta("select * from genero;");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
+    public function get_id_pelicula($nombre, $anno, $duracion)
+    {
+        $consulta = $this->ejecutar_consulta("select id from pelicula where nombre = '" . $nombre . "'
+        and año = " . $anno . " and duracion = " . $duracion . ";");
+        if (!empty($consulta)) {
+            return $consulta[0]['id'];
+        } else {
+            return null;
+        }
+    }
+
+    public function insertar_nacionalidad_pelicula($id_nacionalidad, $id_pelicula)
+    {
+        $this->ejecutar_consulta("insert into nacionalidad_pelicula(id_nacionalidad, id_pelicula) values (" . $id_nacionalidad . "," . $id_pelicula . ");");
+    }
+
+    public function insertar_actor_pelicula($id_actor, $id_pelicula)
+    {
+        $this->ejecutar_consulta("insert into reparto(id_actor, id_pelicula) values (" . $id_actor . "," . $id_pelicula . ");");
+    }
+
+    public function insertar_director_pelicula($id_director, $id_pelicula)
+    {
+        $this->ejecutar_consulta("insert into direccion(id_director, id_pelicula) values (" . $id_director . "," . $id_pelicula . ");");
+    }
+
+    public function insertar_genero_pelicula($id_genero, $id_pelicula)
+    {
+        $this->ejecutar_consulta("insert into genero_pelicula(id_genero, id_pelicula) values (" . $id_genero . "," . $id_pelicula . ");");
+    }
 }
-
-
-
-
 ?>

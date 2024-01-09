@@ -11,14 +11,14 @@
 </head>
 
 <body>
-    
-    <?php 
-    if($_SESSION['rol_usuario']==1){
+
+    <?php
+    if ($_SESSION['rol_usuario'] == 1) {
         require_once("vista_cabecera.php");
-    }else{
+    } else {
         require_once("vista_cabecera_admin.php");
     }
-     ?>
+    ?>
 
     <div class="container">
         <h2>PERFIL</h2>
@@ -69,7 +69,6 @@
             <div class="parking-icon" title="Borrar Cuenta" onclick="deleteAccount()">
                 <a href="../controlador/controlador_eliminar_cuenta.php"><i class="fas fa-trash-alt"></i>
             </div>
-            
         </div>
     </div>
 </body>

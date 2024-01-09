@@ -14,6 +14,10 @@
             if ($opcion_selec == 1) {
                 $lista_clasificacion = $bd->get_clasificacion();
                 $lista_distribuidora = $bd->get_distribuidora();
+                $lista_nacionalidad = $bd->get_nacionalidad();
+                $lista_actor = $bd->get_actores();
+                $lista_director = $bd->get_directores();
+                $lista_genero = $bd->get_generos();
                 require_once('../vista/vista_insertar_pelicula.php');
             } else {
                 $lista_peliculas = $bd->get_peliculas();
