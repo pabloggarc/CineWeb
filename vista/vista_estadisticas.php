@@ -45,19 +45,21 @@
         </tr>
     </table>
 
-    <div class="contenedor-graficas">
-
-        <div id="grafica" class="grafica">
+    <div class="contenedor-total">
+        <div class="contenedor-graficas">
+            <div id="grafica" class="grafica">
+            </div>
+            <div id="grafica2" class="grafica2">
+            </div>
         </div>
-        <div id="grafica2" class="grafica2">
-        </div>
-        <br>
-        <div id="grafica3" class="grafica3">
-        </div>
-        <div id="grafica4" class="grafica3">
+        <div class="contenedor-graficas2">
+            <div id="grafica3" class="grafica3">
+            </div>
+            <div id="grafica4" class="grafica3">
+            </div>
         </div>
     </div>
-    
+
     <script>
         google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback(drawChartButacas);
@@ -125,21 +127,22 @@
         function drawChartPeliculas() {
             var data = google.visualization.arrayToDataTable([
                 ['Películas', 'Visualizaciones', { role: 'style' }],
-                <?=$datos4?>
+                <?= $datos4 ?>
             ]);
 
             var view = new google.visualization.DataView(data);
-            view.setColumns([0, 1, {calc: "stringify",
-                                sourceColumn: 1,
-                                type: "string",
-                                role: "annotation" 
-                            }, 2]);
+            view.setColumns([0, 1, {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            }, 2]);
 
             var options = {
                 title: "Películas vistas por los usuarios:",
                 width: '66vw',
                 height: '50vh',
-                bar: {groupWidth: "90%"},
+                bar: { groupWidth: "90%" },
                 legend: { position: "none" },
             };
             var chart = new google.visualization.ColumnChart(document.getElementById("grafica3"));
@@ -148,8 +151,8 @@
 
         function drawChartPeliculasValoradas() {
 
-            var datos = <?php echo '['.$datos3.']'; ?>;
-            datos.forEach(function(subarray) {
+            var datos = <?php echo '[' . $datos3 . ']'; ?>;
+            datos.forEach(function (subarray) {
                 subarray[1] = parseFloat(subarray[1]);
             });
             console.log(datos);
@@ -159,17 +162,18 @@
             ].concat(datos));
 
             var view = new google.visualization.DataView(data);
-            view.setColumns([0, 1, {calc: "stringify",
-                                sourceColumn: 1,
-                                type: "string",
-                                role: "annotation" 
-                            }, 2]);
+            view.setColumns([0, 1, {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            }, 2]);
 
             var options = {
                 title: "Nota media de los clientes:",
                 width: '66vw',
                 height: '50vh',
-                bar: {groupWidth: "90%"},
+                bar: { groupWidth: "90%" },
                 legend: { position: "none" },
             };
             var chart = new google.visualization.ColumnChart(document.getElementById("grafica4"));

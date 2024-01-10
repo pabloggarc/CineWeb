@@ -600,14 +600,17 @@ nav {
 }
 
 /* Estilos para el contenedor de las gráficas */
-.contenedor-graficas {
+.contenedor-graficas,
+.contenedor-graficas2 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #grafica,
-#grafica2 {
+#grafica2,
+#grafica3,
+#grafica4 {
     display: inline-block;
     margin-top: 50px;
     width: 40vw;
@@ -615,4 +618,12 @@ nav {
     height: 40vh;
     margin-left: auto;
     margin-right: auto;
+}
+
+.contenedor-total {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
