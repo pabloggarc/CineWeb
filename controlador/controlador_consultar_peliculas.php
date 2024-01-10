@@ -22,8 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $info_generos = $bd->get_genero_por_id_pelicula($id);
     session_start();
     $_SESSION['id'] = $info['id'];
-    //print_r($info_actores);
-    //print_r($info_generos);
 }
 
 $bd->desconectar();

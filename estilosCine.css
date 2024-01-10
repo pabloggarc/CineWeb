@@ -1,18 +1,23 @@
 @import url('https://fonts.cdnfonts.com/css/dinpro-medium');
 
-html,
-body {
-    margin: auto;
-    background-color: #fff;
-    color: #000000;
-    font-family: 'DINPro-Medium', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1vw;
-    text-align: center;
+html {
+    height: 100%;
+    width: 100%;
+    background-image: url(./imagenes/cineFondo.jpg);
 }
 
-div,
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: transparent;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url(./imagenes/cineFondo.jpg);
+}
+
+
 span,
 select,
 input,
@@ -24,19 +29,26 @@ h2 {
     font-style: normal;
     font-weight: 500;
     font-size: 1vw;
+    color: white;
 }
 
 h2,
 h1 {
     margin-top: 50px;
     font-size: 1.8rem;
-    word-spacing: 15px;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    margin-top: 30px;
 }
 
 .center-div {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 button {
@@ -64,19 +76,28 @@ label {
     display: block;
 }
 
-.field-value {
-    width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-right: 10px;
-}
-
 .field-value[contenteditable="true"] {
     border: 1px solid #3498db;
     padding: 7px;
 }
 
+.form-field {
+    width: 90%;
+    margin-top: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 2px solid rgb(0, 0, 0);
+    margin-left: 10px;
+    margin-right: 10px;
+    color: black;
+}
+
+label[for="accountNumber"] {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.2rem;
+}
 
 .edit-icon {
     position: absolute;
@@ -98,24 +119,69 @@ label {
     margin-top: 20px;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: transparent;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    /* Añadido para apilar elementos verticalmente */
-
-}
-
 .container {
-    width: 1000px;
+    width: 900px;
+    height: 450px;
     padding: 20px;
-    background-color: #fff;
+    background: linear-gradient(to bottom, rgb(226, 2, 2, 0.7), black);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 3.5%;
+    border-radius: 40px;
+    border: solid 5px black;
+}
+
+.container2 {
+    width: 650px;
+    height: 700px;
+    padding: 20px;
+    background: linear-gradient(to bottom, rgb(226, 2, 2, 0.7), black);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 3.5%;
+    border-radius: 40px;
+    border: solid 5px black;
+}
+
+
+.container3 {
+    width: 650px;
+    height: 1000px;
+    padding: 20px;
+    background: linear-gradient(to bottom, rgb(226, 2, 2, 0.7), black);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 3.5%;
+    border-radius: 40px;
+    border: solid 5px black;
+}
+
+.container4 {
+    width: 650px;
+    height: 350px;
+    padding: 20px;
+    background: linear-gradient(to bottom, rgb(226, 2, 2, 0.7), black);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 3.5%;
+    border-radius: 40px;
+    border: solid 5px black;
+}
+
+.container5 {
+    width: 650px;
+    height: 1000px;
+    padding: 20px;
+    background: linear-gradient(to bottom, rgb(226, 2, 2, 0.7), black);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 3.5%;
+    border-radius: 40px;
+    border: solid 5px black;
+}
+
+input[type="date"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    color: #000000;
+    outline: none;
 }
 
 .profile {
@@ -127,10 +193,10 @@ body {
 button,
 input[type="submit"] {
     background-color: rgb(185, 45, 45);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 10px 10px;
+    border: solid 3px black;
     cursor: pointer;
     margin-top: 10px;
     margin-left: auto;
@@ -150,15 +216,60 @@ input[type="submit"]:hover {
     font-weight: bold;
     margin-bottom: 5px;
     display: block;
+    color: white;
 }
 
 .field-value {
     padding: 8px;
-    border: 1px solid #ddd;
+    border: 3px solid #000000;
     border-radius: 5px;
     background-color: #f9f9f9;
+    color: #000000;
 }
 
+.field-value2 {
+    padding: 8px;
+    border: 3px solid #000000;
+    border-radius: 5px;
+    color: black;
+}
+
+#nacionalidad{
+    color: black;
+
+}
+
+#distribuidora{
+    color: black;
+
+}
+
+#clasificacion{
+    color: black;
+
+}
+#director option {
+    color: black;
+}
+
+#actores option {
+    color: black;
+}
+
+
+#generos option {
+    color: black;
+}
+
+
+#director option {
+    color: black;
+}
+
+
+#director option {
+    color: black;
+}
 
 .social-icons {
     margin-top: 20px;
@@ -344,7 +455,7 @@ input[type="submit"]:hover {
 }
 
 .field-value {
-    width: 330px;
+    width: 210px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -380,47 +491,6 @@ input[type="submit"]:hover {
     background-color: rgb(200, 200, 200);
 }
 
-nav {
-    background-color: #CCCCCC;
-    color: #ffffff;
-    text-align: center;
-    width: 100%;
-}
-
-
-.logo {
-    margin-top: 10px;
-    display: inline-block;
-    vertical-align: middle;
-    width: auto;
-    height: 90px;
-    margin-bottom: 10px;
-}
-
-.logo:hover {
-    transform: scale(1.20);
-}
-
-.opciones {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 80px;
-    /* Ajusta según sea necesario para centrar verticalmente las opciones */
-}
-
-.opciones a {
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 15px;
-    margin-left: 50px;
-    margin-right: 100px;
-}
-
-.opciones a:hover {
-    color: #ff0303;
-}
-
 
 .image-box,
 .info-box {
@@ -439,12 +509,9 @@ nav {
 }
 
 .image-box img {
-    max-width: 100%;
-    max-height: 100%;
     width: auto;
     height: auto;
     object-fit: contain;
-    /* Ajusta la imagen para que quepa completamente dentro del contenedor */
 }
 
 .info-box {
@@ -459,13 +526,11 @@ nav {
 
 .info-box h3 {
     color: black;
-    /* Texto negro para el título */
 }
 
 
 .lista-con-titulos-inline h4 {
     display: inline;
-    /* O puedes usar inline-block si necesitas */
     margin-bottom: 0px;
 }
 
@@ -483,30 +548,26 @@ nav {
 
 /* Estilo para la portada de la película */
 .pelicula img {
-    width: 270px;
-    height: 400px;
+    width: 200px;
+    height: 330px;
     transition: filter 0.3s;
     margin-right: 30px;
     margin-bottom: 30px;
-
-    /* Agregamos una transición suave para el cambio de filtro */
 }
 
 /* Estilo para el hover de la portada */
 .pelicula:hover img {
     filter: brightness(30%);
-    /* Cambiamos el brillo para oscurecer la imagen al hacer hover */
 }
 
 /* Estilo para el contenedor de los botones */
 .pelicula .botones-container {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 43%;
     transform: translate(-50%, -50%);
     display: none;
     text-align: center;
-    /* Alineamos los botones al centro */
 
 }
 
@@ -520,8 +581,6 @@ nav {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
-    /* Alineamos los botones al centro */
-    /* Agregamos una transición suave para el cambio de color de fondo */
 }
 
 /* Estilo para mostrar los botones al hacer hover en la película */
@@ -532,26 +591,27 @@ nav {
 /* Estilo para el hover de los botones */
 .pelicula .botones-container:hover .boton {
     background-color: #555;
-    /* Cambiamos el color de fondo al hacer hover */
 }
-
 
 
 
 #tablaDatos {
     width: 100%;
-    margin-top: 20px;
+    height: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
     border-collapse: collapse;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 20px;
+    color: #000000;
     overflow: hidden;
     font-family: 'DINPro-Medium', sans-serif;
 }
 
 #tablaDatos th,
 #tablaDatos td {
-    padding: 15px;
+    padding: 30px;
     text-align: center;
     border-bottom: 1px solid #ddd;
     font-family: 'DINPro-Medium', sans-serif;
@@ -570,7 +630,7 @@ nav {
 
 
 #tablaDatos2 {
-    width: 70%;
+    width: 85%;
     margin-top: 20px;
     border-collapse: collapse;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -605,6 +665,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
 }
 
 #grafica,
@@ -613,17 +674,39 @@ nav {
 #grafica4 {
     display: inline-block;
     margin-top: 50px;
-    width: 40vw;
-    max-width: 40vw;
+    width: 42vw;
     height: 40vh;
     margin-left: auto;
     margin-right: auto;
+
 }
 
 .contenedor-total {
+    margin-top: 60px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    background-color: red; /* Cambia el fondo de todo el contenedor a rojo */
+}
+
+.contenedor-total h3 {
+    margin-top: 40px;
+    color: white;
+    font-size: 1rem;
+}
+
+#tabla_butacas {
+    width: 1000px;
+    height: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 2%;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    color: #000000;
+    overflow: hidden;
+    font-family: 'DINPro-Medium', sans-serif;
 }

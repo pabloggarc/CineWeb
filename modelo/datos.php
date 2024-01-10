@@ -161,7 +161,7 @@ class Datos
         inner join sala on sala.id = entrada.id_sala_sesion 
         inner join pelicula on pelicula.id = entrada.id_pelicula_sesion
         inner join butaca on butaca.id = entrada.id_butaca
-        WHERE usuario.nick= '".$nick."' and pase.dia > CURRENT_DATE or (pase.dia = CURRENT_DATE and pase.hora > CURRENT_TIME)
+        WHERE usuario.nick= '" . $nick . "' and pase.dia > CURRENT_DATE or (pase.dia = CURRENT_DATE and pase.hora > CURRENT_TIME)
         group by pelicula.nombre, pase.hora, pase.dia, sala.nombre, entrada.localizador, butaca.fila, butaca.columna, sala.columnas;");
         if (!empty($consulta)) {
             return $consulta;
@@ -383,12 +383,12 @@ class Datos
 
     public function eliminar_direccion_por_id_pelicula($id_pelicula)
     {
-        $this->ejecutar_consulta("delete from direccion where id_pelicula = ".$id_pelicula.";");
+        $this->ejecutar_consulta("delete from direccion where id_pelicula = " . $id_pelicula . ";");
     }
 
     public function eliminar_genero_por_id_pelicula($id_pelicula)
     {
-        $this->ejecutar_consulta("delete from genero_pelicula where id_pelicula = ".$id_pelicula.";");
+        $this->ejecutar_consulta("delete from genero_pelicula where id_pelicula = " . $id_pelicula . ";");
     }
 
     public function get_peliculas_por_id($id)
@@ -653,7 +653,8 @@ class Datos
         }
     }
 
-    public function get_ranking_peliculas_vistas(){
+    public function get_ranking_peliculas_vistas()
+    {
         $consulta = $this->ejecutar_consulta(
             "SELECT Pelicula.nombre, COUNT(Pelicula.nombre) FROM Entrada 
             INNER JOIN Pelicula ON Entrada.ID_Pelicula_Sesion = Pelicula.ID
@@ -666,7 +667,8 @@ class Datos
         }
     }
 
-    public function get_ranking_peliculas_valoradas(){
+    public function get_ranking_peliculas_valoradas()
+    {
         $consulta = $this->ejecutar_consulta(
             "SELECT Pelicula.nombre, ROUND(AVG(Valoracion.puntuacion), 2) AS valoracion_media FROM Pelicula 
             INNER JOIN Valoracion ON Pelicula.ID = Valoracion.ID_Pelicula
@@ -744,7 +746,7 @@ class Datos
     public function update_sala_por_id($id, $nombre, $filas, $columnas)
     {
         $this->eliminar_sala_por_id($id);
-        $this->insertar_sala($nombre, $filas, $columnas);
+        $this->insertar_sala_por_id($id, $nombre, $filas, $columnas);
     }
 
     public function get_sesiones()
@@ -1015,7 +1017,7 @@ class Datos
 
     public function get_nacionalidad_por_nombre($nombre)
     {
-        $consulta = $this->ejecutar_consulta("select * from nacionalidad where nombre = '".$nombre."';");
+        $consulta = $this->ejecutar_consulta("select * from nacionalidad where nombre = '" . $nombre . "';");
         if (!empty($consulta)) {
             return $consulta;
         } else {
@@ -1025,7 +1027,7 @@ class Datos
 
     public function get_actor_por_nombre_apellidos_nacimiento($nombre, $apellidos, $nacimiento)
     {
-        $consulta = $this->ejecutar_consulta("select * from actor where nombre = '".$nombre."' and apellidos = '".$apellidos."' and nacimiento = '".$nacimiento."';");
+        $consulta = $this->ejecutar_consulta("select * from actor where nombre = '" . $nombre . "' and apellidos = '" . $apellidos . "' and nacimiento = '" . $nacimiento . "';");
         if (!empty($consulta)) {
             return $consulta;
         } else {
@@ -1035,7 +1037,7 @@ class Datos
 
     public function get_director_por_nombre_apellidos_nacimiento($nombre, $apellidos, $nacimiento)
     {
-        $consulta = $this->ejecutar_consulta("select * from director where nombre = '".$nombre."' and apellidos = '".$apellidos."' and nacimiento = '".$nacimiento."';");
+        $consulta = $this->ejecutar_consulta("select * from director where nombre = '" . $nombre . "' and apellidos = '" . $apellidos . "' and nacimiento = '" . $nacimiento . "';");
         if (!empty($consulta)) {
             return $consulta;
         } else {
@@ -1045,7 +1047,7 @@ class Datos
 
     public function get_genero_por_tipo($tipo)
     {
-        $consulta = $this->ejecutar_consulta("select * from genero where tipo = '".$tipo."';");
+        $consulta = $this->ejecutar_consulta("select * from genero where tipo = '" . $tipo . "';");
         if (!empty($consulta)) {
             return $consulta;
         } else {
@@ -1055,7 +1057,7 @@ class Datos
 
     public function insertar_clasificacion($edad)
     {
-        $this->ejecutar_consulta("insert into clasificacion(edad) values (".$edad.");");
+        $this->ejecutar_consulta("insert into clasificacion(edad) values (" . $edad . ");");
     }
 
     public function insertar_distribuidora($nombre, $correo)
@@ -1065,7 +1067,7 @@ class Datos
 
     public function get_clasificacion_por_edad($edad)
     {
-        $consulta = $this->ejecutar_consulta("select * from clasificacion where edad = ".$edad.";");
+        $consulta = $this->ejecutar_consulta("select * from clasificacion where edad = " . $edad . ";");
         if (!empty($consulta)) {
             return $consulta;
         } else {
@@ -1075,12 +1077,16 @@ class Datos
 
     public function get_distribuidora_por_nombre_correo($nombre, $correo)
     {
-        $consulta = $this->ejecutar_consulta("select * from distribuidora where nombre = '".$nombre."' and correo = '".$correo."';");
+        $consulta = $this->ejecutar_consulta("select * from distribuidora where nombre = '" . $nombre . "' and correo = '" . $correo . "';");
         if (!empty($consulta)) {
             return $consulta;
         } else {
             return null;
         }
+    }
+    public function insertar_sala_por_id($id, $nombre, $filas, $columnas)
+    {
+        $this->ejecutar_consulta("insert into sala(id, nombre, filas, columnas) values (" . $id . ",'" . $nombre . "'," . $filas . "," . $columnas . ")");
     }
 }
 ?>

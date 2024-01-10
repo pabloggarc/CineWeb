@@ -13,6 +13,7 @@
 
     <?php require_once("vista_cabecera_admin.php") ?>
 
+    <div class="container5">
     <form action="../controlador/controlador_update_pelicula.php" method="post">
         <div class="profile-container">
             <div class="profile-info">
@@ -23,7 +24,7 @@
                 </div>
                 <div class="editable-field" id="name-field">
                     <label for="sinopsis">Sinopsis:</label>
-                    <input class="field-value" type="text" id="sinopsis" name="sinopsis" value=<?php echo $info['sinopsis'] ?> required></textarea>
+                    <input class="field-value" type="text" id="sinopsis" name="sinopsis" value='<?php echo $info['sinopsis'] ?>' required>
                 </div>
                 <div class="editable-field" id="name-field">
                     <label for="url_web">URL Web:</label>
@@ -75,7 +76,7 @@
 
                 <div class="editable-field" id="name-field">
                     <label for="nacionalidad">Nacionalidad:</label>
-                    <select id="nacionalidad" name="nacionalidad">
+                    <select class="field-value" id="nacionalidad" name="nacionalidad">
                         <?php
                         for ($i = 0; $i < count($lista_nacionalidad); $i++) {
                             $selected = ($lista_nacionalidad[$i]['id'] == $info_nacionalidad[0]['id_nacionalidad']) ? 'selected' : '';
@@ -87,7 +88,7 @@
 
                 <div class="editable-field" id="name-field">
                     <label for="actores">Actores:</label>
-                    <select id="actores" name="actores[]" multiple>
+                    <select class="field-value2" id="actores" name="actores[]" multiple>
                         <?php
                         for ($i = 0; $i < count($lista_actor); $i++) {
                             foreach ($info_actores as $j) {
@@ -106,7 +107,7 @@
 
                 <div class="editable-field" id="name-field">
                     <label for="director">Director:</label>
-                    <select id="director" name="director[]" multiple>
+                    <select class="field-value" id="director" name="director[]" multiple>
                         <?php
                         for ($i = 0; $i < count($lista_director); $i++) {
                             foreach ($info_director as $j) {
@@ -125,7 +126,7 @@
 
                 <div class="editable-field" id="name-field">
                     <label for="generos">Generos:</label>
-                    <select id="generos" name="generos[]" multiple>
+                    <select class="field-value2" id="generos" name="generos[]" multiple>
                         <?php
                         for ($i = 0; $i < count($lista_genero); $i++) {
                             foreach ($info_generos as $j) {

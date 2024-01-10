@@ -5,8 +5,8 @@
     <title>Inicio de sesión</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Indicamos la hoja de estilos para el login -->
+    <link rel="stylesheet" href="../estilos_cabecera.css">
     <link rel="stylesheet" href="../estilosCine.css">
-    <link rel="stylesheet" href="../estilos.css">
     <link rel="stylesheet" href="../estilosLogin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -14,9 +14,6 @@
 </head>
 
 <body>
-    <nav>
-        <img src="../imagenes/cineLogo.PNG" class="logo" alt="Logo de la página">
-    </nav>
     <div class="container-form register" id="iniciarSesion">
         <div class="information">
             <div class="info-childs">
@@ -57,7 +54,7 @@
         </div>
         <div class="form-information">
             <div class="form-information-childs">
-                <h2>Crear una Cuenta</h2>
+                <h3>Crear una Cuenta</h3>
                 <form class="formR" action="../controlador/controlador_registro.php" method="POST">
                     <div class="form-group">
                         <label for="nick"><i class="fas fa-user-tag"></i> Nick</label>
@@ -91,7 +88,7 @@
                     <div class="form-group">
                         <label for="email"><i class="fas fa-envelope"></i> Correo electrónico</label>
                         <div  class="editable-field" id="caja-nombre">
-                            <input class="field-value" type="email" id="email" name="email" placeholder="Introduce tu correo electrónico"
+                            <input class="field-value" type="email" id="email" name="email" placeholder="Introduce tu correo"
                                 pattern="[a-z][a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
                         </div>
                     </div>

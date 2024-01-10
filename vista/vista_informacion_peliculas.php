@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="../estilosCine.css">
     <link rel="stylesheet" href="../estilos_peli.css">
     <link rel="stylesheet" href="../estilos_cabecera.css">
     <script>
@@ -74,10 +75,9 @@
 
     <?php require_once("vista_cabecera.php") ?>
 
-    <div id="container" class="container">
+    <div id="container2" class="container">
         <div class="image-box">
             <img src="<?php echo $imagen; ?>" alt="Imagen">
-
         </div>
         <div class="info-box">
             <?php if (isset($peli)): ?>

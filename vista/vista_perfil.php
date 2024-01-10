@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estilosCine.css">
+    <link rel="stylesheet" href="../estilos_cabecera.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous" />
 </head>
@@ -20,8 +21,10 @@
     }
     ?>
 
-    <div class="container">
-        <h2>PERFIL</h2>
+    <div class="container2">
+        <div class="imagen-perfil">
+            <h2>PERFIL</h2>
+        </div>
         <div class="imagen-perfil">
             <img src="../imagenes/usuarioLogin.PNG" alt="alt" width="auto" height="100px">
         </div>
@@ -60,16 +63,18 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" value="Editar"></input>
+            <div class="imagen-perfil">
+                <input type="submit" value="Editar"></input>
+            </div>
+            <div class="parking-icons">
+                <div class="parking-icon" title="Cerrar Sesión" onclick="cerrarSesion()">
+                    <a href="../controlador/controlador_cerrar_sesion.php"><i class="fas fa-sign-out-alt"></i>
+                </div>
+                <div class="parking-icon" title="Borrar Cuenta" onclick="deleteAccount()">
+                    <a href="../controlador/controlador_eliminar_cuenta.php"><i class="fas fa-trash-alt"></i>
+                </div>
+            </div>
         </form>
-        <div class="parking-icons">
-            <div class="parking-icon" title="Cerrar Sesión" onclick="cerrarSesion()">
-                <a href="../controlador/controlador_cerrar_sesion.php"><i class="fas fa-sign-out-alt"></i>
-            </div>
-            <div class="parking-icon" title="Borrar Cuenta" onclick="deleteAccount()">
-                <a href="../controlador/controlador_eliminar_cuenta.php"><i class="fas fa-trash-alt"></i>
-            </div>
-        </div>
     </div>
 </body>
 

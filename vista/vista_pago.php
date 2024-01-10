@@ -4,6 +4,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="../estilos_peli.css">
+    <link rel="stylesheet" type="text/css" href="../estilosCine.css">
     <link rel="stylesheet" type="text/css" href="../estilos_cabecera.css">
 
     <script>

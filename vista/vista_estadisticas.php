@@ -46,12 +46,16 @@
     </table>
 
     <div class="contenedor-total">
+        <h3>GRADO DE OCUPACION</h3>
+        <p>Estadisticas que permiten conocer la ocupacion de las salas en la hora actual y la ocupacion que tendrá en el futuro conociendo el numero de reservas realizadas.</p>
         <div class="contenedor-graficas">
             <div id="grafica" class="grafica">
             </div>
             <div id="grafica2" class="grafica2">
             </div>
         </div>
+        <h3>GRADO DE SATISFACCION</h3>
+        <p>Estadisticas que permiten conocer el numero de peliculas que se han visto en el cine junto con el grado de satisfaccion del cliente para cada una de ellas.</p>
         <div class="contenedor-graficas2">
             <div id="grafica3" class="grafica3">
             </div>

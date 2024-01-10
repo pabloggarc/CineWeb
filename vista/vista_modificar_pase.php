@@ -13,25 +13,26 @@
 
     <?php require_once("vista_cabecera_admin.php") ?>
 
-    <form action="../controlador/controlador_update_pase.php" method="post">
-        <div class="profile-container">
-            <div class="profile-info">
-                <div class="editable-field" id="name-field">
-                    <label for="dia">Introduce un día:</label>
-                    <input class="field-value" type="date" id="dia" name="dia" value=<?php echo $info['dia'] ?>
-                        required>
-                </div>
-                <div class="editable-field" id="name-field">
-                    <label for="hora">Introduce una hora:</label>
-                    <input class="field-value" type="time" id="hora" name="hora" value=<?php echo $info['hora'] ?>
-                        required>
+    <div class="container4">
+        <form action="../controlador/controlador_update_pase.php" method="post">
+            <div class="profile-container">
+                <div class="profile-info">
+                    <div class="editable-field" id="name-field">
+                        <label for="dia">Introduce un día:</label>
+                        <input class="field-value" type="date" id="dia" name="dia" value=<?php echo $info['dia'] ?>
+                            required>
+                    </div>
+                    <div class="editable-field" id="name-field">
+                        <label for="hora">Introduce una hora:</label>
+                        <input class="field-value" type="time" id="hora" name="hora" value=<?php echo $info['hora'] ?>
+                            required>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Botón de envío -->
-        <button type="submit" name="boton" value=<?php echo $info['id'] ?>>Modificar</button>
-    </form>
-
+            <!-- Botón de envío -->
+            <button type="submit" name="boton" value=<?php echo $info['id'] ?>>Modificar</button>
+        </form>
+    </div>
 </body>
 
 </html>

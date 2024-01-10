@@ -10,9 +10,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estilosCine.css">
+    <link rel="stylesheet" href="../estilos_cabecera.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous" />
-    <link rel="stylesheet" href="../estilos.css">
 
 </head>
 
@@ -20,13 +20,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 <?php require_once("vista_cabecera.php") ?>
 
     <form method='POST' action='../controlador/controlador_mostrar_comentario.php'>
-        <table id="tablaDatos" name="tabla_entradas">
+        <table id="tablaDatos" name="tablaDatos">
             <tr>
                 <th>Titulo</th>
                 <th>Hora</th>
                 <th>Día</th>
                 <th>Sala</th>
-                <th></th>
+                <th>Accion</th>
             </tr>
             <?php
             for ($i = 0; $i < count($nombre_pelicula); $i++) {

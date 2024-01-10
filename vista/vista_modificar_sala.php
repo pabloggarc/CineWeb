@@ -12,6 +12,7 @@
 <body>
 
     <?php require_once("vista_cabecera_admin.php") ?>
+    <div class="container4">
 
     <form action="../controlador/controlador_update_sala.php" method="post">
         <div class="profile-container">
@@ -34,6 +35,7 @@
         <!-- Botón de envío -->
         <button type="submit" name="boton" value=<?php echo $info['id'] ?>>Enviar</button>
     </form>
+</div>
 
 </body>
 

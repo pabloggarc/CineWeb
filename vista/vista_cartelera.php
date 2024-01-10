@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cartelera</title>
     <link rel="stylesheet" href="../estilosCine.css">
+    <link rel="stylesheet" href="../estilos_cabecera.css">
     <style>
     </style>
 </head>
@@ -15,8 +16,8 @@
 
     require_once("vista_cabecera.php") ?>
 
-    <h1>CARTELERA</h1>
     <div class="center-div">
+        <h1>CARTELERA</h1>
         <form method="post" action="../controlador/controlador_pelicula_selec.php">
             <table class="table" name="tabla_butacas" id="tabla_butacas">
                 <?php
