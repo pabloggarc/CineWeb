@@ -71,19 +71,51 @@ class Datos
     public function get_ocupacion_sala($nombre_sala, $fecha, $hora)
     {
         $consulta = "SELECT CASE WHEN Butaca.ID IN (
-                SELECT Butaca.ID from Butaca INNER JOIN Entrada ON Butaca.ID = Entrada.ID_Butaca 
-                INNER JOIN Sala ON Entrada.ID_Sala_Sesion = Sala.ID INNER JOIN Sesion ON Entrada.ID_Pase_Sesion = Sesion.ID_Pase AND
-                Entrada.ID_Sala_Sesion = Sesion.ID_Sala AND Entrada.ID_Pelicula_Sesion = Sesion.ID_Pelicula INNER JOIN Pase ON
-                Sesion.ID_Pase = Pase.ID INNER JOIN Pelicula ON Sesion.ID_Pelicula = Pelicula.ID WHERE Sala.nombre = '" . $nombre_sala . "' AND 
-                Pase.dia = '" . $fecha . "' AND Pase.hora = '" . $hora . "'
-            ) 	THEN 0
-                ELSE 1 END AS libre
-            FROM Butaca; ";
+            SELECT Butaca.ID from Butaca INNER JOIN Entrada ON Butaca.ID = Entrada.ID_Butaca 
+            INNER JOIN Sala ON Entrada.ID_Sala_Sesion = Sala.ID INNER JOIN Sesion ON Entrada.ID_Pase_Sesion = Sesion.ID_Pase AND
+            Entrada.ID_Sala_Sesion = Sesion.ID_Sala AND Entrada.ID_Pelicula_Sesion = Sesion.ID_Pelicula INNER JOIN Pase ON
+            Sesion.ID_Pase = Pase.ID INNER JOIN Pelicula ON Sesion.ID_Pelicula = Pelicula.ID WHERE Sala.nombre = '".$nombre_sala."' AND 
+            Pase.dia = '".$fecha."' AND Pase.hora = '".$hora."' ORDER BY ID ASC
+        ) 	THEN 0
+            ELSE 1 END AS libre
+        FROM Butaca INNER JOIN Sala ON Butaca.ID_Sala = Sala.ID WHERE Sala.nombre = '".$nombre_sala."'; ";
         $result = $this->ejecutar_consulta($consulta);
         if (!empty($result)) {
             $ocupacion = array();
             foreach ($result as $fila) {
                 array_push($ocupacion, $fila['libre']);
+            }
+            return $ocupacion;
+        } else {
+            return null;
+        }
+    }
+
+    public function get_ocupantes_sala($nombre_sala, $fecha, $hora){
+        $consulta = "SELECT CASE WHEN Butaca.ID IN (
+            SELECT Butaca.ID FROM Butaca
+            INNER JOIN Entrada ON Butaca.ID = Entrada.ID_Butaca
+            INNER JOIN Sala ON Entrada.ID_Sala_Sesion = Sala.ID
+            INNER JOIN Sesion ON Entrada.ID_Pase_Sesion = Sesion.ID_Pase
+                                AND Entrada.ID_Sala_Sesion = Sesion.ID_Sala
+                                AND Entrada.ID_Pelicula_Sesion = Sesion.ID_Pelicula
+            INNER JOIN Pase ON Sesion.ID_Pase = Pase.ID
+            INNER JOIN Pelicula ON Sesion.ID_Pelicula = Pelicula.ID
+            WHERE Sala.nombre = '".$nombre_sala."'
+                AND Pase.dia = '".$fecha."'
+                AND Pase.hora = '".$hora."'
+            ORDER BY ID ASC) 
+        THEN Usuario.nick ELSE NULL END AS nombre_usuario FROM Butaca
+	        INNER JOIN Sala ON Butaca.ID_Sala = Sala.ID
+	        LEFT JOIN Entrada ON Butaca.ID = Entrada.ID_Butaca
+	        LEFT JOIN Usuario ON Entrada.ID_Usuario = Usuario.ID
+        WHERE Sala.nombre = '".$nombre_sala."';";
+
+        $result = $this->ejecutar_consulta($consulta);
+        if (!empty($result)) {
+            $ocupacion = array();
+            foreach ($result as $fila) {
+                array_push($ocupacion, $fila['nombre_usuario']);
             }
             return $ocupacion;
         } else {

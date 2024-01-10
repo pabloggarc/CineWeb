@@ -27,9 +27,20 @@
                     $id_butaca = $i * $columnas + $j;
 
                     if ($libre[$id_butaca] == 1) {
-                        echo "<td class='butaca_libre' id='" . ($ids_butacas[$id_butaca]) . "'><i class='fas fa-couch'></i><br>" . ($id_butaca + 1) . "</td>";
-                    } else {
-                        echo "<td class='butaca_ocupada' id='" . ($ids_butacas[$id_butaca]) . "'><i class='fas fa-couch'></i><br>" . ($id_butaca + 1) . "</td>";
+                        echo "<td class='butaca_libre' id='" . ($ids_butacas[$id_butaca]) . "'>
+                            <div class='tooltip'><i class='fas fa-couch'>
+                            </i><br>" . ($id_butaca + 1) . "
+                            <span class='tooltiptext'>Butaca libre</span></td></div>";
+                    } else if ($_SESSION["rol_usuario"] == 2) {
+                        echo "<td class='butaca_ocupada' id='" . ($ids_butacas[$id_butaca]) . "'>
+                            <div class='tooltip'><i class='fas fa-couch'>
+                            </i><br>" . ($id_butaca + 1) . "
+                            <span class='tooltiptext'>Butaca reservada por ".$ocupantes[$id_butaca]."</span></td></div>";
+                    } else if ($_SESSION["rol_usuario"] == 1) {
+                        echo "<td class='butaca_ocupada' id='" . ($ids_butacas[$id_butaca]) . "'>
+                            <div class='tooltip'><i class='fas fa-couch'>
+                            </i><br>" . ($id_butaca + 1) . "
+                            <span class='tooltiptext'>Butaca reservada</span></td></div>";
                     }
                     if ($j + 1 == $columnas / 2) {
                         echo "<td class='pasillo'>" . str_repeat("&nbsp", PASILLO_SIZE) . "</td>";

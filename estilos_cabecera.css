@@ -1,8 +1,14 @@
+@import url('https://fonts.cdnfonts.com/css/dinpro-medium');
+
 nav {
     background-color: #CCCCCC;
     color: #ffffff;
     text-align: center;
     width: 100%;
+}
+
+* {
+    font-family: 'DINPro-Medium', sans-serif;
 }
 
 
@@ -38,4 +44,3 @@ nav {
 .opciones a:hover {
     color: #ff0303;
 }
-
