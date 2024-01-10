@@ -653,6 +653,32 @@ class Datos
         }
     }
 
+    public function get_ranking_peliculas_vistas(){
+        $consulta = $this->ejecutar_consulta(
+            "SELECT Pelicula.nombre, COUNT(Pelicula.nombre) FROM Entrada 
+            INNER JOIN Pelicula ON Entrada.ID_Pelicula_Sesion = Pelicula.ID
+            GROUP BY Pelicula.nombre ORDER BY count DESC; "
+        );
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
+    public function get_ranking_peliculas_valoradas(){
+        $consulta = $this->ejecutar_consulta(
+            "SELECT Pelicula.nombre, ROUND(AVG(Valoracion.puntuacion), 2) AS valoracion_media FROM Pelicula 
+            INNER JOIN Valoracion ON Pelicula.ID = Valoracion.ID_Pelicula
+            GROUP BY Pelicula.nombre ORDER BY valoracion_media DESC;  "
+        );
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
     public function get_numero_butacas()
     {
         $consulta = $this->ejecutar_consulta(

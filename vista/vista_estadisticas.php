@@ -51,12 +51,19 @@
         </div>
         <div id="grafica2" class="grafica2">
         </div>
+        <br>
+        <div id="grafica3" class="grafica3">
+        </div>
+        <div id="grafica4" class="grafica3">
+        </div>
     </div>
     
     <script>
         google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback(drawChartButacas);
         google.charts.setOnLoadCallback(drawChartReservas);
+        google.charts.setOnLoadCallback(drawChartPeliculas);
+        google.charts.setOnLoadCallback(drawChartPeliculasValoradas);
 
         function color_aleatorio() {
             var simbolos, color;
@@ -113,6 +120,60 @@
 
             var chart = new google.visualization.PieChart(document.getElementById('grafica2'));
             chart.draw(datos, options);
+        }
+
+        function drawChartPeliculas() {
+            var data = google.visualization.arrayToDataTable([
+                ['Películas', 'Visualizaciones', { role: 'style' }],
+                <?=$datos4?>
+            ]);
+
+            var view = new google.visualization.DataView(data);
+            view.setColumns([0, 1, {calc: "stringify",
+                                sourceColumn: 1,
+                                type: "string",
+                                role: "annotation" 
+                            }, 2]);
+
+            var options = {
+                title: "Películas vistas por los usuarios:",
+                width: '66vw',
+                height: '50vh',
+                bar: {groupWidth: "90%"},
+                legend: { position: "none" },
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById("grafica3"));
+            chart.draw(view, options);
+        }
+
+        function drawChartPeliculasValoradas() {
+
+            var datos = <?php echo '['.$datos3.']'; ?>;
+            datos.forEach(function(subarray) {
+                subarray[1] = parseFloat(subarray[1]);
+            });
+            console.log(datos);
+
+            var data = google.visualization.arrayToDataTable([
+                ['Película', 'Valoración media', { role: 'style' }],
+            ].concat(datos));
+
+            var view = new google.visualization.DataView(data);
+            view.setColumns([0, 1, {calc: "stringify",
+                                sourceColumn: 1,
+                                type: "string",
+                                role: "annotation" 
+                            }, 2]);
+
+            var options = {
+                title: "Nota media de los clientes:",
+                width: '66vw',
+                height: '50vh',
+                bar: {groupWidth: "90%"},
+                legend: { position: "none" },
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById("grafica4"));
+            chart.draw(view, options);
         }
     </script>
 </body>
