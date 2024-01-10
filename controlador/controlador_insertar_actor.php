@@ -8,29 +8,14 @@ $bd->conectar();
 
 // Procesamiento del formulario de inicio de sesion
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    session_start();
-    $id = $_SESSION['id'];
-    $nombre = $_POST['nombre_pelicula'];
-    $sinopsis = $_POST['sinopsis'];
-    $url_web = $_POST['url_web'];
-    $titulo = $_POST['titulo'];
-    $duracion = $_POST['duracion'];
-    $anno = $_POST['anno'];
-    $portada = $_POST['portada'];
-    $clasificacion = $_POST['clasificacion'];
-    $distribuidora = $_POST['distribuidora'];
-    $actores = $_POST['actores'];
-    $nacionalidad = $_POST['nacionalidad'];
-    $director = $_POST['director'];
-    $generos = $_POST['generos'];
-
-    $aux = $bd->get_id_pelicula($nombre, $anno, $duracion);
-    $peli_original = $bd->get_peliculas_por_id($id)[0];
-    if (is_null($aux) || $aux == $id) {
-        $bd->update_pelicula_por_id($id, $nombre, $sinopsis, $url_web, $titulo, $duracion, $anno, $portada, $clasificacion, $distribuidora, $actores, $nacionalidad, $director, $generos);
+    $nombre = $_POST['nombre'];
+    $apellidos = $_POST['apellidos'];
+    $nacimiento = $_POST['fecha'];
+    if (is_null($bd->get_actor_por_nombre_apellidos_nacimiento($nombre, $apellidos, $nacimiento))) {
+        $bd->insertar_actor($nombre, $apellidos, $nacimiento);
         $bd->desconectar();
         header("Location: ../controlador/controlador_admin_inicio.php");
-    } else {
+    }else{
         $bd->desconectar();
         echo '
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -40,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             document.addEventListener("DOMContentLoaded", function() {
                 Swal.fire({
                     icon: "error",
-                    title: "<span style=\'color: red;\'>PELICULA EXISTENTE</span>",
-                    html: "<span style=\'color: #333;\'>La pelicula introducida ya existe en la base de datos</span>",
+                    title: "<span style=\'color: red;\'>ACTOR EXISTENTE</span>",
+                    html: "<span style=\'color: #333;\'>El actor introducido ya existe</span>",
                     confirmButtonText: "<span style=\'color: #fff;\'>OK</span>",
                     customClass: {
                         confirmButton: \'btn btn-danger\',

@@ -116,28 +116,14 @@
         <button type="submit">Enviar</button>
     </form>
 
-    <!-- Botón para añadir actor /-->
-    <form>
-    </form>
-
-    <!-- Botón para añadir director /-->
-    <form>
-    </form>
-
-    <!-- Botón para añadir nacionalidad /-->
-    <form>
-    </form>
-
-    <!-- Botón para añadir distribuidora /-->
-    <form>
-    </form>
-
-    <!-- Botón para añadir clasificacion por edad /-->
-    <form>
-    </form>
-
-    <!-- Botón para añadir genero /-->
-    <form>
+    <!-- Botón para añadir /-->
+    <form action="../controlador/controlador_botones_pelicula.php" method="post">
+        <?php
+        $botones = array("Actor", "Director", "Genero", "Nacionalidad", "Clasificacion", "Distribuidora");
+        for ($i = 0; $i < count($botones); $i++) {
+            echo "<button name='boton' value=" . $i . " type='submit'>Insertar " . $botones[$i] . "</button>";
+        }
+        ?>
     </form>
 
 </body>

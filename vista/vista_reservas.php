@@ -34,20 +34,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             $fecha_actual = date('Y-m-d');
             $hora_actual = date('H:i:s');
             for ($i = 0; $i < count($nombre_pelicula); $i++) {
-                for ($j = 0; $j < count($butaca_fila[$i]); $j++) {
-                    echo "<tr>";
-                    echo "<td><br>" . $nombre_pelicula[$i] . "</td>";
-                    echo "<td><br>" . $hora[$i] . "</td>";
-                    echo "<td><br>" . $dia[$i] . "</td>";
-                    echo "<td><br>" . $sala[$i] . "</td>";
-                    echo "<td><br>" . $localizador[$i][$j] . "</td>";
-                    echo "<td><br>" . $butaca_fila[$i][$j] . "</td>";
-                    $col = ($butaca_fila[$i][$j] - 1) * $columnas[$i] + $butaca_columna[$i][$j];
-                    echo "<td><br>" . $col . "</td>";
-                    $valor = "$nombre_pelicula[$i];$hora[$i];$dia[$i];$sala[$i];" . $butaca_fila[$i][$j] . ";" . $butaca_columna[$i][$j] . "";
-                    echo "<td> <input type='checkbox' name='filas_seleccionadas[]' value='" . $valor . "'></td>";
-                    echo "</tr>";
-                }
+                echo "<tr>";
+                echo "<td><br>" . $nombre_pelicula[$i] . "</td>";
+                echo "<td><br>" . $hora[$i] . "</td>";
+                echo "<td><br>" . $dia[$i] . "</td>";
+                echo "<td><br>" . $sala[$i] . "</td>";
+                echo "<td><br>" . $localizador[$i] . "</td>";
+                echo "<td><br>" . $butaca_fila[$i] . "</td>";
+                $col = ($butaca_fila[$i] - 1) * $columnas[$i] + $butaca_columna[$i];
+                echo "<td><br>" . $col . "</td>";
+                $valor = "$nombre_pelicula[$i];$hora[$i];$dia[$i];$sala[$i];" . $butaca_fila[$i] . ";" . $butaca_columna[$i] . "";
+                echo "<td> <input type='checkbox' name='filas_seleccionadas[]' value='" . $valor . "'></td>";
+                echo "</tr>";
             }
             ?>
         </table>

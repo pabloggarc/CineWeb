@@ -72,6 +72,75 @@
                         ?>
                     </select>
                 </div>
+
+                <div class="editable-field" id="name-field">
+                    <label for="nacionalidad">Nacionalidad:</label>
+                    <select id="nacionalidad" name="nacionalidad">
+                        <?php
+                        for ($i = 0; $i < count($lista_nacionalidad); $i++) {
+                            $selected = ($lista_nacionalidad[$i]['id'] == $info_nacionalidad[0]['id_nacionalidad']) ? 'selected' : '';
+                            echo "<option value='" . $lista_nacionalidad[$i]['id'] . "' " . $selected . "' $selected >" . $lista_nacionalidad[$i]['nombre'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="editable-field" id="name-field">
+                    <label for="actores">Actores:</label>
+                    <select id="actores" name="actores[]" multiple>
+                        <?php
+                        for ($i = 0; $i < count($lista_actor); $i++) {
+                            foreach ($info_actores as $j) {
+                                if ($lista_actor[$i]['id'] == $j['id_actor']) {
+                                    $selected = 'selected';
+                                    break;
+                                } else {
+                                    $selected = '';
+                                }
+                            }
+                            echo "<option value='" . $lista_actor[$i]['id'] . "' $selected >" . $lista_actor[$i]['nombre'] . " " . $lista_actor[$i]['apellidos'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="editable-field" id="name-field">
+                    <label for="director">Director:</label>
+                    <select id="director" name="director[]" multiple>
+                        <?php
+                        for ($i = 0; $i < count($lista_director); $i++) {
+                            foreach ($info_director as $j) {
+                                if ($lista_director[$i]['id'] == $j['id_director']) {
+                                    $selected = 'selected';
+                                    break;
+                                } else {
+                                    $selected = '';
+                                }
+                            }
+                            echo "<option value='" . $lista_director[$i]['id'] . "' $selected >" . $lista_director[$i]['nombre'] . " " . $lista_director[$i]['apellidos'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="editable-field" id="name-field">
+                    <label for="generos">Generos:</label>
+                    <select id="generos" name="generos[]" multiple>
+                        <?php
+                        for ($i = 0; $i < count($lista_genero); $i++) {
+                            foreach ($info_generos as $j) {
+                                if ($lista_genero[$i]['id'] == $j['id_genero']) {
+                                    $selected = 'selected';
+                                    break;
+                                } else {
+                                    $selected = '';
+                                }
+                            }
+                            echo "<option value='" . $lista_genero[$i]['id'] . "' $selected >" . $lista_genero[$i]['tipo'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
             </div>
         </div>
         <!-- Botón de envío -->
