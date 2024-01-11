@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="../estilos.css">
     <link rel="stylesheet" href="../estilos_cabecera.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="../js/script.js"></script>
+    <?php
+        if($_SESSION['rol_usuario'] == 1){
+            echo "<script src='https://code.jquery.com/jquery-3.6.4.min.js'></script><script src='../js/butacas.js'></script>"; 
+        }
+    ?>
 </head>
 
 <body>

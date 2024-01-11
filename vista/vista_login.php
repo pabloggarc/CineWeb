@@ -19,7 +19,7 @@
             <div class="info-childs">
                 <h2>Bienvenido</h2>
                 <img src="../imagenes/cine2.png" alt="alt" width="auto" height="150px">
-                <p>Para unirte a nuestra comunidad por favor Crea una cuenta con tus datos</p>
+                <p>Para unirte a nuestra comunidad crea una cuenta con tus datos</p>
                 <button onclick="mostrarContenedor('registro', 'iniciarSesion')"> Crear una cuenta</button>
             </div>
         </div>
