@@ -7,6 +7,7 @@
     <title>Formulario de Película</title>
     <link rel="stylesheet" href="../estilosCine.css">
     <link rel="stylesheet" href="../estilos_cabecera.css">
+    <script src="../js/imagen_base64.js"></script>
 </head>
 
 <body>
@@ -54,8 +55,9 @@
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="portada">Portada:</label>
-                        <input class="field-value" type="text" id="portada" name="portada"
-                            value="<?php echo $info['portada'] ?>" required>
+                        <input class="field-value" style='display: none' type="text" id="portada" name="portada"
+                            required>
+                        <button onclick="seleccionarImagen()">Seleccionar imagen</button>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="clasificacion">Clasificación por Edad:</label>
