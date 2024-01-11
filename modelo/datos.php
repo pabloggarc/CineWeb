@@ -74,11 +74,11 @@ class Datos
             SELECT Butaca.ID from Butaca INNER JOIN Entrada ON Butaca.ID = Entrada.ID_Butaca 
             INNER JOIN Sala ON Entrada.ID_Sala_Sesion = Sala.ID INNER JOIN Sesion ON Entrada.ID_Pase_Sesion = Sesion.ID_Pase AND
             Entrada.ID_Sala_Sesion = Sesion.ID_Sala AND Entrada.ID_Pelicula_Sesion = Sesion.ID_Pelicula INNER JOIN Pase ON
-            Sesion.ID_Pase = Pase.ID INNER JOIN Pelicula ON Sesion.ID_Pelicula = Pelicula.ID WHERE Sala.nombre = '".$nombre_sala."' AND 
-            Pase.dia = '".$fecha."' AND Pase.hora = '".$hora."' ORDER BY ID ASC
+            Sesion.ID_Pase = Pase.ID INNER JOIN Pelicula ON Sesion.ID_Pelicula = Pelicula.ID WHERE Sala.nombre = '" . $nombre_sala . "' AND 
+            Pase.dia = '" . $fecha . "' AND Pase.hora = '" . $hora . "' ORDER BY ID ASC
         ) 	THEN 0
             ELSE 1 END AS libre
-        FROM Butaca INNER JOIN Sala ON Butaca.ID_Sala = Sala.ID WHERE Sala.nombre = '".$nombre_sala."'; ";
+        FROM Butaca INNER JOIN Sala ON Butaca.ID_Sala = Sala.ID WHERE Sala.nombre = '" . $nombre_sala . "'; ";
         $result = $this->ejecutar_consulta($consulta);
         if (!empty($result)) {
             $ocupacion = array();
@@ -91,7 +91,8 @@ class Datos
         }
     }
 
-    public function get_ocupantes_sala($nombre_sala, $fecha, $hora){
+    public function get_ocupantes_sala($nombre_sala, $fecha, $hora)
+    {
         $consulta = "SELECT CASE WHEN Butaca.ID IN (
             SELECT Butaca.ID FROM Butaca
             INNER JOIN Entrada ON Butaca.ID = Entrada.ID_Butaca
@@ -101,15 +102,15 @@ class Datos
                                 AND Entrada.ID_Pelicula_Sesion = Sesion.ID_Pelicula
             INNER JOIN Pase ON Sesion.ID_Pase = Pase.ID
             INNER JOIN Pelicula ON Sesion.ID_Pelicula = Pelicula.ID
-            WHERE Sala.nombre = '".$nombre_sala."'
-                AND Pase.dia = '".$fecha."'
-                AND Pase.hora = '".$hora."'
+            WHERE Sala.nombre = '" . $nombre_sala . "'
+                AND Pase.dia = '" . $fecha . "'
+                AND Pase.hora = '" . $hora . "'
             ORDER BY ID ASC) 
         THEN Usuario.nick ELSE NULL END AS nombre_usuario FROM Butaca
 	        INNER JOIN Sala ON Butaca.ID_Sala = Sala.ID
 	        LEFT JOIN Entrada ON Butaca.ID = Entrada.ID_Butaca
 	        LEFT JOIN Usuario ON Entrada.ID_Usuario = Usuario.ID
-        WHERE Sala.nombre = '".$nombre_sala."';";
+        WHERE Sala.nombre = '" . $nombre_sala . "';";
 
         $result = $this->ejecutar_consulta($consulta);
         if (!empty($result)) {
@@ -783,10 +784,12 @@ class Datos
         }
     }
 
-    public function update_sala_por_id($id, $nombre, $filas, $columnas)
+    public function update_sala_por_id($id, $nombre)
     {
-        $this->eliminar_sala_por_id($id);
-        $this->insertar_sala_por_id($id, $nombre, $filas, $columnas);
+        $consulta = $this->ejecutar_consulta(
+            "update sala set nombre = '" . $nombre . "'
+            where id = " . $id . ";"
+        );
     }
 
     public function get_sesiones()
@@ -1124,9 +1127,56 @@ class Datos
             return null;
         }
     }
-    public function insertar_sala_por_id($id, $nombre, $filas, $columnas)
+
+
+    public function get_info_generos_actuales()
     {
-        $this->ejecutar_consulta("insert into sala(id, nombre, filas, columnas) values (" . $id . ",'" . $nombre . "'," . $filas . "," . $columnas . ")");
+        $consulta = $this->ejecutar_consulta("select genero.id,  genero.tipo, count(*) from genero_pelicula 
+        inner join genero on genero.id = genero_pelicula.id_genero
+        inner join sesion on sesion.id_pelicula = genero_pelicula.id_pelicula
+        inner join pase on pase.id = sesion.id_pase
+        where dia > CURRENT_DATE or (pase.dia = CURRENT_DATE and pase.hora > CURRENT_TIME)
+        group by genero.id, genero.tipo order by genero.id;");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
+    public function get_info_generos_mas_vistos()
+    {
+        $consulta = $this->ejecutar_consulta("select genero.id,  genero.tipo, count(*) from genero_pelicula
+        inner join genero on genero.id = genero_pelicula.id_genero
+        inner join entrada on entrada.id_pelicula_sesion = genero_pelicula.id_pelicula
+        inner join pase on pase.id = entrada.id_pase_sesion
+        where dia < CURRENT_DATE or (pase.dia = CURRENT_DATE and pase.hora < CURRENT_TIME)
+        group by genero.id, genero.tipo;");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
+
+    public function get_hora_dia_por_pase($id)
+    {
+        $consulta = $this->ejecutar_consulta("select hora, dia as fecha from pase where id = " . $id . ";");
+        if (!empty($consulta)) {
+            return $consulta[0];
+        } else {
+            return null;
+        }
+    }
+
+    public function get_sala_nombre_por_id($id)
+    {
+        $consulta = $this->ejecutar_consulta("select nombre from sala where id = " . $id . ";");
+        if (!empty($consulta)) {
+            return $consulta[0];
+        } else {
+            return null;
+        }
     }
 }
 ?>

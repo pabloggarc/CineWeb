@@ -13,7 +13,13 @@
 </head>
 
 <body>
-    <?php require_once("vista_cabecera.php") ?>
+    <?php
+    if ($_SESSION['rol_usuario'] == 1) {
+        require_once("vista_cabecera.php");
+    } else {
+        require_once("vista_cabecera_admin.php");
+    }
+    ?>
 
     <h1>Sala
         <?php echo $nombre_sala; ?>
@@ -25,7 +31,6 @@
                 echo "<tr>";
                 for ($j = 0; $j < $columnas; $j++) {
                     $id_butaca = $i * $columnas + $j;
-
                     if ($libre[$id_butaca] == 1) {
                         echo "<td class='butaca_libre' id='" . ($ids_butacas[$id_butaca]) . "'>
                             <div class='tooltip'><i class='fas fa-couch'>
@@ -35,7 +40,7 @@
                         echo "<td class='butaca_ocupada' id='" . ($ids_butacas[$id_butaca]) . "'>
                             <div class='tooltip'><i class='fas fa-couch'>
                             </i><br>" . ($id_butaca + 1) . "
-                            <span class='tooltiptext'>Butaca reservada por ".$ocupantes[$id_butaca]."</span></td></div>";
+                            <span class='tooltiptext'>Butaca reservada por " . $ocupantes[$id_butaca] . "</span></td></div>";
                     } else if ($_SESSION["rol_usuario"] == 1) {
                         echo "<td class='butaca_ocupada' id='" . ($ids_butacas[$id_butaca]) . "'>
                             <div class='tooltip'><i class='fas fa-couch'>
@@ -51,9 +56,15 @@
             ?>
         </table>
     </div>
-
-        <button id="boton_conf_entradas">Confirmar entradas</button>
-
+    <?php
+    if ($_SESSION["rol_usuario"] == 1) {
+        echo '<button id="boton_conf_entradas">Confirmar entradas</button>';
+    } else {
+        echo "<form method='POST' action='../controlador/controlador_admin_inicio.php'>";
+        echo '<button id="boton_conf_entradas">Volver</button>';
+        echo '</form>';
+    }
+    ?>
 </body>
 
 </html>

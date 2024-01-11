@@ -23,12 +23,11 @@
                 </div>
                 <div class="editable-field" id="name-field">
                     <label for="numero_filas">Número de filas:</label>
-                    <input class="field-value" type="text" id="n_filas" name="n_filas" value=<?php echo $info['filas'] ?> pattern="[0-9]+" required>
+                    <input class="field-value" type="text" id="n_filas" name="n_filas" value=<?php echo $info['filas'] ?> pattern="[0-9]+" readonly>
                 </div>
                 <div class="editable-field" id="name-field">
                     <label for="numero_columnas">Número de columnas:</label>
-                    <input class="field-value" type="text" id="n_col" name="n_col" value=<?php echo $info['columnas'] ?>
-                        pattern="[0-9]+" required>
+                    <input class="field-value" type="text" id="n_col" name="n_col" value=<?php echo $info['columnas'] ?> pattern="[0-9]+" readonly>
                 </div>
             </div>
         </div>

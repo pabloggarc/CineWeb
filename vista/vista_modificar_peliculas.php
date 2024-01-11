@@ -19,27 +19,27 @@
             <div class="profile-info">
                 <div class="editable-field" id="name-field">
                     <label for="nombre_pelicula">Nombre de la Película:</label>
-                    <input class="field-value" type="text" id="nombre_pelicula" value=<?php echo $info['nombre'] ?>
+                    <input class="field-value" type="text" id="nombre_pelicula" value="<?php echo $info['nombre'] ?>"
                         name="nombre_pelicula" required>
                 </div>
                 <div class="editable-field" id="name-field">
                     <label for="sinopsis">Sinopsis:</label>
-                    <input class="field-value" type="text" id="sinopsis" name="sinopsis" value='<?php echo $info['sinopsis'] ?>' required>
+                    <input class="field-value" type="text" id="sinopsis" name="sinopsis" value="<?php echo $info['sinopsis'] ?>" required>
                 </div>
                 <div class="editable-field" id="name-field">
                     <label for="url_web">URL Web:</label>
-                    <input class="field-value" type="url" id="url_web" name="url_web" value=<?php echo $info['web'] ?>
+                    <input class="field-value" type="url" id="url_web" name="url_web" value="<?php echo $info['web'] ?>"
                         required>
 
                 </div>
                 <div class="editable-field" id="name-field">
                     <label for="titulo">Título:</label>
-                    <input class="field-value" type="text" id="titulo" name="titulo" value=<?php echo $info['titulo'] ?>
+                    <input class="field-value" type="text" id="titulo" name="titulo" value="<?php echo $info['titulo'] ?>"
                         required>
                 </div>
                 <div class="editable-field" id="name-field">
                     <label for="duracion">Duración:</label>
-                    <input class="field-value" type="text" id="duracion" name="duracion" value=<?php echo $info['duracion'] ?> required>
+                    <input class="field-value" type="text" id="duracion" name="duracion" value="<?php echo $info['duracion'] ?>" required>
                 </div>
                 <div class="editable-field" id="name-field">
                     <label for="anno">Año:</label>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="editable-field" id="name-field">
                     <label for="portada">Portada:</label>
-                    <input class="field-value" type="text" id="portada" name="portada" value=<?php echo $info['portada'] ?> required>
+                    <input class="field-value" type="text" id="portada" name="portada" value="<?php echo $info['portada'] ?>" required>
                 </div>
                 <div class="editable-field" id="name-field">
                     <label for="clasificacion">Clasificación por Edad:</label>

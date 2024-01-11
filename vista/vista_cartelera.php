@@ -36,7 +36,8 @@
                             if (is_array($lista_sesiones[$indice])) {
                                 for ($k = 0; $k < count($lista_sesiones[$indice]); $k++) {
                                     $valor = $lista_peliculas[$indice]['id'] . ";" . $lista_sesiones[$indice][$k]['hora'];
-                                    echo '<button id="boton" name="boton" value="' . $valor . '">' . $lista_sesiones[$indice][$k]["hora"] . '</button>';
+                                    echo '<button id="boton" name="boton" value="' . $valor . '">' . date("H:i", strtotime($lista_sesiones[$indice][$k]["hora"]))
+                                    . '</button>';
                                 }
                             }
 

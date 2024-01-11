@@ -10,12 +10,10 @@ $bd->conectar();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['boton'];
     $nombre = $_POST['nombre_sala'];
-    $filas = $_POST['n_filas'];
-    $columnas = $_POST['n_col'];
     $nombre_original = $bd->get_sala_por_id($id);
     $aux = $bd->get_sala_por_nombre($nombre);
     if (is_null($aux) || $nombre == $nombre_original['nombre']) {
-        $bd->update_sala_por_id($id, $nombre, $filas, $columnas);
+        $bd->update_sala_por_id($id, $nombre);
         $bd->desconectar();
         header("Location: ../controlador/controlador_admin_inicio.php");
     } else {

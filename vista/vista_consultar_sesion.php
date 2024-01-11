@@ -27,6 +27,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <th>Película</th>
                 <th>Fecha</th>
                 <th>Acción</th>
+                <th>Consultar sala</th>
             </tr>
             <?php
             for ($i = 0; $i < count($lista_sesiones); $i++) {
@@ -35,7 +36,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 echo "<td><br>" . $lista_sesiones[$i]['pelicula_nombre'] . "</td>";
                 echo "<td><br>" . $lista_sesiones[$i]['fecha'] . "</td>";
                 $valor = $lista_sesiones[$i]['id_sala'] . ";" . $lista_sesiones[$i]['id_pelicula'] . ";" . $lista_sesiones[$i]['id_pase'];
-                echo "<td><button type='submit' name='boton' value='" . $valor . "''>MODIFICAR</button></td>";
+                echo "<td><button type='submit' name='boton' value='" . $valor . ";0" . "''>MODIFICAR</button></td>";
+                echo "<td><button type='submit' name='boton' value='" . $valor . ";1" . "''>CONSULTAR</button></td>";
                 echo "</tr>";
             }
             ?>
