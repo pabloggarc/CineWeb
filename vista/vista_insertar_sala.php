@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estilosCine.css">
     <link rel="stylesheet" href="../estilos_cabecera.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        crossorigin="anonymous" />
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
+
     <title>Formulario de Sala</title>
 </head>
 
@@ -14,6 +18,7 @@
     <?php require_once("vista_cabecera_admin.php") ?>
 
     <div class="container4">
+        <h2>INSERTAR SALA <i class="fas fa-door-open"></i></i></h2>
         <form action="../controlador/controlador_insertar_sala.php" method="post">
             <div class="profile-container">
                 <div class="profile-info">

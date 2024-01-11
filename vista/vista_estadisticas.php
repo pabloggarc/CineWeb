@@ -5,6 +5,8 @@
     <title>Estadísticas</title>
     <link rel="stylesheet" href="../estilos_cabecera.css">
     <link rel="stylesheet" type="text/css" href="../estilosCine.css">
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
@@ -12,7 +14,8 @@
     <?php require_once("vista_cabecera_admin.php") ?>
     <table id="tablaDatos2">
         <tr>
-            <th>Proyecciones hoy (<?=date("d/m/Y")?>)
+            <th>Proyecciones hoy (
+                <?= date("d/m/Y") ?>)
             </th>
             <th>Proyecciones futuras</th>
             <th>Usuarios registrados</th>
@@ -46,7 +49,8 @@
 
     <div class="contenedor-total">
         <h3>GRADO DE OCUPACIÓN</h3>
-        <p>Estadísticas que permiten conocer la ocupación de las salas en la hora actual y la ocupación que tendrá en el futuro conociendo el número de reservas realizadas.</p>
+        <p>Estadísticas que permiten conocer la ocupación de las salas en la hora actual y la ocupación que tendrá en el
+            futuro conociendo el número de reservas realizadas.</p>
         <div class="contenedor-graficas">
             <div id="grafica" class="grafica">
             </div>
@@ -54,7 +58,8 @@
             </div>
         </div>
         <h3>GRADO DE SATISFACCIÓN</h3>
-        <p>Estadísticas que permiten conocer el número de películas que se han visto en el cine junto con el grado de satisfacción del cliente para cada una de ellas.</p>
+        <p>Estadísticas que permiten conocer el número de películas que se han visto en el cine junto con el grado de
+            satisfacción del cliente para cada una de ellas.</p>
         <div class="contenedor-graficas2">
             <div id="grafica3" class="grafica3">
             </div>
@@ -62,7 +67,8 @@
             </div>
         </div>
         <h3>GÉNEROS DE PELÍCULAS</h3>
-        <p>Estadísticas que permiten conocer cuántas películas hay disponibles de cada género, y cuántas visualizaciones ha tenido cada género.</p>
+        <p>Estadísticas que permiten conocer cuántas películas hay disponibles de cada género, y cuántas visualizaciones
+            ha tenido cada género.</p>
         <div class="contenedor-graficas3">
             <div id="grafica5" class="grafica3">
             </div>

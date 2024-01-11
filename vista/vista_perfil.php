@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../estilos_cabecera.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous" />
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
+
 </head>
 
 <body>
@@ -22,11 +24,9 @@
     ?>
 
     <div class="container2">
-        <div class="imagen-perfil">
-            <h2>PERFIL</h2>
-        </div>
-        <div class="imagen-perfil">
-            <img src="../imagenes/usuarioLogin.PNG" alt="alt" width="auto" height="100px">
+        <h2>PERFIL</h2>
+        <div class="centrar">
+            <img src="../imagenes/perfil.PNG" alt="Imagen de perfil" width="auto" height="115px">
         </div>
         <form action="../controlador/controlador_editar_perfil.php" method="post">
             <div class="profile-container">
@@ -63,14 +63,14 @@
                     </div>
                 </div>
             </div>
-            <div class="imagen-perfil">
+            <div class="centrar">
                 <input type="submit" value="Editar"></input>
             </div>
-            <div class="parking-icons">
-                <div class="parking-icon" title="Cerrar Sesión" onclick="cerrarSesion()">
+            <div class="iconos-cerrar-borrar">
+                <div class="icono-cb" title="Cerrar Sesión" onclick="cerrarSesion()">
                     <a href="../controlador/controlador_cerrar_sesion.php"><i class="fas fa-sign-out-alt"></i>
                 </div>
-                <div class="parking-icon" title="Borrar Cuenta" onclick="deleteAccount()">
+                <div class="icono-cb" title="Borrar Cuenta" onclick="deleteAccount()">
                     <a href="../controlador/controlador_eliminar_cuenta.php"><i class="fas fa-trash-alt"></i>
                 </div>
             </div>

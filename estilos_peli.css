@@ -146,7 +146,7 @@ body {
     color: white;
     width: 70px;
     /*Ancho fijo para el contenedor de la información */
-    height: 330px;
+    height: 10px;
 }
 
 .info-box h3 {

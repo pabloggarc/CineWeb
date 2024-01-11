@@ -13,7 +13,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <link rel="stylesheet" href="../estilos_cabecera.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous" />
-
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
 </head>
 
 <body>
@@ -50,9 +50,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             }
             ?>
         </table>
-        <?php if (count($nombre_pelicula) > 0) {
-            echo '<input type="submit" name="submit" value="Eliminar Selecciones">';
-        } ?>
+        <div class="centrar">
+            <?php if (count($nombre_pelicula) > 0) {
+                echo '<input type="submit" name="submit" value="Eliminar Selecciones">';
+            } ?>
+        </div>
     </form>
 </body>
 

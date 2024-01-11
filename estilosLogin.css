@@ -15,6 +15,8 @@ body {
     background-image: url(./imagenes/cineFondo.jpg);
     background-size: cover;
     flex-direction: column;
+    padding: 0;
+    margin: 0;
 }
 
 .logo {
@@ -50,7 +52,7 @@ body {
 
 /*Especificamos los estilos del subcontenedor izquierdo de login y registro*/
 .information {
-    width: 60%;
+    width: 80%;
     display: flex;
     align-items: center;
     text-align: center;
@@ -199,7 +201,7 @@ body {
 /*Estilo de las cajas del formulario de registro*/
 #caja-nombre {
     display: flex;
-    width: 250px;
+    width: 300px;
     height: 30px;
     margin-top: 10px;
 }
@@ -207,4 +209,13 @@ body {
 #caja-nombre .field-value {
     font-weight: bold;
     color: red;
+}
+
+.field-value {
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: auto;
+    margin-right: auto;
 }

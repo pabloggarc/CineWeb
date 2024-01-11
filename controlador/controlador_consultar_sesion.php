@@ -26,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require_once("../vista/vista_modificar_sesion.php");
 
     } else {
-        session_start();
         $consult = $bd->get_sala_nombre_por_id($ids[0]);
         $_SESSION['sala'] = $consult['nombre'];
         $result = $bd->get_hora_dia_por_pase($ids[2]);

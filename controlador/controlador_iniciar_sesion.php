@@ -34,7 +34,7 @@
             $_SESSION['rol_usuario'] = $rol_usuario;
             if($rol_usuario==1){
                 // Redirigimos al usuario a la pantalla de inicios del cliente
-                header("Location: ../controlador/controlador_perfil.php");
+                header("Location: ../controlador/controlador_mostrar_cartelera.php");
             }else if($rol_usuario==2){
                 header("Location: ../controlador/controlador_admin_inicio.php");
             }

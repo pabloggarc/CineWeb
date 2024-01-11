@@ -7,6 +7,10 @@
     <title>Formulario de Película</title>
     <link rel="stylesheet" href="../estilosCine.css">
     <link rel="stylesheet" href="../estilos_cabecera.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        crossorigin="anonymous" />
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
+
 </head>
 
 <body>
@@ -14,6 +18,7 @@
     <?php require_once("vista_cabecera_admin.php") ?>
 
     <div class="container4">
+        <h2>INSERTAR PASE <i class="fas fa-clock"></i></h2>
         <form action="../controlador/controlador_insertar_pase.php" method="post">
             <div class="profile-container">
                 <div class="profile-info">

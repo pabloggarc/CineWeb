@@ -14,6 +14,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         crossorigin="anonymous" />
     <link rel="stylesheet" href="../estilosCine.css">
     <link rel="stylesheet" href="../estilos_cabecera.css">
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
+
 </head>
 
 <body>

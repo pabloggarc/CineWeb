@@ -13,11 +13,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <link rel="stylesheet" href="../estilos_cabecera.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous" />
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
 
 </head>
 
 <body>
-<?php require_once("vista_cabecera.php") ?>
+    <?php require_once("vista_cabecera.php") ?>
 
     <form method='POST' action='../controlador/controlador_mostrar_comentario.php'>
         <table id="tablaDatos" name="tablaDatos">
@@ -36,7 +37,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 echo "<td><br>" . $dia[$i] . "</td>";
                 echo "<td><br>" . $sala[$i] . "</td>";
                 $valor = "$nombre_pelicula[$i];$hora[$i];$dia[$i];$sala[$i]";
-                if($visto[$i]['visto']==0){
+                if ($visto[$i]['visto'] == 0) {
                     echo "<td><button type='submit' name='boton' value='" . $valor . "''>COMENTAR</button></td>";
                 }
                 echo "</tr>";

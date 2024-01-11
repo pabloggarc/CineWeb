@@ -28,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $info_director = $bd->get_direccion_por_id_pelicula($id);
     $lista_genero = $bd->get_generos();
     $info_generos = $bd->get_genero_por_id_pelicula($id);
-    session_start();
     $_SESSION['id'] = $info['id'];
 }
 

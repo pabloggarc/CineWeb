@@ -1,11 +1,12 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <link rel="stylesheet" type="text/css" href="../estilos_peli.css">
-    <link rel="stylesheet" type="text/css" href="../estilosCine.css">
     <link rel="stylesheet" type="text/css" href="../estilos_cabecera.css">
+    <link rel="stylesheet" type="text/css" href="../estilosCine.css">
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
+
 
     <script>
         function goBack() {
@@ -15,26 +16,29 @@
 </head>
 
 <body>
-<?php require_once("vista_cabecera.php") ?>
+    <?php require_once("vista_cabecera.php") ?>
 
 
     <div class="container">
         <div class="image-box">
-        <img src="<?php echo $imagen; ?>" alt="Imagen">
+            <img src="<?php echo $imagen; ?>" alt="Imagen">
         </div>
         <div class="info-box" id="info-box">
-        <?php if (isset($peli)): ?>
+            <?php if (isset($peli)): ?>
                 <h3>
                     <?php echo $titulo ?>
                 </h3>
                 <ul class="lista-con-titulos-inline">
-                    <li><h4>Duracion:</h4>
+                    <li>
+                        <h4>Duracion:</h4>
                         <?php echo $duracion; ?>
                     </li>
-                    <li><h4>Año:</h4>
+                    <li>
+                        <h4>Año:</h4>
                         <?php echo $año; ?>
                     </li>
-                    <li><h4>Clasificacion:</h4>
+                    <li>
+                        <h4>Clasificacion:</h4>
                         <?php
                         $totalClasificacion = count($clasificacion); // Contar el total de elementos en el array
                         $contador = 0;
@@ -47,7 +51,8 @@
                             }
                         } ?>
                     </li>
-                    <li><h4>Genero:</h4>
+                    <li>
+                        <h4>Genero:</h4>
                         <?php
                         $totalGenero = count($genero); // Contar el total de elementos en el array
                         $contador = 0;
@@ -60,18 +65,21 @@
                             }
                         } ?>
                     </li>
-                    <li><h4>Nacionalidad:</h4>
+                    <li>
+                        <h4>Nacionalidad:</h4>
                         <?php echo $nacionalidad; ?>
                     </li>
-                    <li><h4>Hora del pase:</h4>
-                        <?php 
-                        echo $hora; 
+                    <li>
+                        <h4>Hora del pase:</h4>
+                        <?php
+                        echo $hora;
                         ?>
                     </li>
-                    <li><h4>Fecha del pase:</h4>
+                    <li>
+                        <h4>Fecha del pase:</h4>
                         <?php
-                        echo $fecha; 
-                    ?>
+                        echo $fecha;
+                        ?>
                 </ul>
             <?php else: ?>
                 <p>No se encontraron datos de la sesion.</p>
@@ -114,17 +122,19 @@
             </td>
         </tr>
     </table>
-    <div class="form-container">
+    <div class="container2">
         <?php
         if (isset($_SESSION['error']) && $_SESSION['error'] != "") {
-            echo "<p style='color: red;'>" . $_SESSION['error'] . "</p>";
+            echo "<p style='color: yellow;'>" . $_SESSION['error'] . "</p>";
             // Limpia el mensaje después de mostrarlo
             $_SESSION['error'] = "";
         }
         ?>
         <form id="accountForm" action="../controlador/controlador_reserva.php" method="post">
             <label for="accountNumber">N&uacute;mero de Cuenta:</label><br>
-            <input type="text" id="accountNumber" name="accountNumber" class="form-field"><br>
+            <input type="text" id="accountNumber" name="accountNumber" class="form-field"
+                pattern="^[A-Z]{2}[0-9]{2}[A-Za-z0-9]{4}[0-9]{7}([A-Za-z0-9]?){0,16}$"
+                title="Formato IBAN inválido"><br>
             <input type="submit" value="Enviar" class="form-button">
             <input type="button" value="Borrar" class="form-button"
                 onclick="document.getElementById('accountNumber').value = '';">

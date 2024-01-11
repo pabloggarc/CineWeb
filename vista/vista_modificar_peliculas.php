@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="../estilosCine.css">
     <link rel="stylesheet" href="../estilos_cabecera.css">
     <script src="../js/imagen_base64.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        crossorigin="anonymous" />
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
+
 </head>
 
 <body>
@@ -15,6 +19,7 @@
     <?php require_once("vista_cabecera_admin.php") ?>
 
     <div class="container5">
+        <h2>MODIFICAR PELICULA <i class="fas fa-film"></i></h2>
         <form action="../controlador/controlador_update_pelicula.php" method="post">
             <div class="profile-container">
                 <div class="profile-info">
@@ -27,8 +32,7 @@
                     <div class="editable-field" id="name-field">
                         <label for="sinopsis">Sinopsis:</label>
                         <input class="field-value" type="text" id="sinopsis" name="sinopsis"
-                            value="<?php echo $info['sinopsis'] ?>"
-                            pattern="([A-ZÁÉÍÓÚ0-9][a-záéíóú0-9A-ZÁÉÍÓÚ ]+){0,499}" required>
+                            value="<?php echo $info['sinopsis'] ?>" required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="url_web">URL Web:</label>
@@ -55,8 +59,7 @@
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="portada">Portada:</label>
-                        <input class="field-value" style='display: none' type="text" id="portada" name="portada"
-                            required>
+                        <input class="field-value" style='display: none' type="text" id="portada" name="portada">
                         <button onclick="seleccionarImagen()">Seleccionar imagen</button>
                     </div>
                     <div class="editable-field" id="name-field">
@@ -88,7 +91,7 @@
                             <?php
                             for ($i = 0; $i < count($lista_nacionalidad); $i++) {
                                 $selected = ($lista_nacionalidad[$i]['id'] == $info_nacionalidad[0]['id_nacionalidad']) ? 'selected' : '';
-                                echo "<option value='" . $lista_nacionalidad[$i]['id'] . "' " . $selected . "' $selected >" . $lista_nacionalidad[$i]['nombre'] . "</option>";
+                                echo "<option value='" . $lista_nacionalidad[$i]['id'] . "' " . $selected . " >" . $lista_nacionalidad[$i]['nombre'] . "</option>";
                             }
                             ?>
                         </select>

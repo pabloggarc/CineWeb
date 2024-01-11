@@ -23,14 +23,22 @@ select,
 input,
 button,
 form,
-option,
 h2 {
     font-family: 'DINPro-Medium', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 1vw;
-    color: white;
+    color: rgb(255, 255, 255);
 }
+
+select, option{
+    font-family: 'DINPro-Medium', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1vw;
+    color: rgb(0, 0, 0);
+}
+
 
 h2,
 h1 {
@@ -47,9 +55,14 @@ h1 {
 
 .center-div {
     display: flex;
+    padding: 20px;
     justify-content: center;
+    margin-top: 5%;
     align-items: center;
     flex-direction: column;
+    background: linear-gradient(to bottom, rgb(226, 2, 2, 0.7), black);
+    border: solid 5px black;
+    border-radius: 30px;
 }
 
 button {
@@ -116,13 +129,11 @@ label[for="accountNumber"] {
     padding: 20px;
 }
 
-.parking-icons {
-    margin-top: 20px;
-}
+
 
 .container {
     width: 900px;
-    height: 450px;
+    height: 100%;
     padding: 20px;
     background: linear-gradient(to bottom, rgb(226, 2, 2, 0.7), black);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -132,20 +143,22 @@ label[for="accountNumber"] {
 }
 
 .container2 {
-    width: 650px;
-    height: 700px;
-    padding: 20px;
+    width: 720px;
+    height: 100%;
     background: linear-gradient(to bottom, rgb(226, 2, 2, 0.7), black);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 3.5%;
-    border-radius: 40px;
+    margin-top: 2%;
+    border-radius: 60px;
     border: solid 5px black;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
 }
 
 
 .container3 {
     width: 650px;
-    height: 1000px;
+    height: 100%;
     padding: 20px;
     background: linear-gradient(to bottom, rgb(226, 2, 2, 0.7), black);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -156,24 +169,102 @@ label[for="accountNumber"] {
 
 .container4 {
     width: 650px;
-    height: 350px;
+    height: 100%;
     padding: 20px;
     background: linear-gradient(to bottom, rgb(226, 2, 2, 0.7), black);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 3.5%;
     border-radius: 40px;
     border: solid 5px black;
+    text-align: center;
 }
 
 .container5 {
     width: 650px;
-    height: 1000px;
+    height: 100%;
     padding: 20px;
     background: linear-gradient(to bottom, rgb(226, 2, 2, 0.7), black);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 3.5%;
     border-radius: 40px;
     border: solid 5px black;
+    text-align: center;
+
+}
+
+.container6 {
+    width: 650px;
+    height: 100%;
+    padding: 20px;
+    background: linear-gradient(to bottom, rgb(226, 2, 2, 0.7), black);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 3.5%;
+    border-radius: 40px;
+    border: solid 5px black;
+    text-align: center;
+
+}
+
+.container7 {
+    width: 650px;
+    height: 100px;
+    padding: 20px;
+    background: linear-gradient(to bottom, rgb(226, 2, 2, 0.7), black);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 3.5%;
+    border-radius: 40px;
+    border: solid 5px black;
+    text-align: center;
+
+}
+
+.comentarios{
+        width: 650px;
+        height: 100%;
+        padding: 40px;
+        background-color: rgb(81, 139, 156);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 3.5%;
+        border-radius: 40px;
+        border: solid 5px black;    
+}
+
+.comentarios h3{
+    text-align: center; 
+    margin-bottom: 5px;
+   
+}
+.comentarios p{
+    text-align: justify;    
+    margin-bottom: 5px;
+    margin-top: 15px;
+
+}
+
+.rating {
+    position: relative;
+}
+
+.star {
+    display: inline-block;
+    margin: 0 4px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ccc;
+    margin-top: 15px;
+}
+
+.star-half {
+    color: linear-gradient(90deg, #ff0000 75%, #ffffff 75%);
+}
+
+.star-filled {
+    color: gold;
+}
+
+
+.star-empty {
+    color: #ccc;
 }
 
 input[type="date"] {
@@ -202,6 +293,8 @@ input[type="submit"] {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 button:hover,
@@ -286,12 +379,12 @@ input[type="submit"]:hover {
     color: #4caf50;
 }
 
-.parking-icons .parking-icon {
-    background-color: transparent;
-    color: black;
+.iconos-cerrar-borrar .icono-cb {
+    background-color: rgb(255, 217, 0);
     font-size: 24px;
     width: 40px;
     height: 40px;
+    margin-top: 20px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -299,26 +392,6 @@ input[type="submit"]:hover {
     margin-right: 10px;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-
-.cars-list {
-    margin-top: 10px;
-}
-
-.car-item {
-    background-color: #3498db;
-    color: #fff;
-    padding: 8px;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-
-.car-details {
-    margin-top: 10px;
 }
 
 .modal {
@@ -350,67 +423,18 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-.car-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-
-.details-icon {
-    color: #007bff;
-    cursor: pointer;
-    margin-left: 5px;
-}
-
-.car-details {
-    display: none;
-    margin-top: 10px;
-}
-
-.car-details.visible {
-    display: block;
-}
-
-.car-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.details-icon {
-    color: #007bff;
-    cursor: pointer;
-    margin-left: 5px;
-}
-
-
-.car-details {
-    display: none;
-    margin-top: 10px;
-}
-
-.car-details.visible {
-    display: block;
-}
-
-.container h2 {
-    text-align: center;
-}
-
 .profile-container {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 30px;
+    padding: 20px;
 }
 
-.imagen-perfil {
+.centrar {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 5px;
 }
 
 .profile-image {
@@ -467,14 +491,7 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-.cars-field {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Para centrar en el eje vertical */
-}
-
-.parking-icons {
+.iconos-cerrar-borrar {
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -482,20 +499,15 @@ input[type="submit"]:hover {
     /* Asegura que ocupe toda la altura del contenedor */
 }
 
-.parking-icon {
-    cursor: pointer;
-    margin-left: 10px;
-    /* Espacio entre los iconos */
-}
 
-.parking-icons .parking-icon:hover {
-    background-color: rgb(200, 200, 200);
+.iconos-cerrar-borrar .icono-cb:hover {
+    background-color: rgb(255, 255, 255);
 }
 
 
 .image-box,
 .info-box {
-    flex: 1;
+    flex:1;
     /* Ambos contenedores tienen la misma flexibilidad */
     padding: 20px;
     margin: 10px;
@@ -503,10 +515,11 @@ input[type="submit"]:hover {
 
 .image-box {
     text-align: center;
-    width: 50px;
+    width: auto;
     /* Ancho fijo para el contenedor de la imagen */
-    height: 330px;
+    height: 370px;
     overflow: hidden;
+    margin-top: 60px;
 }
 
 .image-box img {
@@ -518,11 +531,11 @@ input[type="submit"]:hover {
 .info-box {
     flex: 2;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    background-color: #e74c3c;
+    background-color: rgb(81, 139, 156);
     color: white;
     width: 70px;
     /*Ancho fijo para el contenedor de la información */
-    height: 330px;
+    height: 450px;
 }
 
 .info-box h3 {
@@ -550,22 +563,23 @@ input[type="submit"]:hover {
 /* Estilo para la portada de la película */
 .pelicula img {
     width: 200px;
-    height: 330px;
+    height: 280px;
     transition: filter 0.3s;
-    margin-right: 30px;
-    margin-bottom: 30px;
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-bottom: 40px;
 }
 
 /* Estilo para el hover de la portada */
 .pelicula:hover img {
-    filter: brightness(30%);
+    filter: brightness(20%);
 }
 
 /* Estilo para el contenedor de los botones */
 .pelicula .botones-container {
     position: absolute;
-    top: 50%;
-    left: 43%;
+    top: 40%;
+    left: 49%;
     transform: translate(-50%, -50%);
     display: none;
     text-align: center;
@@ -599,8 +613,8 @@ input[type="submit"]:hover {
 #tablaDatos {
     width: 100%;
     height: 100%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 7%;
+    margin-bottom: 3%;
     border-collapse: collapse;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: #fff;
@@ -632,7 +646,8 @@ input[type="submit"]:hover {
 
 #tablaDatos2 {
     width: 85%;
-    margin-top: 20px;
+    margin-top: 5%;
+    margin-bottom: 2%;
     border-collapse: collapse;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: #fff;
@@ -699,14 +714,19 @@ input[type="submit"]:hover {
     margin-top: 40px;
     color: white;
     font-size: 1rem;
+    font-weight: bold;
 }
 
+.contenedor-total p {
+    margin-top: 10px;
+    color: white;
+    font-size: 1rem;
+}
+
+
 #tabla_butacas {
-    width: 1000px;
-    height: 100%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-bottom: 2%;
+    width: 100%;
+    height: auto;
     border-collapse: collapse;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 20px;

@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Título de la Página</title>
-    <link rel="stylesheet" href="../estilos.css">
     <link rel="stylesheet" href="../estilos_cabecera.css">
+    <link rel="stylesheet" href="../estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
+
     <?php
-        if($_SESSION['rol_usuario'] == 1){
-            echo "<script src='https://code.jquery.com/jquery-3.6.4.min.js'></script><script src='../js/butacas.js'></script>"; 
-        }
+    if ($_SESSION['rol_usuario'] == 1) {
+        echo "<script src='https://code.jquery.com/jquery-3.6.4.min.js'></script><script src='../js/butacas.js'></script>";
+    }
     ?>
 </head>
 
@@ -24,10 +26,10 @@
     }
     ?>
 
-    <h1>Sala
-        <?php echo $nombre_sala; ?>
-    </h1>
     <div class="center-div">
+        <h1>Sala
+            <?php echo $nombre_sala; ?>
+        </h1>
         <table class="table" name="tabla_butacas" id="tabla_butacas">
             <?php
             for ($i = 0; $i < $filas; $i++) {
@@ -58,16 +60,16 @@
             }
             ?>
         </table>
+        <?php
+        if ($_SESSION["rol_usuario"] == 1) {
+            echo '<button id="boton_conf_entradas">Confirmar entradas</button>';
+        } else {
+            echo "<form method='POST' action='../controlador/controlador_admin_inicio.php'>";
+            echo '<button id="boton_conf_entradas">Volver</button>';
+            echo '</form>';
+        }
+        ?>
     </div>
-    <?php
-    if ($_SESSION["rol_usuario"] == 1) {
-        echo '<button id="boton_conf_entradas">Confirmar entradas</button>';
-    } else {
-        echo "<form method='POST' action='../controlador/controlador_admin_inicio.php'>";
-        echo '<button id="boton_conf_entradas">Volver</button>';
-        echo '</form>';
-    }
-    ?>
 </body>
 
 </html>

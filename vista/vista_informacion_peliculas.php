@@ -2,40 +2,11 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../estilosCine.css">
     <link rel="stylesheet" href="../estilos_peli.css">
     <link rel="stylesheet" href="../estilos_cabecera.css">
-    <style>
-        .rating {
-            position: relative;
-        }
+    <link rel="stylesheet" href="../estilosCine.css">
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
 
-        .star {
-            display: inline-block;
-            margin: 0 4px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #ccc;
-            /* Establecer el color de estrella vacía */
-        }
-
-        .star-half {
-            color: linear-gradient(90deg, #ff0000 75%, #ffffff 75%);
-            /* Establecer el color de estrella llena */
-        }
-
-        .star-filled {
-            color: gold;
-            
-            /* Establecer el color de estrella llena */
-        }
-
-
-        .star-empty {
-            color: #ccc;
-            /* Color de las estrellas vacías, ajusta según tu diseño */
-        }
-    </style>
     <script>
         function moverseCartelera() {
             window.location.href = '../controlador/controlador_mostrar_cartelera.php';
@@ -106,7 +77,7 @@
 
     <?php require_once("vista_cabecera.php") ?>
 
-    <div id="container2" class="container">
+    <div id="container7" class="container">
         <div class="image-box">
             <img src="<?php echo $imagen; ?>" alt="Imagen">
         </div>
@@ -205,29 +176,33 @@
         </div>
 
     </div>
-    <div class="comentarios" data-rating="0">
+    <div class="comentarios">
         <h3>Comentarios y Valoraciones</h3>
 
-        <?php
-        foreach ($val_com as $com) {
+        <p>
+            <?php
+            foreach ($val_com as $com) {
+                $rating = (int) $com["puntuacion"];
+            
+                for ($i = 1; $i <= 10; $i++) {
+                    if ($rating >= 1) {
+                        $rating--;
+                        $class = 'star-filled';
 
-            
-            $rating = (int) $com["puntuacion"]; // Cambia este valor para representar diferentes calificaciones
-            
-            for ($i = 1; $i <= 10; $i++) {
-                if ($rating >= 1) {
-                    $rating--;
-                    $class = 'star-filled';
-                   
-                } else {
-                    $class = 'star-empty';
-             
+                    } else {
+                        $class = 'star-empty';
+
+                    }
+                    echo '<div class="star ' . $class . '">&#9733;</div>';
                 }
-                echo '<div class="star ' . $class . '">&#9733;</div>';
+                echo "<p>" . $com["comentario"] . "</p>";
+                echo "______________________________________________________________________";
+                echo "<br>";
+
             }
-            echo "<p>" . $com["comentario"] . "</p>";
-        }
-        ?>
+            ?>
+        </p>
+
     </div>
     <div class="footer-buttons">
         <button class="footer-button" onclick="moverseCartelera()">Volver</button>

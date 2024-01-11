@@ -7,8 +7,9 @@
     <title>Cartelera</title>
     <link rel="stylesheet" href="../estilosCine.css">
     <link rel="stylesheet" href="../estilos_cabecera.css">
-    <style>
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        crossorigin="anonymous" />
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
     require_once("vista_cabecera.php") ?>
 
     <div class="center-div">
-        <h1>CARTELERA</h1>
+        <h1>CARTELERA <i class="fas fa-film"></i></h1>
         <form method="post" action="../controlador/controlador_pelicula_selec.php">
             <table class="table" name="tabla_butacas" id="tabla_butacas">
                 <?php
@@ -37,7 +38,7 @@
                                 for ($k = 0; $k < count($lista_sesiones[$indice]); $k++) {
                                     $valor = $lista_peliculas[$indice]['id'] . ";" . $lista_sesiones[$indice][$k]['hora'];
                                     echo '<button id="boton" name="boton" value="' . $valor . '">' . date("H:i", strtotime($lista_sesiones[$indice][$k]["hora"]))
-                                    . '</button>';
+                                        . '</button>';
                                 }
                             }
 
