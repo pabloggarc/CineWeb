@@ -454,6 +454,14 @@ class Datos
         return $result;
     }
 
+    public function get_comentarios_valoraciones($id)
+    {
+        $result = $this->ejecutar_consulta("SELECT * FROM Valoracion 
+        INNER JOIN Pelicula ON Valoracion.ID_Pelicula = Pelicula.ID 
+        WHERE Pelicula.ID = " . $id . "");
+        return $result;
+    }
+
     public function get_peliculas_clasificacion($id)
     {
         $result = $this->ejecutar_consulta("SELECT * FROM Clasificacion 

@@ -21,6 +21,7 @@
         $actores = $bd->get_actores_por_pelicula($id_pelicula);
         $nacionalidad = $bd->get_nacionalidad_pelicula($id_pelicula);
         $nacionalidad = $nacionalidad[0]["nombre"];
+        $val_com = $bd->get_comentarios_valoraciones($id_pelicula);
 
         $portada = $bd->get_portada_por_id($id_pelicula);
         $imagen = $portada[0]['portada'];
