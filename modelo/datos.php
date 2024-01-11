@@ -697,9 +697,11 @@ class Datos
     public function get_ranking_peliculas_vistas()
     {
         $consulta = $this->ejecutar_consulta(
-            "SELECT Pelicula.nombre, COUNT(Pelicula.nombre) FROM Entrada 
+            "SELECT Pelicula.nombre, COUNT(*) FROM Entrada 
             INNER JOIN Pelicula ON Entrada.ID_Pelicula_Sesion = Pelicula.ID
-            GROUP BY Pelicula.nombre ORDER BY count DESC; "
+            INNER JOIN Pase ON Entrada.ID_Pase_Sesion = Pase.ID
+            WHERE Pase.hora + Pase.dia + Pelicula.duracion * INTERVAL '1 minute' <= CURRENT_TIMESTAMP AT TIME ZONE 'CET'
+            GROUP BY Pelicula.nombre; "
         );
         if (!empty($consulta)) {
             return $consulta;
@@ -1131,12 +1133,13 @@ class Datos
 
     public function get_info_generos_actuales()
     {
-        $consulta = $this->ejecutar_consulta("select genero.id,  genero.tipo, count(*) from genero_pelicula 
-        inner join genero on genero.id = genero_pelicula.id_genero
-        inner join sesion on sesion.id_pelicula = genero_pelicula.id_pelicula
-        inner join pase on pase.id = sesion.id_pase
-        where dia > CURRENT_DATE or (pase.dia = CURRENT_DATE and pase.hora > CURRENT_TIME)
-        group by genero.id, genero.tipo order by genero.id;");
+        $consulta = $this->ejecutar_consulta("SELECT tipo, COUNT(tipo) FROM (
+            SELECT Pelicula.nombre, Genero.tipo FROM Pelicula INNER JOIN Genero_Pelicula ON Pelicula.ID = Genero_Pelicula.ID_Pelicula
+            INNER JOIN Genero ON Genero_Pelicula.ID_Genero = Genero.ID INNER JOIN Sesion ON Pelicula.ID = Sesion.ID_Pelicula 
+            INNER JOIN Pase ON Sesion.ID_Pase = Pase.ID
+            WHERE Pase.hora + Pase.dia + Pelicula.duracion * INTERVAL '1 minute' > CURRENT_TIMESTAMP AT TIME ZONE 'CET'
+            GROUP BY nombre, tipo
+        ) AS FOO GROUP BY tipo");
         if (!empty($consulta)) {
             return $consulta;
         } else {
@@ -1146,12 +1149,13 @@ class Datos
 
     public function get_info_generos_mas_vistos()
     {
-        $consulta = $this->ejecutar_consulta("select genero.id,  genero.tipo, count(*) from genero_pelicula
-        inner join genero on genero.id = genero_pelicula.id_genero
-        inner join entrada on entrada.id_pelicula_sesion = genero_pelicula.id_pelicula
-        inner join pase on pase.id = entrada.id_pase_sesion
-        where dia < CURRENT_DATE or (pase.dia = CURRENT_DATE and pase.hora < CURRENT_TIME)
-        group by genero.id, genero.tipo;");
+        $consulta = $this->ejecutar_consulta("SELECT genero.tipo, COUNT(*) FROM genero_pelicula
+        INNER JOIN Genero ON genero.id = genero_pelicula.id_genero
+        INNER JOIN Entrada ON entrada.id_pelicula_sesion = genero_pelicula.id_pelicula
+        INNER JOIN Pelicula ON Pelicula.ID = Entrada.ID_Pelicula_Sesion
+        INNER JOIN Pase ON pase.id = entrada.id_pase_sesion
+        WHERE Pase.hora + Pase.dia + Pelicula.duracion * INTERVAL '1 minute' <= CURRENT_TIMESTAMP AT TIME ZONE 'CET'
+        GROUP BY genero.id, genero.tipo;");
         if (!empty($consulta)) {
             return $consulta;
         } else {

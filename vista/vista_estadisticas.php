@@ -12,14 +12,13 @@
     <?php require_once("vista_cabecera_admin.php") ?>
     <table id="tablaDatos2">
         <tr>
-            <th>Proyecciones hoy (
-                <?php echo date("d/m/Y"); ?>)
+            <th>Proyecciones hoy (<?=date("d/m/Y")?>)
             </th>
-            <th>Proyecciones futuras:</th>
-            <th>Usuarios registrados:</th>
-            <th>Películas en cartelera:</th>
-            <th>Valoración media de los usuarios:</th>
-            <th> Butacas reservadas actualmente:</th>
+            <th>Proyecciones futuras</th>
+            <th>Usuarios registrados</th>
+            <th>Películas en cartelera</th>
+            <th>Valoración media de los usuarios</th>
+            <th>Butacas reservadas actualmente</th>
 
         </tr>
         <tr>
@@ -46,20 +45,28 @@
     </table>
 
     <div class="contenedor-total">
-        <h3>GRADO DE OCUPACION</h3>
-        <p>Estadisticas que permiten conocer la ocupacion de las salas en la hora actual y la ocupacion que tendrá en el futuro conociendo el numero de reservas realizadas.</p>
+        <h3>GRADO DE OCUPACIÓN</h3>
+        <p>Estadísticas que permiten conocer la ocupación de las salas en la hora actual y la ocupación que tendrá en el futuro conociendo el número de reservas realizadas.</p>
         <div class="contenedor-graficas">
             <div id="grafica" class="grafica">
             </div>
             <div id="grafica2" class="grafica2">
             </div>
         </div>
-        <h3>GRADO DE SATISFACCION</h3>
-        <p>Estadisticas que permiten conocer el numero de peliculas que se han visto en el cine junto con el grado de satisfaccion del cliente para cada una de ellas.</p>
+        <h3>GRADO DE SATISFACCIÓN</h3>
+        <p>Estadísticas que permiten conocer el número de películas que se han visto en el cine junto con el grado de satisfacción del cliente para cada una de ellas.</p>
         <div class="contenedor-graficas2">
             <div id="grafica3" class="grafica3">
             </div>
             <div id="grafica4" class="grafica3">
+            </div>
+        </div>
+        <h3>GÉNEROS DE PELÍCULAS</h3>
+        <p>Estadísticas que permiten conocer cuántas películas hay disponibles de cada género, y cuántas visualizaciones ha tenido cada género.</p>
+        <div class="contenedor-graficas3">
+            <div id="grafica5" class="grafica3">
+            </div>
+            <div id="grafica6" class="grafica3">
             </div>
         </div>
     </div>
@@ -70,6 +77,8 @@
         google.charts.setOnLoadCallback(drawChartReservas);
         google.charts.setOnLoadCallback(drawChartPeliculas);
         google.charts.setOnLoadCallback(drawChartPeliculasValoradas);
+        google.charts.setOnLoadCallback(drawChartPeliculasGeneros);
+        google.charts.setOnLoadCallback(drawChartPeliculasGenerosVistas);
 
         function color_aleatorio() {
             var simbolos, color;
@@ -181,6 +190,56 @@
                 legend: { position: "none" },
             };
             var chart = new google.visualization.ColumnChart(document.getElementById("grafica4"));
+            chart.draw(view, options);
+        }
+
+        function drawChartPeliculasGeneros() {
+            var data = google.visualization.arrayToDataTable([
+                ['Género', 'Películas', { role: 'style' }],
+                <?= $datos5 ?>
+            ]);
+
+            var view = new google.visualization.DataView(data);
+            view.setColumns([0, 1, {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            }, 2]);
+
+            var options = {
+                title: "Películas disponibles por género:",
+                width: '66vw',
+                height: '50vh',
+                bar: { groupWidth: "90%" },
+                legend: { position: "none" },
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById("grafica5"));
+            chart.draw(view, options);
+        }
+
+        function drawChartPeliculasGenerosVistas() {
+            var data = google.visualization.arrayToDataTable([
+                ['Género', 'Visualizaciones', { role: 'style' }],
+                <?= $datos6 ?>
+            ]);
+
+            var view = new google.visualization.DataView(data);
+            view.setColumns([0, 1, {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            }, 2]);
+
+            var options = {
+                title: "Películas vistas por género:",
+                width: '66vw',
+                height: '50vh',
+                bar: { groupWidth: "90%" },
+                legend: { position: "none" },
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById("grafica6"));
             chart.draw(view, options);
         }
     </script>

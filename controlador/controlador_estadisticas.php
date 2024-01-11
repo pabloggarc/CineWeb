@@ -25,6 +25,8 @@
     $numero_reservas_peliculas = $bd->get_reservas_peliculas(); 
     $ranking_peliculas_vistas = $bd->get_ranking_peliculas_vistas();
     $ranking_peliculas_valoradas = $bd->get_ranking_peliculas_valoradas();
+    $peliculas_generos_disponibles = $bd->get_info_generos_actuales(); 
+    $peliculas_generos_vistas = $bd->get_info_generos_mas_vistos(); 
 
     $colores = array('red', 'green', 'blue', 'silver', 'gold', 'yellow', 'orange', 'pink', 'black', 'purple', 'brown', 'white'); 
 
@@ -61,6 +63,26 @@
     );
     
     $datos4 = substr(strval(json_encode($map4)), 1, strlen(strval(json_encode($map4))) - 2);
+
+    $colores_5 = array_map('generar_color', range(1, count($peliculas_generos_disponibles)));
+    $map5 = array_map(
+        null, 
+        array_column($peliculas_generos_disponibles, 'tipo'), 
+        array_column($peliculas_generos_disponibles, 'count'), 
+        $colores_5
+    );
+    
+    $datos5 = substr(strval(json_encode($map5)), 1, strlen(strval(json_encode($map5))) - 2);
+
+    $colores_6 = array_map('generar_color', range(1, count($peliculas_generos_vistas)));
+    $map6 = array_map(
+        null, 
+        array_column($peliculas_generos_vistas, 'tipo'), 
+        array_column($peliculas_generos_vistas, 'count'), 
+        $colores_6
+    );
+    
+    $datos6 = substr(strval(json_encode($map6)), 1, strlen(strval(json_encode($map6))) - 2);
 
     $bd->desconectar();
     require_once("../vista/vista_estadisticas.php");
