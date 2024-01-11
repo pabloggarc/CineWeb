@@ -194,7 +194,7 @@ class Datos
         inner join sala on sala.id = entrada.id_sala_sesion 
         inner join pelicula on pelicula.id = entrada.id_pelicula_sesion
         inner join butaca on butaca.id = entrada.id_butaca
-        WHERE usuario.nick= '" . $nick . "' and pase.dia > CURRENT_DATE or (pase.dia = CURRENT_DATE and pase.hora > CURRENT_TIME)
+        WHERE usuario.nick= '" . $nick . "' and pase.dia > (CURRENT_DATE AT TIME ZONE 'CET')::DATE or (pase.dia = (CURRENT_DATE AT TIME ZONE 'CET')::DATE and pase.hora > (CURRENT_TIME AT TIME ZONE 'CET')::TIME)
         group by pelicula.nombre, pase.hora, pase.dia, sala.nombre, entrada.localizador, butaca.fila, butaca.columna, sala.columnas;");
         if (!empty($consulta)) {
             return $consulta;
@@ -254,7 +254,7 @@ class Datos
                         inner join pase on pase.id = entrada.id_pase_sesion 
                         inner join sala on sala.id = entrada.id_sala_sesion 
                         inner join pelicula on pelicula.id = entrada.id_pelicula_sesion 
-                        WHERE usuario.nick= '" . $nick . "' and pase.dia < CURRENT_DATE or (pase.dia = CURRENT_DATE and pase.hora < CURRENT_TIME)
+                        WHERE usuario.nick= '" . $nick . "' and pase.dia < (CURRENT_DATE AT TIME ZONE 'CET')::DATE or (pase.dia = (CURRENT_DATE AT TIME ZONE 'CET')::DATE and pase.hora < (CURRENT_TIME AT TIME ZONE 'CET')::TIME )
                         group by pelicula.nombre, pase.hora, pase.dia, sala.nombre;");
         if (!empty($consulta)) {
             return $consulta;
@@ -293,7 +293,7 @@ class Datos
         $consulta = $this->ejecutar_consulta("select pase.hora, pase.dia from sesion
         inner join pase on pase.id = sesion.id_pase
         inner join pelicula on pelicula.id = sesion.id_pelicula
-        where pelicula.id = '" . $id . "' AND Pase.dia = '" . $fecha . "' AND pase.hora > CURRENT_TIME ORDER BY Pase.hora ;");
+        where pelicula.id = '" . $id . "' AND Pase.dia = '" . $fecha . "' AND pase.hora > (CURRENT_TIME AT TIME ZONE 'CET')::TIME  ORDER BY Pase.hora ;");
         if (!empty($consulta)) {
             return $consulta;
         } else {
@@ -577,7 +577,7 @@ class Datos
     {
         $consulta = $this->ejecutar_consulta(
             "SELECT COUNT(*) FROM Sesion INNER JOIN Pase 
-            ON Sesion.ID_Pase = Pase.ID WHERE dia = CURRENT_DATE AT TIME ZONE 'GMT';"
+            ON Sesion.ID_Pase = Pase.ID WHERE dia = (CURRENT_DATE AT TIME ZONE 'CET')::DATE;"
         );
         if (!empty($consulta)) {
             return $consulta[0]["count"];
@@ -590,7 +590,7 @@ class Datos
     {
         $consulta = $this->ejecutar_consulta(
             "SELECT COUNT(*) FROM Sesion INNER JOIN Pase 
-            ON Sesion.ID_Pase = Pase.ID WHERE dia > CURRENT_DATE AT TIME ZONE 'GMT';"
+            ON Sesion.ID_Pase = Pase.ID WHERE dia > (CURRENT_DATE AT TIME ZONE 'CET')::DATE;"
         );
         if (!empty($consulta)) {
             return $consulta[0]["count"];
@@ -616,7 +616,7 @@ class Datos
         $consulta = $this->ejecutar_consulta(
             "SELECT COUNT(*) FROM (SELECT Pelicula.nombre FROM Pelicula INNER JOIN Sesion 
             ON Pelicula.ID = Sesion.ID_Pelicula INNER JOIN Pase ON Sesion.ID_Pase = Pase.ID 
-            WHERE Pase.dia >= CURRENT_DATE AT TIME ZONE 'GMT' GROUP BY Pelicula.nombre) AS foo; "
+            WHERE Pase.dia >= (CURRENT_DATE AT TIME ZONE 'CET')::DATE GROUP BY Pelicula.nombre) AS foo; "
         );
         if (!empty($consulta)) {
             return $consulta[0]["count"];
@@ -644,7 +644,7 @@ class Datos
             INNER JOIN Sesion ON Entrada.ID_Sala_Sesion = Sesion.ID_Sala
             AND Entrada.ID_Pelicula_Sesion = Sesion.ID_Pelicula AND 
             Entrada.ID_Pase_Sesion = Sesion.ID_Pase INNER JOIN Pase ON Sesion.ID_Pase = 
-            Pase.ID WHERE Pase.dia >= CURRENT_DATE AT TIME ZONE 'GMT'; "
+            Pase.ID WHERE Pase.dia >= (CURRENT_DATE AT TIME ZONE 'CET')::DATE; "
         );
         if (!empty($consulta)) {
             return $consulta[0]["count"];
@@ -802,7 +802,8 @@ class Datos
             sesion.id_pase, concat(pase.dia, ' ', pase.hora) as fecha  from sesion
             inner join pelicula on pelicula.id = sesion.id_pelicula
             inner join sala on sala.id = sesion.id_sala
-            inner join pase on pase.id = sesion.id_pase;"
+            inner join pase on pase.id = sesion.id_pase where pase.dia> (CURRENT_DATE AT TIME ZONE 'CET')::DATE
+            and pase.hora>(CURRENT_TIME AT TIME ZONE 'CET')::TIME;"
         );
         if (!empty($consulta)) {
             return $consulta;
@@ -889,7 +890,7 @@ class Datos
     public function get_pases_actuales()
     {
         $consulta = $this->ejecutar_consulta(
-            "select * from pase where dia > CURRENT_DATE or (pase.dia = CURRENT_DATE and pase.hora > CURRENT_TIME);"
+            "select * from pase where dia >  (CURRENT_DATE AT TIME ZONE 'CET')::DATE or (pase.dia =  (CURRENT_DATE AT TIME ZONE 'CET')::DATE and pase.hora > (CURRENT_TIME AT TIME ZONE 'CET')::TIME );"
         );
         if (!empty($consulta)) {
             return $consulta;

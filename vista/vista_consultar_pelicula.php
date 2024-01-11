@@ -4,12 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartelera</title>
-    <link rel="stylesheet" href="../estilosCine.css">
-    <link rel="stylesheet" href="../estilos_cabecera.css">
+    <title>CONSULTAR PELICULA</title>
+    <link rel="stylesheet" href="../css/estilosCine.css">
+    <link rel="stylesheet" href="../css/estilos_cabecera.css">
     <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
-
-
 </head>
 
 <body>

@@ -2,12 +2,11 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="../estilos_peli.css">
-    <link rel="stylesheet" type="text/css" href="../estilos_cabecera.css">
-    <link rel="stylesheet" type="text/css" href="../estilosCine.css">
+    <link rel="stylesheet" type="text/css" href="../css/estilos_peli.css">
+    <link rel="stylesheet" type="text/css" href="../css/estilos_cabecera.css">
+    <link rel="stylesheet" type="text/css" href="../css/estilosCine.css">
     <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
-
-
+    <title>PAGO</title>
     <script>
         function goBack() {
             window.location.href = "../controlador/controlador_butacas.php";

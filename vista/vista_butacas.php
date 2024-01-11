@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título de la Página</title>
-    <link rel="stylesheet" href="../estilos_cabecera.css">
-    <link rel="stylesheet" href="../estilos.css">
+    <title>MAPA SALA</title>
+    <link rel="stylesheet" href="../css/estilos_cabecera.css">
+    <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
-
     <?php
     if ($_SESSION['rol_usuario'] == 1) {
         echo "<script src='https://code.jquery.com/jquery-3.6.4.min.js'></script><script src='../js/butacas.js'></script>";

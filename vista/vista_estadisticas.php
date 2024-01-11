@@ -2,11 +2,10 @@
 <html>
 
 <head>
-    <title>Estadísticas</title>
-    <link rel="stylesheet" href="../estilos_cabecera.css">
-    <link rel="stylesheet" type="text/css" href="../estilosCine.css">
+    <title>ESTADISTICAS</title>
+    <link rel="stylesheet" href="../css/estilos_cabecera.css">
+    <link rel="stylesheet" type="text/css" href="../css/estilosCine.css">
     <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
-
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 

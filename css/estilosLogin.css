@@ -12,7 +12,7 @@ body {
     font-family: 'DINPro-Medium', sans-serif;
     align-items: center;
     justify-content: center;
-    background-image: url(./imagenes/cineFondo.jpg);
+    background-image: url(../imagenes/cineFondo.jpg);
     background-size: cover;
     flex-direction: column;
     padding: 0;
@@ -140,7 +140,7 @@ body {
 
 .form label input {
     width: auto;
-    color: red;
+    color: black;
     padding: 10px;
     border: solid 5px black;
     outline: none;
@@ -208,7 +208,7 @@ body {
 
 #caja-nombre .field-value {
     font-weight: bold;
-    color: red;
+    color: black;
 }
 
 .field-value {

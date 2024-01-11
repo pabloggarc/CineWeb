@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
 
 <head>
-    <title>Información del usuario</title>
+    <title>RESERVAS</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilosCine.css">
-    <link rel="stylesheet" href="../estilos_cabecera.css">
+    <link rel="stylesheet" href="../css/estilosCine.css">
+    <link rel="stylesheet" href="../css/estilos_cabecera.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous" />
     <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">

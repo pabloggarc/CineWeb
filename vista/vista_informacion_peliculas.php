@@ -2,9 +2,10 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../estilos_peli.css">
-    <link rel="stylesheet" href="../estilos_cabecera.css">
-    <link rel="stylesheet" href="../estilosCine.css">
+    <title>INFORMACION PELICULA</title>
+    <link rel="stylesheet" href="../css/estilos_peli.css">
+    <link rel="stylesheet" href="../css/estilos_cabecera.css">
+    <link rel="stylesheet" href="../css/estilosCine.css">
     <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
 
     <script>
@@ -183,7 +184,7 @@
             <?php
             foreach ($val_com as $com) {
                 $rating = (int) $com["puntuacion"];
-            
+
                 for ($i = 1; $i <= 10; $i++) {
                     if ($rating >= 1) {
                         $rating--;

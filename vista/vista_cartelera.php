@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartelera</title>
-    <link rel="stylesheet" href="../estilosCine.css">
-    <link rel="stylesheet" href="../estilos_cabecera.css">
+    <title>CARTELERA</title>
+    <link rel="stylesheet" href="../css/estilosCine.css">
+    <link rel="stylesheet" href="../css/estilos_cabecera.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous" />
     <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
@@ -22,7 +22,6 @@
         <form method="post" action="../controlador/controlador_pelicula_selec.php">
             <table class="table" name="tabla_butacas" id="tabla_butacas">
                 <?php
-                session_start();
                 $rol = $_SESSION['rol_usuario'];
                 if ($lista_sesiones !== null) {
                     for ($i = 0; $i < count($lista_peliculas) / PELICULAS_FILA; $i++) {

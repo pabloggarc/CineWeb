@@ -1,11 +1,13 @@
 <?php
+session_start();
+if (!(isset($_SESSION['nick']))) {
+    header("Location: ../vista/vista_login.php");
+}
 require_once("../modelo/Datos.php");
 require_once("../config.php");
 $bd = new Datos(DB_HOST, DB_NAME, DB_USER, DB_PASSWORD);
 $bd->conectar();
 
-
-session_start();
 $nick = $_SESSION['nick'];
 $lista_entradas = $bd->get_peliculas_no_vistas_por_nick($nick);
 

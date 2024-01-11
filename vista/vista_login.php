@@ -2,12 +2,12 @@
 <html lang="es">
 
 <head>
-    <title>Inicio de sesión</title>
+    <title>LOGIN</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Indicamos la hoja de estilos para el login -->
-    <link rel="stylesheet" href="../estilos_cabecera.css">
-    <link rel="stylesheet" href="../estilosCine.css">
-    <link rel="stylesheet" href="../estilosLogin.css">
+    <link rel="stylesheet" href="../css/estilos_cabecera.css">
+    <link rel="stylesheet" href="../css/estilosCine.css">
+    <link rel="stylesheet" href="../css/estilosLogin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">

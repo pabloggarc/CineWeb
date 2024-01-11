@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Película</title>
-    <link rel="stylesheet" href="../estilosCine.css">
-    <link rel="stylesheet" href="../estilos_cabecera.css">
+    <title>MODIFICAR PELICULA</title>
+    <link rel="stylesheet" href="../css/estilosCine.css">
+    <link rel="stylesheet" href="../css/estilos_cabecera.css">
     <script src="../js/imagen_base64.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous" />

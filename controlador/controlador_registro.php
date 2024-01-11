@@ -1,33 +1,37 @@
 <?php
-    require_once("../modelo/Datos.php");
-    require_once("../config.php");
+session_start();
+if (!(isset($_SESSION['nick']))) {
+    header("Location: ../vista/vista_login.php");
+}
+require_once("../modelo/Datos.php");
+require_once("../config.php");
 
-    $bd = new Datos(DB_HOST, DB_NAME, DB_USER, DB_PASSWORD);
-    $bd->conectar();
+$bd = new Datos(DB_HOST, DB_NAME, DB_USER, DB_PASSWORD);
+$bd->conectar();
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        // Almacenamos cada uno de los valores que ha introducido el usuario
-        $nick = $_POST["nick"];
-        $clave = $_POST["clave"];
-        $nombre = $_POST["nombre"];
-        $apellido = $_POST["apellido"];
-        $email = $_POST["email"];
-        $fecha = $_POST["fecha"];
-        
-        // Ciframos la clave para proporcionar seguridad 
-        $clave_cifrada = password_hash($clave,PASSWORD_DEFAULT);
+    // Almacenamos cada uno de los valores que ha introducido el usuario
+    $nick = $_POST["nick"];
+    $clave = $_POST["clave"];
+    $nombre = $_POST["nombre"];
+    $apellido = $_POST["apellido"];
+    $email = $_POST["email"];
+    $fecha = $_POST["fecha"];
 
-        // Comprobamos si el usuario con el nick se encuentra registrado en la base de datos
-        $esta_registrado = $bd->consultar_usuario_por_nick($nick);
-        // Si el usuario no se encuentra registrado en la base de datos
-        if($esta_registrado==false){
-            // Insertamos el usuario en la base de datos con la clave cifrada
-            $bd->insertar_nuevo_usuario($nick, $clave_cifrada , $nombre, $apellido, $email, $fecha);
-            header("Location: ../vista/vista_login.php");
-        }else{
-            // Mostramos la alerta de que el usuario ya se encuentra registrado en la base de datos
-            echo '
+    // Ciframos la clave para proporcionar seguridad 
+    $clave_cifrada = password_hash($clave, PASSWORD_DEFAULT);
+
+    // Comprobamos si el usuario con el nick se encuentra registrado en la base de datos
+    $esta_registrado = $bd->consultar_usuario_por_nick($nick);
+    // Si el usuario no se encuentra registrado en la base de datos
+    if ($esta_registrado == false) {
+        // Insertamos el usuario en la base de datos con la clave cifrada
+        $bd->insertar_nuevo_usuario($nick, $clave_cifrada, $nombre, $apellido, $email, $fecha);
+        header("Location: ../vista/vista_login.php");
+    } else {
+        // Mostramos la alerta de que el usuario ya se encuentra registrado en la base de datos
+        echo '
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
         
@@ -47,13 +51,13 @@
                     });
                 });
             </script>';
-        }
-
-    } else {
-        // Redirigir o manejar el error según sea necesario
-        echo "Acceso no permitido";
     }
 
+} else {
+    // Redirigir o manejar el error según sea necesario
+    echo "Acceso no permitido";
+}
 
-    $bd->desconectar();
+
+$bd->desconectar();
 ?>
