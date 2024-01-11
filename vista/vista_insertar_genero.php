@@ -19,15 +19,16 @@
             <div class="profile-info">
                 <div class="editable-field" id="name-field">
                     <label for="tipo">Tipo:</label>
-                    <input class="field-value" type="text" id="tipo" name="tipo" required>
+                    <input class="field-value" type="text" id="tipo" name="tipo" pattern="[A-ZÁÉÍÓÚ][a-záéíóú]{0,19}" required>
                 </div>
             </div>
         </div>
-
         <!-- Botón de envío -->
         <button type="submit">Enviar</button>
     </form>
-
+    <form action="../controlador/controlador_admin_inicio.php" method="post">
+        <button type="submit">Volver</button>
+    </form>
 </body>
 
 </html>

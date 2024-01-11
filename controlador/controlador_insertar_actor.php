@@ -1,4 +1,12 @@
 <?php
+session_start();
+if (isset($_SESSION['nick'])) {
+    if ($_SESSION['rol_usuario'] == 1) {
+        header("Location: ../vista/vista_login.php");
+    }
+} else {
+    header("Location: ../vista/vista_login.php");
+}
 require_once("../modelo/Datos.php");
 require_once("../config.php");
 $bd = new Datos(DB_HOST, DB_NAME, DB_USER, DB_PASSWORD);
@@ -15,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $bd->insertar_actor($nombre, $apellidos, $nacimiento);
         $bd->desconectar();
         header("Location: ../controlador/controlador_admin_inicio.php");
-    }else{
+    } else {
         $bd->desconectar();
         echo '
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>

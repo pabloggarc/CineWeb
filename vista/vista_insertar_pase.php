@@ -30,6 +30,9 @@
             <!-- Botón de envío -->
             <button type="submit">Enviar</button>
         </form>
+        <form action="../controlador/controlador_admin_inicio.php" method="post">
+            <button type="submit">Volver</button>
+        </form>
     </div>
 </body>
 

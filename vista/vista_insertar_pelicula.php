@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../estilosCine.css">
     <link rel="stylesheet" href="../estilos_cabecera.css">
     <title>Formulario de Película</title>
-    <script src = "../js/imagen_base64.js"></script>
+    <script src="../js/imagen_base64.js"></script>
 </head>
 
 <body>
@@ -19,11 +19,11 @@
                 <div class="profile-info">
                     <div class="editable-field" id="name-field">
                         <label for="nombre_pelicula">Nombre de la Película:</label>
-                        <input class="field-value" type="text" id="nombre_pelicula" name="nombre_pelicula" required>
+                        <input class="field-value" type="text" id="nombre_pelicula" name="nombre_pelicula" pattern="([A-ZÁÉÍÓÚ0-9][a-záéíóú0-9 ]+){0,29}" required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="sinopsis">Sinopsis:</label>
-                        <textarea class="field-value" id="sinopsis" name="sinopsis" required></textarea>
+                        <textarea class="field-value" id="sinopsis" name="sinopsis" pattern="([A-ZÁÉÍÓÚ0-9][a-záéíóú0-9A-ZÁÉÍÓÚ ]+){0,499}" required></textarea>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="url_web">URL Web:</label>
@@ -31,19 +31,20 @@
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="titulo">Título:</label>
-                        <input class="field-value" type="text" id="titulo" name="titulo" required>
+                        <input class="field-value" type="text" id="titulo" name="titulo" pattern="([A-ZÁÉÍÓÚ0-9][a-záéíóú0-9 ]+){0,29}" required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="duracion">Duración:</label>
-                        <input class="field-value" type="text" id="duracion" name="duracion" required>
+                        <input class="field-value" type="number" id="duracion" name="duracion"  pattern="[1-9][0-9]*"  required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="anno">Año:</label>
-                        <input class="field-value" type="number" id="anno" name="anno" required>
+                        <input class="field-value" type="number" id="anno" name="anno" pattern="[12][0-9][0-9][0-9]" required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="portada">Portada:</label>
-                        <input class="field-value" style = 'display: none' type="text" id="portada" name="portada" required>
+                        <input class="field-value" style='display: none' type="text" id="portada" name="portada"
+                            required>
                         <button onclick="seleccionarImagen()">Seleccionar imagen</button>
                     </div>
                     <div class="editable-field" id="name-field">
@@ -112,7 +113,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Botón de envío -->
             <button type="submit">Enviar</button>
         </form>
@@ -125,6 +125,9 @@
                 echo "<button name='boton' value=" . $i . " type='submit'>Insertar " . $botones[$i] . "</button>";
             }
             ?>
+        </form>
+        <form action="../controlador/controlador_admin_inicio.php" method="post">
+            <button type="submit">Volver</button>
         </form>
     </div>
 </body>

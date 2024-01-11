@@ -19,11 +19,11 @@
             <div class="profile-info">
                 <div class="editable-field" id="name-field">
                     <label for="nombre">Nombre:</label>
-                    <input class="field-value" type="text" id="nombre" name="nombre" required>
+                    <input class="field-value" type="text" id="nombre" name="nombre" pattern="[A-ZÁÉÍÓÚ][a-záéíóú]{0,23} ([A-ZÁÉÍÓÚ][a-záéíóú]{0,23})?" required>
                 </div>
                 <div class="editable-field" id="name-field">
                     <label for="apellidos">Apellidos:</label>
-                    <input class="field-value" type="text" id="apellidos" name="apellidos" required>
+                    <input class="field-value" type="text" id="apellidos" name="apellidos" pattern="[A-ZÁÉÍÓÚ][a-záéíóú]{0,23} ([A-ZÁÉÍÓÚ][a-záéíóú]{0,23})?" required>
                 </div>
                 <div class="editable-field" id="name-field">
                     <label for="fecha">Fecha de nacimiento:</label>
@@ -35,7 +35,9 @@
         <!-- Botón de envío -->
         <button type="submit">Enviar</button>
     </form>
-
+    <form action="../controlador/controlador_admin_inicio.php" method="post">
+        <button type="submit">Volver</button>
+    </form>
 </body>
 
 </html>

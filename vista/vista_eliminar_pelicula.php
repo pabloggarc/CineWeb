@@ -7,12 +7,11 @@
     <title>Cartelera</title>
     <link rel="stylesheet" href="../estilosCine.css">
     <link rel="stylesheet" href="../estilos_cabecera.css">
-    
+
 </head>
 
 <body>
-<?php 
-
+    <?php
     require_once("vista_cabecera_admin.php") ?>
     <h1>CARTELERA
     </h1>
@@ -20,7 +19,6 @@
         <form method="post" action="../controlador/controlador_eliminar_peliculas.php">
             <table class="table" name="tabla_butacas" id="tabla_butacas">
                 <?php
-                session_start();
                 $rol = $_SESSION['rol_usuario'];
                 for ($i = 0; $i < count($lista_peliculas) / PELICULAS_FILA; $i++) {
                     echo "<tr>";

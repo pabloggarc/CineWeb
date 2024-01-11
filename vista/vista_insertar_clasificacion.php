@@ -19,15 +19,16 @@
             <div class="profile-info">
                 <div class="editable-field" id="name-field">
                     <label for="edad">Edad:</label>
-                    <input class="field-value" type="numeric" id="edad" name="edad" required>
+                    <input class="field-value" type="numeric" id="edad" name="edad" pattern="[0-9]|[1-9][0-9]" required>
                 </div>
             </div>
         </div>
-
         <!-- Botón de envío -->
         <button type="submit">Enviar</button>
     </form>
-
+    <form action="../controlador/controlador_admin_inicio.php" method="post">
+        <button type="submit">Volver</button>
+    </form>
 </body>
 
 </html>

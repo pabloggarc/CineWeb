@@ -58,6 +58,9 @@
             echo "<td><button type='submit' name='boton' value='" . $valor . "''>MODIFICAR</button></td>";
             ?>
         </form>
+        <form action="../controlador/controlador_admin_inicio.php" method="post">
+            <button type="submit">Volver</button>
+        </form>
     </div>
 </body>
 

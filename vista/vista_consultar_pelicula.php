@@ -7,18 +7,17 @@
     <title>Cartelera</title>
     <link rel="stylesheet" href="../estilosCine.css">
     <link rel="stylesheet" href="../estilos_cabecera.css">
-    
+
 </head>
 
 <body>
-<?php require_once("vista_cabecera_admin.php") ?>
+    <?php require_once("vista_cabecera_admin.php") ?>
     <h1>CARTELERA
     </h1>
     <div class="center-div">
         <form method="post" action="../controlador/controlador_consultar_peliculas.php">
             <table class="table" name="tabla_butacas" id="tabla_butacas">
                 <?php
-                session_start();
                 $rol = $_SESSION['rol_usuario'];
                 for ($i = 0; $i < count($lista_peliculas) / PELICULAS_FILA; $i++) {
                     echo "<tr>";
@@ -37,8 +36,6 @@
                 ?>
             </table>
         </form>
-
-
     </div>
     <script>
         // Este script es opcional, se utiliza si deseas ocultar los botones al cargar la página
