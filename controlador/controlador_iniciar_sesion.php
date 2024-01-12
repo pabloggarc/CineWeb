@@ -3,7 +3,7 @@ require_once("../modelo/Datos.php");
 require_once("../config.php");
 $bd = new Datos(DB_HOST, DB_NAME, DB_USER, DB_PASSWORD);
 
-$bd->conectar();
+$bd->conectar(); 
 
 
 // Inicialmente el nick y la clave de acceso se encuentran vacias

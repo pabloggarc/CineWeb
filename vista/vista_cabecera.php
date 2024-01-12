@@ -7,5 +7,5 @@
         <a href="../controlador/controlador_perfil.php">PERFIL</a>
         <a href="../controlador/controlador_ver_reservas.php">ENTRADAS</a>
         <a href="../controlador/controlador_peliculas_vistas.php">COMENTAR</a>
-    </div>
+    </div> 
 </nav>

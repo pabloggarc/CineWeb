@@ -9,11 +9,16 @@
     <link rel="stylesheet" href="../css/estilos_cabecera.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous" />
-        <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
 
 </head>
 
 <body>
+    <?php
+    if (!(isset($_SESSION['rol_usuario']))) {
+        header("Location: ../vista/vista_login.php");
+    }
+    ?>
     <?php
     if ($_SESSION['rol_usuario'] == 1) {
         require_once("vista_cabecera.php");

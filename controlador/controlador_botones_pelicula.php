@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!(isset($_SESSION['rol_usuario'])) || $_SESSION['rol_usuario'] == 1) {
+    header("Location: ../vista/vista_login.php");
+}
+
 require_once("../modelo/Datos.php");
 require_once("../config.php");
 

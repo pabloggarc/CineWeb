@@ -6,5 +6,5 @@
         <a href="../controlador/controlador_admin_inicio.php">PANEL DE GESTIÓN</a>
         <a href="../controlador/controlador_perfil.php">PERFIL</a>
         <a href="../controlador/controlador_estadisticas.php">ESTADISTICAS</a>
-    </div>
+    </div> 
 </nav>

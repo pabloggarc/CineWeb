@@ -13,6 +13,11 @@
 </head>
 
 <body>
+    <?php
+    if (!(isset($_SESSION['rol_usuario'])) || $_SESSION['rol_usuario'] == 2) {
+        header("Location: ../vista/vista_login.php");
+    }
+    ?>
     <?php require_once("vista_cabecera.php") ?>
     <form method="POST" action="../controlador/controlador_eliminar_reserva.php">
         <table id="tablaDatos" name="tabla_entradas">

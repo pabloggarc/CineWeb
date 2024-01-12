@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../controlador/controlador_pago.php"); // Reemplaza con el nombre de tu archivo de formulario
         exit;
     } else {
-
         $usuario = $_SESSION["nick"];
         $id_usuario = $bd->get_usuario_por_nick($usuario);
         $id_usuario = $id_usuario[0]["id"];

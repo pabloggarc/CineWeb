@@ -14,7 +14,11 @@
 </head>
 
 <body>
-
+    <?php
+    if (!(isset($_SESSION['rol_usuario'])) || $_SESSION['rol_usuario'] == 1) {
+        header("Location: ../vista/vista_login.php");
+    }
+    ?>
     <?php require_once("vista_cabecera_admin.php") ?>
 
     <div class="container2">

@@ -52,7 +52,7 @@
                 <button onclick="mostrarContenedor('iniciarSesion', 'registro')"> Iniciar Sesión</button>
             </div>
         </div>
-        <div class="form-information">
+        <div class="form-information"> 
             <div class="form-information-childs">
                 <h3>Crear una Cuenta</h3>
                 <form class="formR" action="../controlador/controlador_registro.php" method="POST">

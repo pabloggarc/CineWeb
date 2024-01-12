@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!(isset($_SESSION['nick']))) {
-    header("Location: ../vista/vista_login.php");
+    header("Location: ../vista/vista_login.php"); 
 }
 require_once("../modelo/Datos.php");
 require_once("../config.php");

@@ -13,12 +13,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <link rel="stylesheet" href="../css/estilosCine.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         crossorigin="anonymous" />
-        <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
+    <link rel="icon" href="../imagenes/cineLogo.PNG" type="image/jpg">
 
 </head>
 
 <body>
-
+    <?php
+    if (!(isset($_SESSION['rol_usuario'])) || $_SESSION['rol_usuario'] == 2) {
+        header("Location: ../vista/vista_login.php");
+    }
+    ?>
     <?php require_once("vista_cabecera.php") ?>
 
     <div class="container2">

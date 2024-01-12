@@ -18,6 +18,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 </head>
 
 <body>
+    <?php
+    if (!(isset($_SESSION['rol_usuario'])) || $_SESSION['rol_usuario'] == 2) {
+        header("Location: ../vista/vista_login.php");
+    }
+    ?>
     <?php require_once("vista_cabecera.php") ?>
 
     <form method='POST' action='../controlador/controlador_mostrar_comentario.php'>

@@ -15,7 +15,11 @@
 </head>
 
 <body>
-
+    <?php
+    if (!(isset($_SESSION['rol_usuario'])) || $_SESSION['rol_usuario'] == 1) {
+        header("Location: ../vista/vista_login.php");
+    }
+    ?>
     <?php require_once("vista_cabecera_admin.php") ?>
 
     <div class="container5">
@@ -26,8 +30,8 @@
                     <div class="editable-field" id="name-field">
                         <label for="nombre_pelicula">Nombre de la Película:</label>
                         <input class="field-value" type="text" id="nombre_pelicula"
-                            value="<?php echo $info['nombre'] ?>" name="nombre_pelicula"
-                            pattern="^[A-Z].{0,29}$" required>
+                            value="<?php echo $info['nombre'] ?>" name="nombre_pelicula" pattern="^[A-Z].{0,29}$"
+                            required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="sinopsis">Sinopsis:</label>
@@ -43,8 +47,7 @@
                     <div class="editable-field" id="name-field">
                         <label for="titulo">Título:</label>
                         <input class="field-value" type="text" id="titulo" name="titulo"
-                            value="<?php echo $info['titulo'] ?>" pattern="^[A-Z].{0,29}$"
-                            required>
+                            value="<?php echo $info['titulo'] ?>" pattern="^[A-Z].{0,29}$" required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="duracion">Duración:</label>
@@ -59,8 +62,8 @@
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="portada">Portada:</label>
-                        <input class="field-value" style='display: none' type="text" id="portada" name="portada" 
-                        value = <?php echo $info['portada'] ?> required>
+                        <input class="field-value" style='display: none' type="text" id="portada" name="portada"
+                            value=<?php echo $info['portada'] ?> required>
                         <button onclick="seleccionarImagen()">Seleccionar imagen</button>
                     </div>
                     <div class="editable-field" id="name-field">

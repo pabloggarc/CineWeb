@@ -13,8 +13,12 @@
 </head>
 
 <body>
+    <?php
+    if (!(isset($_SESSION['rol_usuario'])) || $_SESSION['rol_usuario'] == 1) {
+        header("Location: ../vista/vista_login.php");
+    }
+    ?>
     <?php require_once("vista_cabecera_admin.php") ?>
-
 
     <div class="container4">
         <h2>INSERTAR SESION <i class="fas fa-box"></i></i></i></h2>
