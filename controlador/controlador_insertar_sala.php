@@ -19,7 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $aux = $bd->get_sala_por_nombre($nombre);
     if (is_null($aux)) {
         $bd->insertar_sala($nombre, $filas, $columnas);
+        $bd->desconectar();
+        header("Location: ../controlador/controlador_admin_inicio.php");
     } else {
+        $bd->desconectar();
         echo '
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
@@ -43,7 +46,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-
-$bd->desconectar();
-header("Location: ../controlador/controlador_admin_inicio.php");
 ?>

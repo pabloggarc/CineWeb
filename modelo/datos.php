@@ -812,6 +812,7 @@ class Datos
             return null;
         }
     }
+
     public function get_peliculas_id_nombre()
     {
         $consulta = $this->ejecutar_consulta(
@@ -839,7 +840,7 @@ class Datos
     public function get_pases_id_fecha()
     {
         $consulta = $this->ejecutar_consulta(
-            "select id,concat(dia, ' ', hora) as fecha from pase;"
+            "select id,concat(dia, ' ', hora) as fecha from pase where pase.dia + pase.hora > CURRENT_TIMESTAMP AT TIME ZONE 'CET';"
         );
         if (!empty($consulta)) {
             return $consulta;
