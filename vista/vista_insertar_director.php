@@ -24,13 +24,13 @@
                 <div class="profile-info">
                     <div class="editable-field" id="name-field">
                         <label for="nombre">Nombre:</label>
-                        <input class="field-value" type="text" id="nombre" name="nombre"
-                            pattern="[A-ZÁÉÍÓÚ][a-záéíóú]{0,23} ([A-ZÁÉÍÓÚ][a-záéíóú]{0,23})?" required>
+                        <input class="field-value" type="text" id="nombre" name="nombre" pattern="^[A-Z].{0,49}$"
+                            required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="apellidos">Apellidos:</label>
-                        <input class="field-value" type="text" id="apellidos" name="apellidos"
-                            pattern="[A-ZÁÉÍÓÚ][a-záéíóú]{0,23} ([A-ZÁÉÍÓÚ][a-záéíóú]{0,23})?" required>
+                        <input class="field-value" type="text" id="apellidos" name="apellidos" pattern="^[A-Z].{0,49}$"
+                            required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="fecha">Fecha de nacimiento:</label>

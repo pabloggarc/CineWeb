@@ -23,8 +23,8 @@
                 <div class="profile-info">
                     <div class="editable-field" id="name-field">
                         <label for="nombre">Pais:</label>
-                        <input class="field-value" type="text" id="nombre" name="nombre"
-                            pattern="[A-ZÁÉÍÓÚ][a-záéíóú]{0,29}" required>
+                        <input class="field-value" type="text" id="nombre" name="nombre" pattern="^[A-Z].{0,49}$"
+                            required>
                     </div>
                 </div>
             </div>

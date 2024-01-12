@@ -27,12 +27,12 @@
                         <label for="nombre_pelicula">Nombre de la Película:</label>
                         <input class="field-value" type="text" id="nombre_pelicula"
                             value="<?php echo $info['nombre'] ?>" name="nombre_pelicula"
-                            pattern="([A-ZÁÉÍÓÚ0-9][a-záéíóú0-9 ]+){0,29}" required>
+                            pattern="^[A-Z].{0,29}$" required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="sinopsis">Sinopsis:</label>
                         <input class="field-value" type="text" id="sinopsis" name="sinopsis"
-                            value="<?php echo $info['sinopsis'] ?>" required>
+                            value="<?php echo $info['sinopsis'] ?>" pattern="^[A-Z].{0,499}$" required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="url_web">URL Web:</label>
@@ -43,7 +43,7 @@
                     <div class="editable-field" id="name-field">
                         <label for="titulo">Título:</label>
                         <input class="field-value" type="text" id="titulo" name="titulo"
-                            value="<?php echo $info['titulo'] ?>" pattern="([A-ZÁÉÍÓÚ0-9][a-záéíóú0-9 ]+){0,29}"
+                            value="<?php echo $info['titulo'] ?>" pattern="^[A-Z].{0,29}$"
                             required>
                     </div>
                     <div class="editable-field" id="name-field">

@@ -1183,5 +1183,15 @@ class Datos
             return null;
         }
     }
+
+    public function get_pase_hora_dia($hora, $dia)
+    {
+        $consulta = $this->ejecutar_consulta("select id from pase where hora = '" . $hora . "' and dia = '" . $dia . "';");
+        if (!empty($consulta)) {
+            return $consulta;
+        } else {
+            return null;
+        }
+    }
 }
 ?>

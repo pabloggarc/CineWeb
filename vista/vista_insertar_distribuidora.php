@@ -23,13 +23,13 @@
                 <div class="profile-info">
                     <div class="editable-field" id="name-field">
                         <label for="nombre">Nombre:</label>
-                        <input class="field-value" type="text" id="nombre" name="nombre"
-                            pattern="[A-ZÁÉÍÓÚ][a-záéíóú]{0,25} ([A-ZÁÉÍÓÚ][a-záéíóú]{0,25})?" required>
+                        <input class="field-value" type="text" id="nombre" name="nombre" pattern="^[A-Z].{0,49}$"
+                            required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="correo">Correo:</label>
-                        <input class="field-value" type="text" id="correo" name="correo"
-                            pattern="[a-záéíóú][a-záéíóú._]{0,35}@[a-z]{0,10}((.com)|(.es))" required>
+                        <input class="field-value" type="text" id="correo" name="correo" pattern="^.{0,49}$"
+                            required>
                     </div>
                 </div>
             </div>

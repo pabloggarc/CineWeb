@@ -23,12 +23,13 @@
                 <div class="profile-info">
                     <div class="editable-field" id="name-field">
                         <label for="nombre_pelicula">Nombre de la Película:</label>
-                        <input class="field-value" type="text" id="nombre_pelicula" name="nombre_pelicula" required>
+                        <input class="field-value" type="text" id="nombre_pelicula" name="nombre_pelicula"
+                            pattern="^[A-Z].{0,29}$" required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="sinopsis">Sinopsis:</label>
-                        <textarea class="field-value" id="sinopsis" name="sinopsis"
-                            pattern="([A-ZÁÉÍÓÚ0-9][a-záéíóú0-9A-ZÁÉÍÓÚ ]+){0,499}" required></textarea>
+                        <textarea class="field-value" id="sinopsis" name="sinopsis" pattern="^[A-Z].{0,499}$"
+                            required></textarea>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="url_web">URL Web:</label>
@@ -36,8 +37,8 @@
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="titulo">Título:</label>
-                        <input class="field-value" type="text" id="titulo" name="titulo"
-                            pattern="([A-ZÁÉÍÓÚ0-9][a-záéíóú0-9 ]+){0,29}" required>
+                        <input class="field-value" type="text" id="titulo" name="titulo" pattern="^[A-Z].{0,29}$"
+                            required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="duracion">Duración:</label>

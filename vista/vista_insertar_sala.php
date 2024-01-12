@@ -24,15 +24,16 @@
                     <div class="editable-field" id="name-field">
                         <label for="nombre_sala">Nombre de la Sala:</label>
                         <input class="field-value" type="text" id="nombre_sala" name="nombre_sala"
-                            pattern="[a-zA-Z0-9]{0,19}" required>
+                            pattern="^[A-Z0-9].{0,19}$" required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="numero_filas">Número de filas:</label>
-                        <input class="field-value" type="text" id="n_filas" name="n_filas" pattern="[0-9]+" required>
+                        <input class="field-value" type="text" id="n_filas" name="n_filas" pattern="[1-9][0-9]*"
+                            required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="numero_columnas">Número de columnas:</label>
-                        <input class="field-value" type="text" id="n_col" name="n_col" pattern="[0-9]+" required>
+                        <input class="field-value" type="text" id="n_col" name="n_col" pattern="[1-9][0-9]*" required>
                     </div>
                 </div>
             </div>
