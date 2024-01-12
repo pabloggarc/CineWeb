@@ -14,5 +14,5 @@ function seleccionarImagen() {
             reader.readAsDataURL(file);
         }
     });
-    //input.click();
+    input.click();
 }

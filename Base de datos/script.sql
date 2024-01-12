@@ -187,14 +187,14 @@ ALTER TABLE public.Rol OWNER TO gczgoasf;
 -- ALTER TABLE public.Usuario DROP CONSTRAINT IF EXISTS Rol_fk CASCADE;
 ALTER TABLE public.Usuario ADD CONSTRAINT Rol_fk FOREIGN KEY (ID_Rol)
 REFERENCES public.Rol (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: Sala_fk | type: CONSTRAINT --
 -- ALTER TABLE public.Butaca DROP CONSTRAINT IF EXISTS Sala_fk CASCADE;
 ALTER TABLE public.Butaca ADD CONSTRAINT Sala_fk FOREIGN KEY (ID_Sala)
 REFERENCES public.Sala (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: public.Sesion | type: TABLE --
@@ -226,21 +226,21 @@ ON DELETE CASCADE ON UPDATE CASCADE;
 -- ALTER TABLE public.Valoracion DROP CONSTRAINT IF EXISTS Pelicula_fk CASCADE;
 ALTER TABLE public.Valoracion ADD CONSTRAINT Pelicula_fk FOREIGN KEY (ID_Pelicula)
 REFERENCES public.Pelicula (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: Clasificacion_fk | type: CONSTRAINT --
 -- ALTER TABLE public.Pelicula DROP CONSTRAINT IF EXISTS Clasificacion_fk CASCADE;
 ALTER TABLE public.Pelicula ADD CONSTRAINT Clasificacion_fk FOREIGN KEY (ID_Clasificacion)
 REFERENCES public.Clasificacion (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: Distribuidora_fk | type: CONSTRAINT --
 -- ALTER TABLE public.Pelicula DROP CONSTRAINT IF EXISTS Distribuidora_fk CASCADE;
 ALTER TABLE public.Pelicula ADD CONSTRAINT Distribuidora_fk FOREIGN KEY (ID_Distribuidora)
 REFERENCES public.Distribuidora (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: public.Reparto | type: TABLE --
@@ -258,14 +258,14 @@ CREATE TABLE public.Reparto (
 -- ALTER TABLE public.Reparto DROP CONSTRAINT IF EXISTS Actor_fk CASCADE;
 ALTER TABLE public.Reparto ADD CONSTRAINT Actor_fk FOREIGN KEY (ID_Actor)
 REFERENCES public.Actor (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: Pelicula_fk | type: CONSTRAINT --
 -- ALTER TABLE public.Reparto DROP CONSTRAINT IF EXISTS Pelicula_fk CASCADE;
 ALTER TABLE public.Reparto ADD CONSTRAINT Pelicula_fk FOREIGN KEY (ID_Pelicula)
 REFERENCES public.Pelicula (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: public.Direccion | type: TABLE --
@@ -283,14 +283,14 @@ CREATE TABLE public.Direccion (
 -- ALTER TABLE public.Direccion DROP CONSTRAINT IF EXISTS Director_fk CASCADE;
 ALTER TABLE public.Direccion ADD CONSTRAINT Director_fk FOREIGN KEY (ID_Director)
 REFERENCES public.Director (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: Pelicula_fk | type: CONSTRAINT --
 -- ALTER TABLE public.Direccion DROP CONSTRAINT IF EXISTS Pelicula_fk CASCADE;
 ALTER TABLE public.Direccion ADD CONSTRAINT Pelicula_fk FOREIGN KEY (ID_Pelicula)
 REFERENCES public.Pelicula (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: public.Genero_Pelicula | type: TABLE --
@@ -308,14 +308,14 @@ CREATE TABLE public.Genero_Pelicula (
 -- ALTER TABLE public.Genero_Pelicula DROP CONSTRAINT IF EXISTS Genero_fk CASCADE;
 ALTER TABLE public.Genero_Pelicula ADD CONSTRAINT Genero_fk FOREIGN KEY (ID_Genero)
 REFERENCES public.Genero (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: Pelicula_fk | type: CONSTRAINT --
 -- ALTER TABLE public.Genero_Pelicula DROP CONSTRAINT IF EXISTS Pelicula_fk CASCADE;
 ALTER TABLE public.Genero_Pelicula ADD CONSTRAINT Pelicula_fk FOREIGN KEY (ID_Pelicula)
 REFERENCES public.Pelicula (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: public.Nacionalidad_Pelicula | type: TABLE --
@@ -333,14 +333,14 @@ CREATE TABLE public.Nacionalidad_Pelicula (
 -- ALTER TABLE public.Nacionalidad_Pelicula DROP CONSTRAINT IF EXISTS Nacionalidad_fk CASCADE;
 ALTER TABLE public.Nacionalidad_Pelicula ADD CONSTRAINT Nacionalidad_fk FOREIGN KEY (ID_Nacionalidad)
 REFERENCES public.Nacionalidad (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: Pelicula_fk | type: CONSTRAINT --
 -- ALTER TABLE public.Nacionalidad_Pelicula DROP CONSTRAINT IF EXISTS Pelicula_fk CASCADE;
 ALTER TABLE public.Nacionalidad_Pelicula ADD CONSTRAINT Pelicula_fk FOREIGN KEY (ID_Pelicula)
 REFERENCES public.Pelicula (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: public.Pase | type: TABLE --
@@ -382,26 +382,26 @@ CREATE TABLE public.Entrada (
 -- ALTER TABLE public.Entrada DROP CONSTRAINT IF EXISTS Usuario_fk CASCADE;
 ALTER TABLE public.Entrada ADD CONSTRAINT Usuario_fk FOREIGN KEY (ID_Usuario)
 REFERENCES public.Usuario (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: Sesion_fk | type: CONSTRAINT --
 -- ALTER TABLE public.Entrada DROP CONSTRAINT IF EXISTS Sesion_fk CASCADE;
 ALTER TABLE public.Entrada ADD CONSTRAINT Sesion_fk FOREIGN KEY (ID_Sala_Sesion,ID_Pelicula_Sesion,ID_Pase_Sesion)
 REFERENCES public.Sesion (ID_Sala,ID_Pelicula,ID_Pase) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: Butaca_fk | type: CONSTRAINT --
 -- ALTER TABLE public.Entrada DROP CONSTRAINT IF EXISTS Butaca_fk CASCADE;
 ALTER TABLE public.Entrada ADD CONSTRAINT Butaca_fk FOREIGN KEY (ID_Butaca)
 REFERENCES public.Butaca (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: Usuario_fk | type: CONSTRAINT --
 -- ALTER TABLE public.Valoracion DROP CONSTRAINT IF EXISTS Usuario_fk CASCADE;
 ALTER TABLE public.Valoracion ADD CONSTRAINT Usuario_fk FOREIGN KEY (ID_Usuario)
 REFERENCES public.Usuario (ID) MATCH FULL
-ON DELETE RESTRICT ON UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 -- ddl-end --
