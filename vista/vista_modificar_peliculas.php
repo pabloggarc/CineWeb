@@ -59,7 +59,8 @@
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="portada">Portada:</label>
-                        <input class="field-value" style='display: none' type="text" id="portada" name="portada">
+                        <input class="field-value" style='display: none' type="text" id="portada" name="portada" 
+                        value = <?php echo $info['portada'] ?> required>
                         <button onclick="seleccionarImagen()">Seleccionar imagen</button>
                     </div>
                     <div class="editable-field" id="name-field">
