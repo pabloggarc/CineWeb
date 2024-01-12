@@ -303,7 +303,9 @@ class Datos
 
     public function get_rol_por_nick($nick)
     {
-        $consulta = $this->ejecutar_consulta("select id_rol from Usuario where nick = '" . $nick . "';");
+        $consulta = $this->ejecutar_consulta("select rol from rol 
+        inner join usuario on rol.id=usuario.id_rol where nick = '" . $nick . "' 
+        ;");
         if (!empty($consulta)) {
             return $consulta;
         } else {

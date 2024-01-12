@@ -1,8 +1,4 @@
 
 USUARIO		    CLAVE
-ana		        ab
-aleGarciaM	    AlePass!123
-sofFernandezL	SunnyDay456
-javiRMz 	    JaviCode789
-luis            12
+admin           admin
 

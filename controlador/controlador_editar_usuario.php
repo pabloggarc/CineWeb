@@ -18,6 +18,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $bd->desconectar();
-// CAMBIAR VISTA A CONTROLADOR PERFIL
-require_once("../controlador/controlador_perfil.php")
-    ?>
+header ("Location: ../controlador/controlador_perfil.php")
+?>

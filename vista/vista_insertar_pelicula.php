@@ -23,8 +23,7 @@
                 <div class="profile-info">
                     <div class="editable-field" id="name-field">
                         <label for="nombre_pelicula">Nombre de la Película:</label>
-                        <input class="field-value" type="text" id="nombre_pelicula" name="nombre_pelicula"
-                            pattern="([A-ZÁÉÍÓÚ0-9][a-záéíóú0-9 ]+){0,29}" required>
+                        <input class="field-value" type="text" id="nombre_pelicula" name="nombre_pelicula" required>
                     </div>
                     <div class="editable-field" id="name-field">
                         <label for="sinopsis">Sinopsis:</label>
