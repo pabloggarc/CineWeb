@@ -794,6 +794,7 @@ class Datos
         );
     }
 
+
     public function get_sesiones()
     {
         $consulta = $this->ejecutar_consulta(
@@ -802,8 +803,8 @@ class Datos
             sesion.id_pase, concat(pase.dia, ' ', pase.hora) as fecha  from sesion
             inner join pelicula on pelicula.id = sesion.id_pelicula
             inner join sala on sala.id = sesion.id_sala
-            inner join pase on pase.id = sesion.id_pase where pase.dia> (CURRENT_DATE AT TIME ZONE 'CET')::DATE
-            and pase.hora>(CURRENT_TIME AT TIME ZONE 'CET')::TIME;"
+            inner join pase on pase.id = sesion.id_pase where pase.dia + pase.hora >= CURRENT_TIMESTAMP 
+            AT TIME ZONE 'CET'; "
         );
         if (!empty($consulta)) {
             return $consulta;
@@ -811,7 +812,6 @@ class Datos
             return null;
         }
     }
-
     public function get_peliculas_id_nombre()
     {
         $consulta = $this->ejecutar_consulta(
