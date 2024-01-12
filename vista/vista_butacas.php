@@ -31,6 +31,7 @@
         </h1>
         <table class="table" name="tabla_butacas" id="tabla_butacas">
             <?php
+            $contador_ocupantes = 0; 
             for ($i = 0; $i < $filas; $i++) {
                 echo "<tr>";
                 for ($j = 0; $j < $columnas; $j++) {
@@ -44,7 +45,8 @@
                         echo "<td class='butaca_ocupada' id='" . ($ids_butacas[$id_butaca]) . "'>
                             <div class='tooltip'><i class='fas fa-couch'>
                             </i><br>" . ($id_butaca + 1) . "
-                            <span class='tooltiptext'>Butaca reservada por " . $ocupantes[$id_butaca] . "</span></td></div>";
+                            <span class='tooltiptext'>Butaca reservada por " . $ocupantes[$contador_ocupantes]. "</span></td></div>";
+                            $contador_ocupantes++; 
                     } else if ($_SESSION["rol_usuario"] == 1) {
                         echo "<td class='butaca_ocupada' id='" . ($ids_butacas[$id_butaca]) . "'>
                             <div class='tooltip'><i class='fas fa-couch'>

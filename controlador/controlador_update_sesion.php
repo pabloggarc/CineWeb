@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_pelicula_new = $_POST['pelicula'];
     $id_pase_new = $_POST['pase'];
 
-    if (is_null($bd->get_sesion_por_ids($ids[0], $ids[1], $ids[2]))) {
+    if (!is_null($bd->get_sesion_por_ids($ids[0], $ids[1], $ids[2]))) {
         $bd->update_sesion($ids[0], $ids[1], $ids[2], $id_sala_new, $id_pelicula_new, $id_pase_new);
         $bd->desconectar();
         header("Location: ../controlador/controlador_admin_inicio.php");
