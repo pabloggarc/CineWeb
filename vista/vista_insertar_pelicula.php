@@ -90,7 +90,7 @@
 
                     <div class="editable-field" id="name-field">
                         <label for="actores">Actores:</label>
-                        <select class="field-value" id="actores" name="actores[]" multiple>
+                        <select class="field-value2" id="actores" name="actores[]" multiple>
                             <?php
                             for ($i = 0; $i < count($lista_actor); $i++) {
                                 echo "<option value='" . $lista_actor[$i]['id'] . "'>" . $lista_actor[$i]['nombre'] . " " . $lista_actor[$i]['apellidos'] . "</option>";
@@ -101,7 +101,7 @@
 
                     <div class="editable-field" id="name-field">
                         <label for="director">Director:</label>
-                        <select class="field-value" id="director" name="director[]" multiple>
+                        <select class="field-value2" id="director" name="director[]" multiple>
                             <?php
                             for ($i = 0; $i < count($lista_director); $i++) {
                                 echo "<option value='" . $lista_director[$i]['id'] . "'>" . $lista_director[$i]['nombre'] . " " . $lista_director[$i]['apellidos'] . "</option>";
@@ -112,7 +112,7 @@
 
                     <div class="editable-field" id="name-field">
                         <label for="generos">Generos:</label>
-                        <select class="field-value" id="generos" name="generos[]" multiple>
+                        <select class="field-value2" id="generos" name="generos[]" multiple>
                             <?php
                             for ($i = 0; $i < count($lista_genero); $i++) {
                                 echo "<option value='" . $lista_genero[$i]['id'] . "'>" . $lista_genero[$i]['tipo'] . "</option>";
